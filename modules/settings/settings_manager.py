@@ -91,5 +91,8 @@ class Settings_manager:
         data = Settings()
         data.inn = "380080920202"
         data.organization_name = "Рога и копыта (default)"
+        data.BIC = "123456789"
+        data.type_of_property = "12345"
+        data.score = "12345678910"
 
         return data
