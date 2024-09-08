@@ -30,11 +30,14 @@ class Settings_manager:
         if not isinstance(file_name, str) and not isinstance(file_path, str):
             raise TypeError("Некорректно переданы параметры!")
 
-        if isinstance(text_encoding, str) and text_encoding != "":
-            self.__text_encoding = text_encoding
+        if not isinstance(text_encoding, str):
+            raise TypeError("Некорректно переданы параметры!")
 
         if file_name != "":
             self.__file_name = file_name
+
+        if text_encoding != "":
+            self.__text_encoding = text_encoding
 
         try:
             if file_path != "":
