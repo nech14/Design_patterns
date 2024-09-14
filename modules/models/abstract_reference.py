@@ -1,6 +1,9 @@
 from abc import ABC, abstractmethod
 import uuid
 
+from modules.exceptions.argument_exception import argument_exception
+from modules.exceptions.length_exception import length_exception
+
 """
 Абстрактный класс для наследования моделей данных
 """
@@ -19,9 +22,9 @@ class abstract_reference(ABC):
     @name.setter
     def name(self, value: str):
         if not isinstance(value, str):
-            pass
+            raise argument_exception()
 
         if len(value) > self.__max_name:
-            pass
+            raise length_exception(max_len=self.__max_name, argument_name="name")
 
         self.__name = value

@@ -1,5 +1,6 @@
 from tokenize import group
 
+from modules.exceptions.argument_exception import argument_exception
 from modules.models.abstract_reference import abstract_reference
 from modules.models.nomenclature_group_model import nomenclature_group_model
 from modules.models.range_model import range_model
@@ -21,7 +22,7 @@ class nomenciature_model(abstract_reference):
     @group.setter
     def group(self, value: nomenclature_group_model):
         if not isinstance(value, nomenclature_group_model):
-            pass
+            raise argument_exception()
 
         self.__group = value
 
@@ -34,12 +35,7 @@ class nomenciature_model(abstract_reference):
     @range.setter
     def range(self, value: range_model):
         if not isinstance(value, range_model):
-            pass
+            raise argument_exception()
 
         self.__range = value
 
-
-
-a = nomenciature_model()
-a.name = "a"*600
-print(len(a.name))

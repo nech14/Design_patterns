@@ -1,3 +1,4 @@
+from modules.exceptions.argument_exception import argument_exception
 from modules.models.abstract_reference import abstract_reference
 from modules.settings.settings_base import Settings
 
@@ -11,7 +12,7 @@ class organization_model(abstract_reference):
 
     def __init__(self, setting: Settings):
         if not isinstance(setting, Settings):
-            pass
+            raise argument_exception()
 
         self.__INN = setting.inn
         self.__BIC = setting.BIC
@@ -27,7 +28,7 @@ class organization_model(abstract_reference):
     @INN.setter
     def INN(self, value: Settings):
         if not isinstance(value, Settings):
-            pass
+            raise argument_exception()
 
         self.__INN = value.inn
 
@@ -40,7 +41,7 @@ class organization_model(abstract_reference):
     @BIC.setter
     def BIC(self, value: Settings):
         if not isinstance(value, Settings):
-            pass
+            raise argument_exception()
 
         self.__BIC = value.BIC
 
@@ -53,7 +54,7 @@ class organization_model(abstract_reference):
     @score.setter
     def score(self, value: Settings):
         if not isinstance(value, Settings):
-            pass
+            raise argument_exception()
 
         self.__score = value.score
 
@@ -66,7 +67,7 @@ class organization_model(abstract_reference):
     @form_ownership.setter
     def form_ownership(self, value: str):
         if not isinstance(value, str):
-            pass
+            raise argument_exception()
 
         self.__form_ownership = value
 

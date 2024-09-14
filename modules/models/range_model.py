@@ -1,3 +1,4 @@
+from modules.exceptions.argument_exception import argument_exception
 from modules.models.abstract_reference import abstract_reference
 
 class range_model(abstract_reference):
@@ -6,11 +7,11 @@ class range_model(abstract_reference):
 
     def __init__(self, name, conversion_factor: int = 1, base_unit_measurement: 'range_model' = None):
         if (
-                not isinstance(base_unit_measurement, int) or
-                not isinstance(base_unit_measurement, range_model) or
+                not isinstance(conversion_factor, int) or
+                not (isinstance(base_unit_measurement, range_model) or base_unit_measurement is None) or
                 not isinstance(name, str)
         ):
-            pass
+            raise argument_exception()
 
         self.__name = name
         self.__conversion_factor = conversion_factor
@@ -18,14 +19,14 @@ class range_model(abstract_reference):
 
 
     @property
-    def base_unit_measurement(self):
-        return self.base_unit_measurement
+    def base_unit_measurement(self) -> 'range_model':
+        return self.__base_unit_measurement
 
 
     @base_unit_measurement.setter
     def base_unit_measurement(self, value: 'range_model'):
         if not isinstance(value, range_model):
-            pass
+            raise argument_exception()
 
         self.__base_unit_measurement = value
 
@@ -36,8 +37,8 @@ class range_model(abstract_reference):
 
 
     @conversion_factor.setter
-    def conversion_factor(self, value: str):
-        if not isinstance(value, str):
-            pass
+    def conversion_factor(self, value: int):
+        if not isinstance(value, int):
+            raise argument_exception()
 
         self.__conversion_factor = value
