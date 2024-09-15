@@ -37,3 +37,19 @@ class MyTestCase(unittest.TestCase):
         with self.assertRaises(argument_exception):
             om.INN = 123
 
+
+    def test__eq__(self):
+        sm = Settings_manager()
+        sm.open("settings1.json", file_path=r"C:\git\Design_patterns\data")
+
+        om1 = organization_model(sm.settings)
+
+
+        sm.open("settings.json", file_path=r"C:\git\Design_patterns\data")
+
+        om2 = organization_model(sm.settings)
+
+        self.assertNotEqual(om1, om2)
+        with self.assertRaises(argument_exception):
+            result = om1 == "1234"
+

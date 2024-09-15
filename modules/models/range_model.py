@@ -1,7 +1,7 @@
 from modules.exceptions.argument_exception import argument_exception
-from modules.models.abstract_reference import abstract_reference
+from modules.models.abstract_model import abstract_model
 
-class range_model(abstract_reference):
+class range_model(abstract_model):
     __base_unit_measurement: 'range_model'
     __conversion_factor = 1
 
@@ -13,7 +13,7 @@ class range_model(abstract_reference):
         ):
             raise argument_exception()
 
-        self.__name = name
+        self.name = name
         self.__conversion_factor = conversion_factor
         self.__base_unit_measurement = base_unit_measurement
 
@@ -42,3 +42,11 @@ class range_model(abstract_reference):
             raise argument_exception()
 
         self.__conversion_factor = value
+
+
+    def set_compare_mode(self, other_object: 'range_model') -> bool:
+        if other_object is None: return False
+        if not isinstance(other_object, range_model):
+            raise argument_exception()
+
+        return self.name == other_object.name

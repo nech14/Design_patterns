@@ -10,6 +10,8 @@ class MyTestCase(unittest.TestCase):
 
     file_name = "settings1.json"
     file_path = r"C:\git\Design_patterns\data"
+    ex = argument_exception()
+    message = "test"
 
     def test_open(self):
         s = Settings_manager()
@@ -27,4 +29,10 @@ class MyTestCase(unittest.TestCase):
             s.open(file_name=self.file_name, file_path=self.file_path, text_encoding=321)
 
         self.assertEqual(isinstance(s.settings, Settings), True)
+        s.set_exception(ex=self.ex)
+        self.assertEqual(s.error_text, f"Ошибка! Исключение {self.ex}".strip())
+
+        s.error_text = self.message
+        self.assertEqual(s.is_error, True)
+
 

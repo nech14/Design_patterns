@@ -32,4 +32,5 @@ class MyTestCase(unittest.TestCase):
             rm.base_unit_measurement = 123
         with self.assertRaises(argument_exception):
             rm.conversion_factor = "sdgasd"
-
+        with self.assertRaises(argument_exception):
+            result = rm == "124"

@@ -28,3 +28,13 @@ class MyTestCase(unittest.TestCase):
             nm.range = 123
 
 
+    def test__eq__(self):
+        nm1 = nomenciature_model()
+        nm2 = nomenciature_model()
+
+        nm1.unique_code = "123"
+        nm2.unique_code = "321"
+
+        self.assertNotEqual(nm1, nm2)
+        with self.assertRaises(argument_exception):
+            result = nm1 == 124

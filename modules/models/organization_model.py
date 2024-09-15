@@ -1,8 +1,8 @@
 from modules.exceptions.argument_exception import argument_exception
-from modules.models.abstract_reference import abstract_reference
+from modules.models.abstract_model import abstract_model
 from modules.settings.settings_base import Settings
 
-class organization_model(abstract_reference):
+class organization_model(abstract_model):
 
     __INN = ""
     __BIC = ""
@@ -17,6 +17,7 @@ class organization_model(abstract_reference):
         self.__INN = setting.inn
         self.__BIC = setting.BIC
         self.__score = setting.score
+        self.name = setting.organization_name
         # self.__form_ownership = setting.type_of_property #форма собственности и вид собственности это одно и тоже?
 
 
@@ -71,3 +72,10 @@ class organization_model(abstract_reference):
 
         self.__form_ownership = value
 
+
+    def set_compare_mode(self, other_object: 'organization_model') -> bool:
+        if other_object is None: return False
+        if not isinstance(other_object, organization_model):
+            raise argument_exception()
+
+        return self.name == other_object.name
