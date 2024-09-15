@@ -1,4 +1,3 @@
-from modules.exceptions.argument_exception import argument_exception
 from modules.settings.settings_base import Settings
 import os
 import json
@@ -28,13 +27,11 @@ class Settings_manager:
     """
 
     def open(self, file_name: str = "", file_path: str = "", text_encoding: str = ""):
-        if not isinstance(file_name, str) or not isinstance(file_path, str):
-            raise argument_exception()
-            # raise TypeError("Некорректно переданы параметры!")
+        if not isinstance(file_name, str) and not isinstance(file_path, str):
+            raise TypeError("Некорректно переданы параметры!")
 
         if not isinstance(text_encoding, str):
-            raise argument_exception()
-            # raise TypeError("Некорректно переданы параметры!")
+            raise TypeError("Некорректно переданы параметры!")
 
         if file_name != "":
             self.__file_name = file_name

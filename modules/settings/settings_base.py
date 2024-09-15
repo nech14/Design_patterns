@@ -1,8 +1,6 @@
 """
 Настройки
 """
-from modules.exceptions.argument_exception import argument_exception
-from modules.exceptions.length_exception import length_exception
 
 
 class Settings:
@@ -39,8 +37,7 @@ class Settings:
     @organization_name.setter
     def organization_name(self, value: str):
         if not isinstance(value, str):
-            raise argument_exception()
-            # raise TypeError("Некорректно передан параметр!")
+            raise TypeError("Некорректно передан параметр!")
 
         self.__organization_name = value
 
@@ -52,13 +49,13 @@ class Settings:
     @inn.setter
     def inn(self, value: str):
         if not isinstance(value, str):
-            raise argument_exception()
+            raise TypeError("Некорректно переданы параметры!")
 
         if not value.isdigit():
-            raise argument_exception(message="Must be made up of numbers only!")
+            raise TypeError("Должен быть только из цифр!")
 
         if len(value) != self.__inn_size:
-            raise length_exception(max_len=self.__inn_size, argument_name="inn")
+            raise TypeError(f"Должен быть из {self.__inn_size} цифр!")
 
         self.__inn = value
 
@@ -71,10 +68,10 @@ class Settings:
     @correspondent_account.setter
     def correspondent_account(self, value:str):
         if not isinstance(value, str):
-            raise argument_exception()
+            raise TypeError("Некорректно переданы параметры!")
 
         if len(value) != self.__correspondent_account_size:
-            raise length_exception(max_len=self.__correspondent_account_size, argument_name="correspondent_account")
+            raise TypeError(f"Должен быть из {self.__correspondent_account_size} символов!")
 
         self.__correspondent_account = value
 
@@ -87,10 +84,10 @@ class Settings:
     @BIC.setter
     def BIC(self, value: str):
         if not isinstance(value, str):
-            raise argument_exception()
+            raise TypeError("Некорректно переданы параметры!")
 
         if len(value) != self.__BIC_size:
-            raise length_exception(max_len=self.__BIC_size, argument_name="BIC")
+            raise TypeError(f"Должен быть из {self.__BIC_size} символов!")
 
         self.__BIC = value
 
@@ -103,10 +100,10 @@ class Settings:
     @type_of_property.setter
     def type_of_property(self, value: str):
         if not isinstance(value, str):
-            raise argument_exception()
+            raise TypeError("Некорректно переданы параметры!")
 
         if len(value) != self.__type_of_property_size:
-            raise length_exception(max_len=self.__type_of_property_size, argument_name="type_of_property")
+            raise TypeError(f"Должен быть из {self.__type_of_property_size} символов!")
 
         self.__type_of_property = value
 
@@ -118,9 +115,9 @@ class Settings:
     @score.setter
     def score(self, value: str):
         if not isinstance(value, str):
-            raise argument_exception()
+            raise TypeError("Некорректно переданы параметры!")
 
         if len(value) != self.__score_size:
-            raise length_exception(max_len=self.__score_size, argument_name="score")
+            raise TypeError(f"Должен быть из {self.__score_size} символов!")
 
         self.__score = value
