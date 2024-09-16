@@ -1,3 +1,5 @@
+from modules.exceptions.argument_exception import argument_exception
+from modules.exceptions.abstract_logic import abstract_logic
 from modules.settings.settings_base import Settings
 import os
 import json
@@ -7,7 +9,7 @@ import json
 """
 
 
-class Settings_manager:
+class Settings_manager(abstract_logic):
     __file_name = "settings.json"
     __settings: Settings = None
     __text_encoding: str = 'utf-8'
@@ -27,11 +29,13 @@ class Settings_manager:
     """
 
     def open(self, file_name: str = "", file_path: str = "", text_encoding: str = ""):
-        if not isinstance(file_name, str) and not isinstance(file_path, str):
-            raise TypeError("Некорректно переданы параметры!")
+        if not isinstance(file_name, str) or not isinstance(file_path, str):
+            raise argument_exception()
+            # raise TypeError("Некорректно переданы параметры!")
 
         if not isinstance(text_encoding, str):
-            raise TypeError("Некорректно переданы параметры!")
+            raise argument_exception()
+            # raise TypeError("Некорректно переданы параметры!")
 
         if file_name != "":
             self.__file_name = file_name
@@ -86,3 +90,7 @@ class Settings_manager:
         data.score = "12345678910"
 
         return data
+
+
+    def set_exception(self, ex: Exception):
+        self._inner_set_exception(ex)
