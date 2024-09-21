@@ -3,14 +3,14 @@ from modules.models.nomenclature_model import nomenclature_model
 
 
 class ingredient_model(nomenclature_model):
-    __grams = 0
+    __value = 0
 
     @property
-    def grams(self):
-        return self.__grams
+    def value(self):
+        return self.__value
 
-    @grams.setter
-    def grams(self, value: int):
+    @value.setter
+    def value(self, value: int):
         argument_exception.isinstance(value, int)
 
-        self.__grams = value
+        self.__value= value

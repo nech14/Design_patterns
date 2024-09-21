@@ -46,27 +46,27 @@ class MyTestCase(unittest.TestCase):
         base_nomenclatures_range = [range_model("гр", 1), range_model("гр", 1)]
 
         with self.assertRaises(argument_exception):
-            nm = nomenclature_model.crate_nomenclature(
+            nm = nomenclature_model.crate_nomenclatures(
                 [1],
                 base_nomenclatures_groupe,
                 base_nomenclatures_range
             )
 
         with self.assertRaises(argument_exception):
-            nm = nomenclature_model.crate_nomenclature(
+            nm = nomenclature_model.crate_nomenclatures(
                 base_nomenclatures_name,
                 [""],
                 base_nomenclatures_range
             )
 
         with self.assertRaises(argument_exception):
-            nm = nomenclature_model.crate_nomenclature(
+            nm = nomenclature_model.crate_nomenclatures(
                 base_nomenclatures_name,
                 base_nomenclatures_groupe,
                 [""]
             )
 
-        nm = nomenclature_model.crate_nomenclature(
+        nm = nomenclature_model.crate_nomenclatures(
             base_nomenclatures_name,
             base_nomenclatures_groupe,
             base_nomenclatures_range

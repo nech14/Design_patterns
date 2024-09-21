@@ -48,7 +48,7 @@ class nomenclature_model(abstract_model):
 
 
     @staticmethod
-    def crate_nomenclature(
+    def crate_nomenclatures(
             nomenclatures_name: list[str],
             nomenclatures_group: list[nomenclature_group_model],
             nomenclatures_range: list[range_model]
@@ -59,9 +59,23 @@ class nomenclature_model(abstract_model):
 
         _list = []
         for i in range(len(nomenclatures_name)):
-            n_m = nomenclature_model()
-            n_m.name = nomenclatures_name[i]
-            n_m.group = nomenclatures_group[i]
-            n_m.range = nomenclatures_range[i]
-            _list.append(n_m)
+            _list.append(
+                nomenclature_model.create_nomenclature(
+                    name = nomenclatures_name[i],
+                    group = nomenclatures_group[i],
+                    range = nomenclatures_range[i]
+                )
+            )
         return _list
+
+
+    @staticmethod
+    def create_nomenclature(name: str, group: nomenclature_group_model, range: range_model):
+        argument_exception.isinstance(name, str)
+        argument_exception.isinstance(group, nomenclature_group_model)
+        argument_exception.isinstance(range, range_model)
+        n_m = nomenclature_model()
+        n_m.name = name
+        n_m.group = group
+        n_m.range = range
+        return n_m

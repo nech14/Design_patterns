@@ -1,62 +1,39 @@
-
 import re
+from copy import copy
 
+from modules.exceptions.abstract_logic import abstract_logic
+from modules.models.receipt.receipt_model import receipt_model
 from modules.exceptions.argument_exception import argument_exception
-from modules.models.abstract_model import abstract_model
 from modules.models.ingredient_model import ingredient_model
 from modules.models.range_model import range_model
 
 
-class receipt_model(abstract_model):
+class receipt_manager(abstract_logic):
+    __receipt: receipt_model = None
 
-    __portions: int = 1
-    __cooking_time: str = ""
-    __steps:list[str] = []
-    __ingredients:list[ingredient_model] = []
+    def __new__(cls):
+        if not hasattr(cls, 'instance'):
+            cls.instance = super(receipt_manager, cls).__new__(cls)
+        return cls.instance
 
-
-    @property
-    def portions(self):
-        return self.__portions
-
-    @portions.setter
-    def portions(self, value:int):
-        argument_exception.isinstance(value, int)
-        self.__portions = value
+    def __init__(self) -> None:
+        if self.__receipt is None:
+            self.__receipt = receipt_model()
 
 
     @property
-    def cooking_time(self):
-        return self.__cooking_time
+    def receipt(self):
+        return self.__receipt
 
-    @cooking_time.setter
-    def cooking_time(self, value: str):
-        argument_exception.isinstance(value, str)
-        self.__cooking_time = value
-
-
-    @property
-    def steps(self):
-        return self.__steps
-
-    @steps.setter
-    def steps(self, value: list[str]):
-        argument_exception.isinstance_list(value, list, str)
-        self.__steps = value
-
-
-    @property
-    def ingredients(self):
-        return self.__ingredients
-
-    @ingredients.setter
-    def ingredients(self, value: list[ingredient_model]):
-        argument_exception.isinstance_list(value, list, ingredient_model)
-        self.__ingredients = value
+    @receipt.setter
+    def receipt(self, value: receipt_model):
+        argument_exception.isinstance(value, receipt_model)
+        self.__receipt = value
 
 
     def read_file(self, file_path:str, encoding='utf-8'):
         argument_exception.isinstance(file_path, str)
+        argument_exception.isinstance(encoding, str)
         with open(file_path, 'r', encoding=encoding) as file:
             content = file.read()
         # Название рецепта
@@ -83,46 +60,48 @@ class receipt_model(abstract_model):
             i_m = ingredient_model()
             i_m.name = name
             buf = re.match(r"(\d+)\s*(\D+)", grams)
-            i_m.grams = int(buf.group(1))
+            i_m.value = int(buf.group(1))
             i_m.range = range_model(buf.group(2).strip(), 1)
 
             ingredients.append(i_m)
 
-        self.name = title
-        self.portions = int(portions)
-        self.cooking_time = cook_time
-        self.ingredients = ingredients
-        self.steps = steps
+        self.receipt.name = title
+        self.receipt.portions = int(portions)
+        self.receipt.cooking_time = cook_time
+        self.receipt.ingredients = ingredients
+        self.receipt.steps = steps
 
 
     def save_in_file(self, file_path):
         # Формируем содержимое файла
-        md_content = f"# {self.name}\n\n"
-        if self.portions == 1:
-            md_content += f"#### `{self.portions} порция`\n\n"
+        md_content = f"# {self.receipt.name}\n\n"
+        if self.receipt.portions == 1:
+            md_content += f"#### `{self.receipt.portions} порция`\n\n"
         else:
-            md_content += f"#### `{self.portions} порций`\n\n"
+            md_content += f"#### `{self.receipt.portions} порций`\n\n"
 
         # Добавляем раздел с ингредиентами
         md_content += "| Ингредиенты     | Граммовка |\n"
         md_content += "|-----------------|-----------|\n"
 
-        for i in self.ingredients:
-            md_content += f"| {i.name} | {i.grams} {i.range.name} |\n"
+        for i in self.receipt.ingredients:
+            md_content += f"| {i.name} | {i.value} {i.range.name} |\n"
 
         # Добавляем раздел с шагами приготовления
         md_content += "\n## ПОШАГОВОЕ ПРИГОТОВЛЕНИЕ\n"
-        md_content += f"Время приготовления: `{self.cooking_time}`\n\n"
-        for i, step in enumerate(self.steps, 1):
+        md_content += f"Время приготовления: `{self.receipt.cooking_time}`\n\n"
+        for i, step in enumerate(self.receipt.steps, 1):
             md_content += f"{i}. {step}\n\n"
 
         # Записываем содержимое в файл
         with open(file_path, 'w', encoding='utf-8') as file:
             file.write(md_content)
 
+    """
+    Перегрузка абстрактного метода
+    """
 
-    def set_compare_mode(self, other_object: 'receipt_model'):
-        argument_exception().isinstance(other_object, receipt_model)
-        return super().set_compare_mode(other_object=other_object)
+    def set_exception(self, ex: Exception):
+        self._inner_set_exception(ex)
 
 

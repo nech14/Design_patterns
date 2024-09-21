@@ -1,4 +1,5 @@
 import os
+from copy import copy
 
 from modules.exceptions.abstract_logic import abstract_logic
 from modules.data_reposity import data_reposity
@@ -6,7 +7,8 @@ from modules.exceptions.argument_exception import argument_exception
 from modules.models.nomenclature_group_model import nomenclature_group_model
 from modules.models.nomenclature_model import nomenclature_model
 from modules.models.range_model import range_model
-from modules.models.receipt_model import receipt_model
+from modules.models.receipt.receipt_manager import receipt_manager
+from modules.models.receipt.receipt_model import receipt_model
 from modules.settings.settings_manager import Settings_manager
 from modules.settings.settings_base import Settings
 
@@ -45,7 +47,7 @@ class start_service(abstract_logic):
 
 
     def __create_nomenclature(self):
-        _list = nomenclature_model.crate_nomenclature(
+        _list = nomenclature_model.crate_nomenclatures(
             self.__base_nomenclatures_name,
             self.__base_nomenclatures_groupe,
             self.__base_nomenclatures_range
@@ -74,8 +76,8 @@ class start_service(abstract_logic):
 
     def __create_receipts(self):
         _list = []
-        _list.append(receipt_model().read_file(file_path=rf"{self.__root_dir}\Docs\receipt1.md"))
-        _list.append(receipt_model().read_file(file_path=rf"{self.__root_dir}\Docs\receipt2.md"))
+        _list.append(copy(receipt_manager().read_file(file_path=rf"{self.__root_dir}\Docs\receipt1.md")))
+        _list.append(copy(receipt_manager().read_file(file_path=rf"{self.__root_dir}\Docs\receipt2.md")))
         self.__reposity.data[data_reposity.receipt_key()] = _list
 
 
