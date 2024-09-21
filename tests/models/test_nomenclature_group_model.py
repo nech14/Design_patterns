@@ -14,3 +14,10 @@ class MyTestCase(unittest.TestCase):
         with self.assertRaises(argument_exception):
             result = ngm == str("214")
 
+
+    def test_default_group_cold(self):
+        group = nomenclature_group_model.default_group_cold()
+
+        self.assertEqual(group.name, "Заморозка")
+
+

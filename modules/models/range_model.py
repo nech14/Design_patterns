@@ -50,3 +50,16 @@ class range_model(abstract_model):
             raise argument_exception()
 
         return self.name == other_object.name
+
+
+    @staticmethod
+    def default_range_grams():
+        return range_model("гр", 1)
+
+    @staticmethod
+    def default_range_kilogram():
+        return range_model("кг", 1000, range_model.default_range_grams())
+
+    @staticmethod
+    def default_range_pieces():
+        return range_model("шт", 1)

@@ -34,3 +34,21 @@ class MyTestCase(unittest.TestCase):
             rm.conversion_factor = "sdgasd"
         with self.assertRaises(argument_exception):
             result = rm == "124"
+
+
+    def test_default_range_grams(self):
+        drg = range_model.default_range_grams()
+        self.assertEqual(drg.name, "гр")
+        self.assertEqual(drg.conversion_factor, 1)
+
+
+    def test_default_range_kilogram(self):
+        drg = range_model.default_range_kilogram()
+        self.assertEqual(drg.name, "кг")
+        self.assertEqual(drg.conversion_factor, 1000)
+
+
+    def test_default_range_pieces(self):
+        drg = range_model.default_range_pieces()
+        self.assertEqual(drg.name, "шт")
+        self.assertEqual(drg.conversion_factor, 1)
