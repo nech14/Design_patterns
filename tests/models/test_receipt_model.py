@@ -1,8 +1,6 @@
 import os
 import unittest
 
-from setuptools.sandbox import save_path
-
 from modules.exceptions.argument_exception import argument_exception
 from modules.models.receipt_model import receipt_model
 
