@@ -8,5 +8,5 @@ class format_reporting(Enum):
     MARKDOWN = 2
     JSON = 3
     XML = 4
-    RTS = 5
+    RTF = 5
 

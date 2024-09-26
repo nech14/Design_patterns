@@ -11,6 +11,9 @@ class abstract_report(ABC):
     __format: format_reporting = format_reporting.CSV
     __result:str = ""
 
+    def __init__(self):
+        pass
+
     """
     Сформировать
     """
@@ -18,12 +21,18 @@ class abstract_report(ABC):
     def create(self, data: list):
         pass
 
+
     """
     Тип формата
     """
     @property
     def format(self) -> format_reporting:
         return self.__format
+
+
+    @format.setter
+    def format(self, value):
+        self.__format = value
     
     """
     Результат формирования отчета
@@ -36,3 +45,11 @@ class abstract_report(ABC):
     def result(self, value:str):
         argument_exception.isinstance(value, str)
         self.__result = value
+
+
+    def save(self, path: str):
+        argument_exception.isinstance(path, str)
+
+        # Запись в файл
+        with open(f"report.{self.__format.name}", "w", encoding="utf-8") as f:
+            f.write(self.result)
