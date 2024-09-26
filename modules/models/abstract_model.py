@@ -103,3 +103,7 @@ class abstract_model(ABC):
         # Проверяем, что метод существует и он определён в текущем классе
         return method is not None and method.__qualname__.startswith(self.__class__.__name__)
 
+
+    def __repr__(self):
+        return self.__str__()
+
