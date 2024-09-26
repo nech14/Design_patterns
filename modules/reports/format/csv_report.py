@@ -1,15 +1,9 @@
-from joblib.externals.cloudpickle import instance
-from rasterio.rio.shapes import feature_gen
 
-from modules.data_reposity import data_reposity
 from modules.exceptions.argument_exception import argument_exception
 from modules.exceptions.length_exception import length_exception
 from modules.models.abstract_model import abstract_model
-from modules.models.range_model import range_model
 from modules.reports.format_reporting import format_reporting
 from modules.reports.abstract_report import abstract_report
-from modules.settings.settings_manager import Settings_manager
-from modules.start_service import start_service
 
 """
 Ответ формирует набор данных в формате CSV
@@ -106,6 +100,12 @@ class csv_report(abstract_report):
                     self.result += f"{value}{self.__separator}"
 
             self.result += '\n'
+
+
+
+
+
+
 
 
 

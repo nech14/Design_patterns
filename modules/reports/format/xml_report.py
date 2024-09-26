@@ -2,13 +2,10 @@
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
-from modules.data_reposity import data_reposity
 from modules.exceptions.argument_exception import argument_exception
 from modules.models.abstract_model import abstract_model
 from modules.reports.abstract_report import abstract_report
 from modules.reports.format_reporting import format_reporting
-from modules.settings.settings_manager import Settings_manager
-from modules.start_service import start_service
 
 
 class xml_report(abstract_report):
@@ -71,19 +68,3 @@ class xml_report(abstract_report):
         # Удаление лишних новых строк
         self.result = "\n".join([line for line in formatted_xml.splitlines() if line.strip()])
 
-
-
-
-
-d_r = data_reposity()
-m_s = Settings_manager()
-
-s_s = start_service(d_r, m_s)
-s_s.create()
-
-rep = xml_report()
-keys = list(s_s.reposity.data.keys())
-print(keys)
-rep.create(s_s.reposity.data[keys[3]])
-print(rep.result)
-print('\n')

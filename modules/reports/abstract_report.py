@@ -45,11 +45,3 @@ class abstract_report(ABC):
     def result(self, value:str):
         argument_exception.isinstance(value, str)
         self.__result = value
-
-
-    def save(self, path: str):
-        argument_exception.isinstance(path, str)
-
-        # Запись в файл
-        with open(f"report.{self.__format.name}", "w", encoding="utf-8") as f:
-            f.write(self.result)
