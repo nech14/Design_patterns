@@ -11,6 +11,7 @@ class markdown_report(abstract_report):
 
     def __init__(self) -> None:
        super().__init__()
+       self.extension = "md"
        self.__format = format_reporting.MARKDOWN
 
 

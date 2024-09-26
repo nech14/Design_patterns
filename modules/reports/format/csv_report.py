@@ -12,8 +12,10 @@ class csv_report(abstract_report):
 
     __separator = ";"
 
+
     def __init__(self) -> None:
        super().__init__()
+       self.extension = "csv"
        self.__format = format_reporting.CSV
 
  

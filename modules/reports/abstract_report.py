@@ -10,6 +10,7 @@ from modules.reports.format_reporting import format_reporting
 class abstract_report(ABC):
     __format: format_reporting = format_reporting.CSV
     __result:str = ""
+    __extension: str
 
     def __init__(self):
         pass
@@ -33,7 +34,17 @@ class abstract_report(ABC):
     @format.setter
     def format(self, value):
         self.__format = value
-    
+
+
+    @property
+    def extension(self):
+        return self.__extension
+
+    @extension.setter
+    def extension(self, value):
+        self.__extension = value
+
+
     """
     Результат формирования отчета
     """

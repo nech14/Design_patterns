@@ -12,6 +12,7 @@ class xml_report(abstract_report):
 
     def __init__(self) -> None:
        super().__init__()
+       self.extension = "xml"
        self.__format = format_reporting.XML
 
     # Рекурсивная функция для создания XML элементов из словаря

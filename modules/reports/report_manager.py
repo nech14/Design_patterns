@@ -5,6 +5,7 @@ from modules.reports.abstract_report import abstract_report
 from modules.reports.format_reporting import format_reporting
 from modules.reports.report_factory import report_factory
 
+
 class Report_manager(abstract_logic):
 
     __factory = report_factory()
@@ -29,14 +30,14 @@ class Report_manager(abstract_logic):
 
         create_cl = self.__factory.create(format)
         create_cl.create(data = data)
-        self.__report = create_cl.result
+        self.__report = create_cl
 
     def save(self, path: str):
         argument_exception.isinstance(path, str)
 
         if not self.__report is None:
             # Запись в файл
-            with open(f"report.{self.__format.name}", "w", encoding="utf-8") as f:
+            with open(f"{path}/report.{self.__report.extension}", "w", encoding="utf-8") as f:
                 f.write(self.__report.result)
 
 
@@ -57,5 +58,4 @@ class Report_manager(abstract_logic):
 
     def set_exception(self, ex: Exception):
         self._inner_set_exception(ex)
-
 

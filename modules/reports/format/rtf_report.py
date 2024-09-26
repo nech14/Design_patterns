@@ -11,6 +11,7 @@ class rtf_report(abstract_report):
 
     def __init__(self) -> None:
        super().__init__()
+       self.extension = "rtf"
        self.format = format_reporting.RTF
 
     def __dict_to_rtf(self, data):
