@@ -1,0 +1,134 @@
+<?xml version="1.0" ?>
+<receipt_model>
+  <item>
+    <name>ВАФЛИ ХРУСТЯЩИЕ В ВАФЕЛЬНИЦЕ</name>
+    <portions>10</portions>
+    <cooking_time>20 мин</cooking_time>
+    <ingredients>
+      <ingredients>
+        <item>
+          <name>Пшеничная мука</name>
+          <value>100</value>
+          <range>
+            <range>
+              <name>гр</name>
+              <conversion_factor>1</conversion_factor>
+              <base_unit_measurement>None</base_unit_measurement>
+            </range>
+          </range>
+        </item>
+        <item>
+          <name>Сахар</name>
+          <value>80</value>
+          <range>
+            <range>
+              <name>гр</name>
+              <conversion_factor>1</conversion_factor>
+              <base_unit_measurement>None</base_unit_measurement>
+            </range>
+          </range>
+        </item>
+        <item>
+          <name>Сливочное масло</name>
+          <value>70</value>
+          <range>
+            <range>
+              <name>гр</name>
+              <conversion_factor>1</conversion_factor>
+              <base_unit_measurement>None</base_unit_measurement>
+            </range>
+          </range>
+        </item>
+        <item>
+          <name>Яйца</name>
+          <value>1</value>
+          <range>
+            <range>
+              <name>шт</name>
+              <conversion_factor>1</conversion_factor>
+              <base_unit_measurement>None</base_unit_measurement>
+            </range>
+          </range>
+        </item>
+        <item>
+          <name>Ванилин(щепотка)</name>
+          <value>5</value>
+          <range>
+            <range>
+              <name>гр</name>
+              <conversion_factor>1</conversion_factor>
+              <base_unit_measurement>None</base_unit_measurement>
+            </range>
+          </range>
+        </item>
+      </ingredients>
+    </ingredients>
+    <steps>
+      <steps>
+        <item>Как испечь вафли хрустящие в вафельнице? Подготовьте необходимые продукты. Из данного количества у меня получилось 8 штук диаметром около 10 см.</item>
+        <item>Масло положите в сотейник с толстым дном. Растопите его на маленьком огне на плите, на водяной бане либо в микроволновке.</item>
+        <item>Добавьте в теплое масло сахар. Перемешайте венчиком до полного растворения сахара. От тепла сахар довольно быстро растает.</item>
+        <item>Добавьте в масло яйцо. Предварительно все-таки проверьте масло, не горячее ли оно, иначе яйцо может свариться. Перемешайте яйцо с маслом до однородности.</item>
+        <item>Всыпьте муку, добавьте ванилин.</item>
+        <item>Перемешайте массу венчиком до состояния гладкого однородного теста.</item>
+        <item>Разогрейте вафельницу по инструкции к ней. У меня очень старая, еще советских времен электровафельница. Она может и не очень красивая, но печет замечательно!
+   Я не смазываю вафельницу маслом, в тесте достаточно жира, да и к ней уже давно ничего не прилипает. Но вы смотрите по своей модели. Выкладывайте тесто по столовой ложке.
+   Можно класть немного меньше теста, тогда вафли будут меньше и их получится больше.</item>
+        <item>Пеките вафли несколько минут до золотистого цвета. Осторожно откройте вафельницу, она очень горячая! Снимите вафлю лопаткой. Горячая она очень мягкая, как блинчик.</item>
+      </steps>
+    </steps>
+  </item>
+  <item>
+    <name>ВАРЁНОЕ ЯЙЦО</name>
+    <portions>1</portions>
+    <cooking_time>10 мин</cooking_time>
+    <ingredients>
+      <ingredients>
+        <item>
+          <name>Яйцо</name>
+          <value>1</value>
+          <range>
+            <range>
+              <name>шт</name>
+              <conversion_factor>1</conversion_factor>
+              <base_unit_measurement>None</base_unit_measurement>
+            </range>
+          </range>
+        </item>
+        <item>
+          <name>Вода</name>
+          <value>500</value>
+          <range>
+            <range>
+              <name>мл</name>
+              <conversion_factor>1</conversion_factor>
+              <base_unit_measurement>None</base_unit_measurement>
+            </range>
+          </range>
+        </item>
+        <item>
+          <name>Соль</name>
+          <value>1</value>
+          <range>
+            <range>
+              <name>щепотка</name>
+              <conversion_factor>1</conversion_factor>
+              <base_unit_measurement>None</base_unit_measurement>
+            </range>
+          </range>
+        </item>
+      </ingredients>
+    </ingredients>
+    <steps>
+      <steps>
+        <item>Подготовьте необходимые ингредиенты. Возьмите яйцо и промойте его под проточной водой.</item>
+        <item>Налейте 500 мл воды в небольшую кастрюлю и доведите до кипения на среднем огне.</item>
+        <item>Аккуратно опустите яйцо в кипящую воду с помощью ложки.</item>
+        <item>Варите яйцо в течение 8-10 минут для получения вкрутую.</item>
+        <item>По желанию добавьте щепотку соли в воду, чтобы предотвратить трещины на скорлупе.</item>
+        <item>После варки аккуратно достаньте яйцо из кастрюли и поместите его в холодную воду на 2-3 минуты, чтобы оно легко очищалось.</item>
+        <item>Очистите яйцо от скорлупы и подавайте к столу.</item>
+      </steps>
+    </steps>
+  </item>
+</receipt_model>

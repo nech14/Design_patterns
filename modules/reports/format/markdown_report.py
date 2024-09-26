@@ -49,7 +49,7 @@ class markdown_report(abstract_report):
                                     _str += f"{i[j]},"
                             _str = _str[:-1] + "),"
                         else:
-                            _str += f"{i},"
+                            _str += f"{i.replace("\n", "")},"
                     _str = _str[:-1] + "]"
                     self.result += f"{_str}{self.__separator}"
 
