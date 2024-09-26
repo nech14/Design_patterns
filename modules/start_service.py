@@ -76,8 +76,11 @@ class start_service(abstract_logic):
 
     def __create_receipts(self):
         _list = []
-        _list.append(copy(receipt_manager().read_file(file_path=rf"{self.__root_dir}\Docs\receipt1.md")))
-        _list.append(copy(receipt_manager().read_file(file_path=rf"{self.__root_dir}\Docs\receipt2.md")))
+        r_m = receipt_manager()
+        r_m.read_file(file_path=rf"{self.__root_dir}\Docs\receipt1.md")
+        _list.append(copy(r_m.receipt))
+        r_m.read_file(file_path=rf"{self.__root_dir}\Docs\receipt2.md")
+        _list.append(copy(r_m.receipt))
         self.__reposity.data[data_reposity.receipt_key()] = _list
 
 
@@ -98,3 +101,7 @@ class start_service(abstract_logic):
     def set_exception(self, ex: Exception):
         self._inner_set_exception(ex)    
 
+
+    @property
+    def reposity(self):
+        return self.__reposity
