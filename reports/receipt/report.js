@@ -2,11 +2,13 @@
    "receipt_model": [
       {
          "name": "ВАФЛИ ХРУСТЯЩИЕ В ВАФЕЛЬНИЦЕ",
+         "unique_code": "f4bd9809-b974-4b5e-b72f-5be570ed7a84",
          "portions": 10,
          "cooking_time": "20 мин",
          "ingredients": [
             {
                "name": "Пшеничная мука",
+               "unique_code": "ab182987-4309-4c65-9027-2ad6ea578df9",
                "value": 100,
                "range": {
                   "name": "гр",
@@ -16,6 +18,7 @@
             },
             {
                "name": "Сахар",
+               "unique_code": "400bbc78-1d26-4120-ad87-80a3fb0ef3e4",
                "value": 80,
                "range": {
                   "name": "гр",
@@ -25,6 +28,7 @@
             },
             {
                "name": "Сливочное масло",
+               "unique_code": "d9e8b22f-56db-453f-87ff-8a8b309b4f67",
                "value": 70,
                "range": {
                   "name": "гр",
@@ -34,6 +38,7 @@
             },
             {
                "name": "Яйца",
+               "unique_code": "7dca01ea-71dc-4839-80b3-b81f49f6c0e3",
                "value": 1,
                "range": {
                   "name": "шт",
@@ -43,6 +48,7 @@
             },
             {
                "name": "Ванилин(щепотка)",
+               "unique_code": "b3ecbf13-b51c-449b-970f-8ede071c23d9",
                "value": 5,
                "range": {
                   "name": "гр",
@@ -64,11 +70,13 @@
       },
       {
          "name": "ВАРЁНОЕ ЯЙЦО",
+         "unique_code": "f4bd9809-b974-4b5e-b72f-5be570ed7a84",
          "portions": 1,
          "cooking_time": "10 мин",
          "ingredients": [
             {
                "name": "Яйцо",
+               "unique_code": "5dc8c392-b1d5-47ee-97b8-a18b42be0312",
                "value": 1,
                "range": {
                   "name": "шт",
@@ -78,6 +86,7 @@
             },
             {
                "name": "Вода",
+               "unique_code": "d5132457-c0b2-4a02-856b-cc2b70a65ca7",
                "value": 500,
                "range": {
                   "name": "мл",
@@ -87,6 +96,7 @@
             },
             {
                "name": "Соль",
+               "unique_code": "f863c187-868c-4f0e-b1b1-5f8c22732e79",
                "value": 1,
                "range": {
                   "name": "щепотка",
