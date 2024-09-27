@@ -13,6 +13,7 @@ class range_model(abstract_model):
         ):
             raise argument_exception()
 
+        super().__init__()
         self.name = name
         self.__conversion_factor = conversion_factor
         self.__base_unit_measurement = base_unit_measurement
