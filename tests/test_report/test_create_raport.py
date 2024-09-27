@@ -2,6 +2,7 @@ import unittest
 
 import os
 from modules.data_reposity import data_reposity
+from modules.reports.report_factory import report_factory
 from modules.settings.settings_manager import Settings_manager
 from modules.start_service import start_service
 from modules.reports.format_reporting import format_reporting
@@ -19,7 +20,7 @@ class MyTestCase(unittest.TestCase):
 
     rep_m = Report_manager()
 
-    key = keys[3]
+    key = keys[1]
     _path = r"C:\git\Design_patterns\reports" + rf'\{key}'
 
     def test_create_csv(self):
@@ -28,7 +29,8 @@ class MyTestCase(unittest.TestCase):
         self.rep_m.create(self.s_s.reposity.data[self.key])
 
         os.makedirs(self._path, exist_ok=True)
-        self.rep_m.save(path=self._path)
+        print(self._path)
+        self.rep_m.save(_path=self._path)
 
 
     def test_create_js(self):
@@ -37,7 +39,7 @@ class MyTestCase(unittest.TestCase):
         self.rep_m.create(self.s_s.reposity.data[self.key])
 
         os.makedirs(self._path, exist_ok=True)
-        self.rep_m.save(path=self._path)
+        self.rep_m.save(_path=self._path)
 
 
     def test_create_md(self):
@@ -46,7 +48,7 @@ class MyTestCase(unittest.TestCase):
         self.rep_m.create(self.s_s.reposity.data[self.key])
 
         os.makedirs(self._path, exist_ok=True)
-        self.rep_m.save(path=self._path)
+        self.rep_m.save(_path=self._path)
 
 
     def test_create_xml(self):
@@ -55,7 +57,7 @@ class MyTestCase(unittest.TestCase):
         self.rep_m.create(self.s_s.reposity.data[self.key])
 
         os.makedirs(self._path, exist_ok=True)
-        self.rep_m.save(path=self._path)
+        self.rep_m.save(_path=self._path)
 
 
     def test_create_rtf(self):
@@ -64,4 +66,5 @@ class MyTestCase(unittest.TestCase):
         self.rep_m.create(self.s_s.reposity.data[self.key])
 
         os.makedirs(self._path, exist_ok=True)
-        self.rep_m.save(path=self._path)
+        self.rep_m.save(_path=self._path)
+
