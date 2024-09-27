@@ -19,7 +19,6 @@ class xml_report(abstract_report):
 
     def __dict_to_xml(self, tag, data):
         element = ET.Element(tag)
-        print(f"Creating XML for tag: {tag}, data: {data}")
 
         if isinstance(data, dict):
             for key, val in data.items():
