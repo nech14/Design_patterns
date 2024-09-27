@@ -1,14 +1,11 @@
 import os.path
 
-from modules.data_reposity import data_reposity
 from modules.exceptions.abstract_logic import abstract_logic
 from modules.exceptions.argument_exception import argument_exception
 from modules.exceptions.length_exception import length_exception
 from modules.reports.abstract_report import abstract_report
 from modules.reports.format_reporting import format_reporting
 from modules.reports.report_factory import report_factory
-from modules.settings.settings_manager import Settings_manager
-from modules.start_service import start_service
 
 
 class Report_manager(abstract_logic):
