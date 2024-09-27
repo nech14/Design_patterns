@@ -12,7 +12,11 @@ from modules.exceptions.length_exception import length_exception
 class abstract_model(ABC):
     __name: str = ""
     __max_name: int = 50
-    __unique_code:str =  uuid.uuid4()
+    __unique_code:str = ""
+
+    def __init__(self):
+        self.__name = ""
+        self.__unique_code = str(uuid.uuid4())
 
 
     @property
@@ -35,7 +39,7 @@ class abstract_model(ABC):
       """
 
     @property
-    def unique_code(self) -> str:
+    def unique_code(self):
         return self.__unique_code
 
 
