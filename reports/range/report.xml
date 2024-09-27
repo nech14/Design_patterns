@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<range_model>
+  <item>
+    <name>гр</name>
+    <conversion_factor>1</conversion_factor>
+    <base_unit_measurement>None</base_unit_measurement>
+  </item>
+  <item>
+    <name>шт</name>
+    <conversion_factor>1</conversion_factor>
+    <base_unit_measurement>None</base_unit_measurement>
+  </item>
+  <item>
+    <name>кг</name>
+    <conversion_factor>1000</conversion_factor>
+    <base_unit_measurement>
+      <base_unit_measurement>
+        <name>гр</name>
+        <conversion_factor>1</conversion_factor>
+        <base_unit_measurement>None</base_unit_measurement>
+      </base_unit_measurement>
+    </base_unit_measurement>
+  </item>
+</range_model>
