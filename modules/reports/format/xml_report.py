@@ -16,32 +16,49 @@ class xml_report(abstract_report):
        self.__format = format_reporting.XML
 
     # Рекурсивная функция для создания XML элементов из словаря
+
     def __dict_to_xml(self, tag, data):
         element = ET.Element(tag)
+        print(f"Creating XML for tag: {tag}, data: {data}")
+
         if isinstance(data, dict):
             for key, val in data.items():
-                child = ET.SubElement(element, key)
-                if isinstance(val, (dict, list)):
-                    child.append(self.__dict_to_xml(key, val))
+                # Если значение - это словарь, создаем вложенный элемент
+                if isinstance(val, dict):
+                    child_item = ET.SubElement(element, key)
+                    for child_key, child_val in val.items():
+                        group_child = ET.SubElement(child_item, child_key)
+                        group_child.text = str(child_val)
+                # Если значение - это список, обрабатываем каждый элемент
+                elif isinstance(val, list):
+                    for item in val:
+                        item_child = self.__dict_to_xml(key, item)
+                        element.append(item_child)
                 else:
+                    child = ET.SubElement(element, key)
                     child.text = str(val)
+
         elif hasattr(data, 'get_dict'):
-            # Если объект имеет метод get_dict(), используем его
             dict_representation = data.get_dict()
             for key, val in dict_representation.items():
-                child = ET.SubElement(element, key)
-                if isinstance(val, (dict, list)):
-                    child.append(self.__dict_to_xml(key, val))
+                if isinstance(val, dict):
+                    child_item = ET.SubElement(element, key)
+                    for child_key, child_val in val.items():
+                        group_child = ET.SubElement(child_item, child_key)
+                        group_child.text = str(child_val)
+                elif isinstance(val, list):
+                    for item in val:
+                        item_child = self.__dict_to_xml(key, item)
+                        element.append(item_child)
                 else:
+                    child = ET.SubElement(element, key)
                     child.text = str(val)
-        elif isinstance(data, list):
-            for item in data:
-                child = self.__dict_to_xml('item', item)
-                element.append(child)
+
         else:
             element.text = str(data)
 
         return element
+
 
     # Преобразование списка словарей в XML
     def __list_of_dicts_to_xml(self, tag, data):
