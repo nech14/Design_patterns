@@ -34,19 +34,19 @@ class Report_manager(abstract_logic):
         create_cl.create(data = data)
         self.__report = create_cl
 
-    def save(self, path: str):
-        argument_exception.isinstance(path, str)
+    def save(self, _path: str):
+        argument_exception.isinstance(_path, str)
 
         if self.__report == "" or self.__report is None:
             length_exception.length_zero()
 
 
-        if os.path.exists(path=path) and os.path.isdir(path=path):
+        if os.path.exists(_path) and os.path.isdir(_path):
             argument_exception("Wrong way!")
 
         try:
             # Запись в файл
-            with open(f"{path}/report.{self.__report.extension}", "w", encoding="utf-8") as f:
+            with open(f"{_path}/report.{self.__report.extension}", "w", encoding="utf-8") as f:
                 f.write(self.__report.result)
         except Exception as e:
             argument_exception("Problems with saving!", f"{e}")
