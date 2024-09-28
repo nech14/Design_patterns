@@ -8,7 +8,6 @@ from modules.models.nomenclature_group_model import nomenclature_group_model
 from modules.models.nomenclature_model import nomenclature_model
 from modules.models.range_model import range_model
 from modules.models.receipt.receipt_manager import receipt_manager
-from modules.models.receipt.receipt_model import receipt_model
 from modules.settings.settings_manager import Settings_manager
 from modules.settings.settings_base import Settings
 
@@ -22,9 +21,9 @@ class start_service(abstract_logic):
 
     __base_nomenclatures_name = ["Пшеничная мука", "Сахар", "Сливочное масло", "Яйца", "Ванилин(щепотка)"]
     __base_nomenclatures_groupe = [nomenclature_group_model.default_group_source() for i in range(5)]
-    __base_nomenclatures_range = [range_model("гр", 1), range_model("гр", 1),
-                                  range_model("гр", 1), range_model("шт", 1),
-                                  range_model("гр", 1)]
+    __base_nomenclatures_range = [range_model.default_range_grams(), range_model.default_range_grams(),
+                                  range_model.default_range_grams(), range_model.default_range_pieces(),
+                                  range_model.default_range_grams()]
 
 
     def __init__(self, reposity: data_reposity, manager: Settings_manager ) -> None:
@@ -60,6 +59,7 @@ class start_service(abstract_logic):
         _list = []
         _list.append(range_model.default_range_grams())
         _list.append(range_model.default_range_pieces())
+        _list.append(range_model.default_range_kilogram())
 
         self.__reposity.data[data_reposity.range_key()] = _list
 
@@ -76,7 +76,9 @@ class start_service(abstract_logic):
 
     def __create_receipts(self):
         _list = []
-        r_m = receipt_manager()
+        r_m = receipt_manager(
+            nomenclatures=self.__reposity.data[data_reposity.nomenclature_key()]
+        )
         r_m.read_file(file_path=rf"{self.__root_dir}\Docs\receipt1.md")
         _list.append(copy(r_m.receipt))
         r_m.read_file(file_path=rf"{self.__root_dir}\Docs\receipt2.md")
