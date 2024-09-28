@@ -79,8 +79,9 @@ class abstract_model(ABC):
         # Рекурсивная функция для преобразования атрибутов в словарь
         def recursive_to_dict(value):
             if hasattr(value, '__dict__'):  # Проверяем, является ли объект пользовательским классом
-                return {self._normalize_key(key): recursive_to_dict(getattr(value, key))
-                        for key in vars(value)}
+                class_name = value.__class__.__name__
+                return {'__class__': class_name, **{self._normalize_key(key): recursive_to_dict(getattr(value, key))
+                                                for key in vars(value)}}
             elif isinstance(value, list):  # Если это список, рекурсивно обрабатываем каждый элемент
                 return [recursive_to_dict(item) for item in value]
             elif isinstance(value, dict):  # Если это словарь, обрабатываем ключи и значения
@@ -89,7 +90,9 @@ class abstract_model(ABC):
                 return value  # Для примитивных типов возвращаем значение как есть
 
         # Преобразуем атрибуты текущего объекта в словарь
-        return {self._normalize_key(key): recursive_to_dict(value) for key, value in vars(self).items()}
+        return {'__class__': self.__class__.__name__,
+                **{self._normalize_key(key): recursive_to_dict(value) for key, value in vars(self).items()}}
+        # return {self._normalize_key(key): recursive_to_dict(value) for key, value in vars(self).items()}
 
     def _normalize_key(self, key):
         # Убираем имя класса из "name mangled" атрибутов, если они есть

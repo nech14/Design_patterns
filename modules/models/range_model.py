@@ -4,7 +4,7 @@ from modules.exceptions.argument_exception import argument_exception
 from modules.models.abstract_model import abstract_model
 
 class range_model(abstract_model):
-    __base_unit_measurement: 'range_model'
+    __base_unit_measurement: 'range_model' = None
     __conversion_factor = 1
     __instance_model: list['range_model'] = []
 
@@ -29,6 +29,9 @@ class range_model(abstract_model):
 
     @base_unit_measurement.setter
     def base_unit_measurement(self, value: 'range_model'):
+        if value is None:
+            self.__base_unit_measurement = None
+            return
         if not isinstance(value, range_model):
             raise argument_exception()
 

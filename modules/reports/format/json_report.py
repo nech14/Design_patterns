@@ -13,7 +13,7 @@ class json_report(abstract_report):
 
     def __init__(self) -> None:
        super().__init__()
-       self.extension = 'js'
+       self.extension = 'json'
        self.__format = format_reporting.JSON
 
     def create(self, data: list):
