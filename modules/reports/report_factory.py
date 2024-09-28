@@ -26,6 +26,8 @@ class report_factory(abstract_logic):
         super().__init__()
 
         for key, class_name in report_format.items():
+            if not key in format_reporting:
+                argument_exception("Non-existent type!", key)
 
             class_path = f"{self.__last_three_parts.replace('/', '.').replace('\\', '.')}.{class_name}"
 
@@ -38,8 +40,7 @@ class report_factory(abstract_logic):
             # Сохраняем класс в словаре
             imported_classes[class_name] = cls
 
-            if not key in format_reporting:
-                argument_exception("Non-existent type!", key)
+
 
             self.__reports[format_reporting[key]] = cls
 
