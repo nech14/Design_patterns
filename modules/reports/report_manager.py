@@ -50,12 +50,12 @@ class Report_manager(abstract_logic):
 
 
 
-    def create(self, data:list[dict], format=None):
-        if format is None:
-            format = self.format
-        argument_exception.isinstance(format, format_reporting)
+    def create(self, data:list[dict], _format=None):
+        if _format is None:
+            _format = self.format
+        argument_exception.isinstance(_format, format_reporting)
 
-        create_cl = self.__factory.create(format)
+        create_cl = self.__factory.create(_format)
         create_cl.create(data = data)
         self.__report = create_cl
 

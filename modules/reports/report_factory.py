@@ -40,12 +40,7 @@ class report_factory(abstract_logic):
             # Сохраняем класс в словаре
             imported_classes[class_name] = cls
 
-
-
             self.__reports[format_reporting[key]] = cls
-
-
-
 
 
     """
