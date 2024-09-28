@@ -4,7 +4,7 @@ from modules.models.nomenclature_model import nomenclature_model
 
 class ingredient_model(nomenclature_model):
     __value = 0
-    __nomenclature_code: nomenclature_model
+    __nomenclature: nomenclature_model | None
 
     @property
     def value(self):
@@ -17,11 +17,14 @@ class ingredient_model(nomenclature_model):
         self.__value= value
 
     @property
-    def nomenclature_code(self):
-        return self.__nomenclature_code
+    def nomenclature(self):
+        return self.__nomenclature
 
-    @nomenclature_code.setter
-    def nomenclature_code(self, value: nomenclature_model):
+    @nomenclature.setter
+    def nomenclature(self, value: nomenclature_model|None):
+        if value is None:
+            return None
+
         argument_exception.isinstance(value, nomenclature_model)
 
-        self.__nomenclature_code = value
+        self.__nomenclature = value

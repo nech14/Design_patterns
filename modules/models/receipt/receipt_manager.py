@@ -2,6 +2,7 @@ import re
 from copy import copy
 
 from modules.exceptions.abstract_logic import abstract_logic
+from modules.models.nomenclature_model import nomenclature_model
 from modules.models.receipt.receipt_model import receipt_model
 from modules.exceptions.argument_exception import argument_exception
 from modules.models.ingredient_model import ingredient_model
@@ -10,13 +11,21 @@ from modules.models.range_model import range_model
 
 class receipt_manager(abstract_logic):
     __receipt: receipt_model = None
+    __nomenclatures:list[nomenclature_model] = []
+    __instance = None
 
-    def __new__(cls):
-        if not hasattr(cls, 'instance'):
-            cls.instance = super(receipt_manager, cls).__new__(cls)
-        return cls.instance
+    def __new__(cls, *args, **kwargs):
+        if cls.__instance is None:
+            cls.__instance = super().__new__(cls)
+        return cls.__instance
 
-    def __init__(self) -> None:
+    def __init__(self, nomenclatures:list[nomenclature_model]=None):
+        if nomenclature_model is None:
+            pass
+        else:
+            argument_exception.isinstance_list(nomenclatures, list, nomenclature_model)
+            self.__nomenclatures = nomenclatures
+
         if self.__receipt is None:
             self.__receipt = receipt_model()
 
@@ -55,13 +64,24 @@ class receipt_manager(abstract_logic):
         steps_section = re.split(r"\n\d+\.\s", content)[1:]  # Разделяем по шагам (начинаются с "1. ...")
         steps = [step.strip() for step in steps_section]
 
+
         ingredients = []
+        range_buf = []
         for name, grams in zip(ingredients_names, grams):
             i_m = ingredient_model()
             i_m.name = name
             buf = re.match(r"(\d+)\s*(\D+)", grams)
             i_m.value = int(buf.group(1))
-            i_m.range = range_model(buf.group(2).strip(), 1)
+
+            range_instance = range_model(buf.group(2).strip(), 1)
+
+            if range_instance in range_buf:
+                i_m.range = range_buf[range_buf.index(range_instance)]
+            else:
+                range_buf.append(range_instance)
+                i_m.range = range_instance
+
+            i_m.nomenclature = nomenclature_model.found_by_name(self.__nomenclatures, name)
 
             ingredients.append(i_m)
 
