@@ -2,23 +2,23 @@
 <range_model>
   <item>
     <name>гр</name>
-    <model_unique_code>2185318c-a04e-4bf9-9431-d0c32aef294b</model_unique_code>
+    <model_unique_code>4e9036f1-a406-4c2f-853e-d274cff2f3bc</model_unique_code>
     <conversion_factor>1</conversion_factor>
     <base_unit_measurement>None</base_unit_measurement>
   </item>
   <item>
     <name>шт</name>
-    <model_unique_code>2185318c-a04e-4bf9-9431-d0c32aef294b</model_unique_code>
+    <model_unique_code>4e9036f1-a406-4c2f-853e-d274cff2f3bc</model_unique_code>
     <conversion_factor>1</conversion_factor>
     <base_unit_measurement>None</base_unit_measurement>
   </item>
   <item>
     <name>кг</name>
-    <model_unique_code>2185318c-a04e-4bf9-9431-d0c32aef294b</model_unique_code>
+    <model_unique_code>4e9036f1-a406-4c2f-853e-d274cff2f3bc</model_unique_code>
     <conversion_factor>1000</conversion_factor>
     <base_unit_measurement>
       <name>гр</name>
-      <model_unique_code>2185318c-a04e-4bf9-9431-d0c32aef294b</model_unique_code>
+      <model_unique_code>4e9036f1-a406-4c2f-853e-d274cff2f3bc</model_unique_code>
       <conversion_factor>1</conversion_factor>
       <base_unit_measurement>None</base_unit_measurement>
     </base_unit_measurement>

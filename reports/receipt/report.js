@@ -1,61 +1,61 @@
 [
    {
       "name": "ВАФЛИ ХРУСТЯЩИЕ В ВАФЕЛЬНИЦЕ",
-      "model_unique_code": "3a961bc1-2de5-4dee-a75f-d83af9b35fbf",
+      "model_unique_code": "5ceaa582-5b2f-4b2f-91ab-83b04b146475",
       "portions": 10,
       "cooking_time": "20 мин",
       "ingredients": [
          {
             "name": "Пшеничная мука",
-            "model_unique_code": "452bce9c-f423-4160-91a7-739c42070de9",
+            "model_unique_code": "042b9e9c-e7d0-4d9f-bf7b-598ad71420a6",
             "value": 100,
             "range": {
                "name": "гр",
-               "model_unique_code": "09c6e6f7-a3e7-4284-be7c-d85c5d767400",
+               "model_unique_code": "e6ab9803-4d87-4626-8ba9-67a917e7c395",
                "conversion_factor": 1,
                "base_unit_measurement": null
             }
          },
          {
             "name": "Сахар",
-            "model_unique_code": "452bce9c-f423-4160-91a7-739c42070de9",
+            "model_unique_code": "042b9e9c-e7d0-4d9f-bf7b-598ad71420a6",
             "value": 80,
             "range": {
                "name": "гр",
-               "model_unique_code": "09c6e6f7-a3e7-4284-be7c-d85c5d767400",
+               "model_unique_code": "e6ab9803-4d87-4626-8ba9-67a917e7c395",
                "conversion_factor": 1,
                "base_unit_measurement": null
             }
          },
          {
             "name": "Сливочное масло",
-            "model_unique_code": "452bce9c-f423-4160-91a7-739c42070de9",
+            "model_unique_code": "042b9e9c-e7d0-4d9f-bf7b-598ad71420a6",
             "value": 70,
             "range": {
                "name": "гр",
-               "model_unique_code": "09c6e6f7-a3e7-4284-be7c-d85c5d767400",
+               "model_unique_code": "e6ab9803-4d87-4626-8ba9-67a917e7c395",
                "conversion_factor": 1,
                "base_unit_measurement": null
             }
          },
          {
             "name": "Яйца",
-            "model_unique_code": "452bce9c-f423-4160-91a7-739c42070de9",
+            "model_unique_code": "042b9e9c-e7d0-4d9f-bf7b-598ad71420a6",
             "value": 1,
             "range": {
                "name": "шт",
-               "model_unique_code": "09c6e6f7-a3e7-4284-be7c-d85c5d767400",
+               "model_unique_code": "e6ab9803-4d87-4626-8ba9-67a917e7c395",
                "conversion_factor": 1,
                "base_unit_measurement": null
             }
          },
          {
             "name": "Ванилин(щепотка)",
-            "model_unique_code": "452bce9c-f423-4160-91a7-739c42070de9",
+            "model_unique_code": "042b9e9c-e7d0-4d9f-bf7b-598ad71420a6",
             "value": 5,
             "range": {
                "name": "гр",
-               "model_unique_code": "09c6e6f7-a3e7-4284-be7c-d85c5d767400",
+               "model_unique_code": "e6ab9803-4d87-4626-8ba9-67a917e7c395",
                "conversion_factor": 1,
                "base_unit_measurement": null
             }
@@ -74,39 +74,39 @@
    },
    {
       "name": "ВАРЁНОЕ ЯЙЦО",
-      "model_unique_code": "3a961bc1-2de5-4dee-a75f-d83af9b35fbf",
+      "model_unique_code": "5ceaa582-5b2f-4b2f-91ab-83b04b146475",
       "portions": 1,
       "cooking_time": "10 мин",
       "ingredients": [
          {
             "name": "Яйцо",
-            "model_unique_code": "452bce9c-f423-4160-91a7-739c42070de9",
+            "model_unique_code": "042b9e9c-e7d0-4d9f-bf7b-598ad71420a6",
             "value": 1,
             "range": {
                "name": "шт",
-               "model_unique_code": "09c6e6f7-a3e7-4284-be7c-d85c5d767400",
+               "model_unique_code": "e6ab9803-4d87-4626-8ba9-67a917e7c395",
                "conversion_factor": 1,
                "base_unit_measurement": null
             }
          },
          {
             "name": "Вода",
-            "model_unique_code": "452bce9c-f423-4160-91a7-739c42070de9",
+            "model_unique_code": "042b9e9c-e7d0-4d9f-bf7b-598ad71420a6",
             "value": 500,
             "range": {
                "name": "мл",
-               "model_unique_code": "09c6e6f7-a3e7-4284-be7c-d85c5d767400",
+               "model_unique_code": "e6ab9803-4d87-4626-8ba9-67a917e7c395",
                "conversion_factor": 1,
                "base_unit_measurement": null
             }
          },
          {
             "name": "Соль",
-            "model_unique_code": "452bce9c-f423-4160-91a7-739c42070de9",
+            "model_unique_code": "042b9e9c-e7d0-4d9f-bf7b-598ad71420a6",
             "value": 1,
             "range": {
                "name": "щепотка",
-               "model_unique_code": "09c6e6f7-a3e7-4284-be7c-d85c5d767400",
+               "model_unique_code": "e6ab9803-4d87-4626-8ba9-67a917e7c395",
                "conversion_factor": 1,
                "base_unit_measurement": null
             }
