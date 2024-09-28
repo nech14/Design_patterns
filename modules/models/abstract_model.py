@@ -22,9 +22,9 @@ class abstract_model(ABC):
 
     def __init__(self):
         self.__name = ""
-        self.assign_model_unique_code()
-        self.__model_unique_code = self.__class__.__model_unique_code
-
+        # self.assign_model_unique_code()
+        # self.__model_unique_code = self.__class__.__model_unique_code
+        self.__model_unique_code = str(uuid.uuid4())
 
     @property
     def name(self):
@@ -67,7 +67,7 @@ class abstract_model(ABC):
 
         return self.__model_unique_code == other_object.model_unique_code
 
-    def __eq__(self, value: object) -> bool:
+    def __eq__(self, value: 'abstract_model') -> bool:
         return self.set_compare_mode(value)
 
 
