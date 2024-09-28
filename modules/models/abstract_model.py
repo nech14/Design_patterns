@@ -12,11 +12,18 @@ from modules.exceptions.length_exception import length_exception
 class abstract_model(ABC):
     __name: str = ""
     __max_name: int = 50
-    __unique_code:str = ""
+    __model_unique_code:str = None
+
+    @classmethod
+    def assign_model_unique_code(cls):
+        if cls.__model_unique_code is None:
+            cls.__model_unique_code = str(uuid.uuid4())  # Уникальный код для каждого класса
+
 
     def __init__(self):
         self.__name = ""
-        self.__unique_code = str(uuid.uuid4())
+        self.assign_model_unique_code()
+        self.__model_unique_code = self.__class__.__model_unique_code
 
 
     @property
@@ -39,15 +46,15 @@ class abstract_model(ABC):
       """
 
     @property
-    def unique_code(self):
-        return self.__unique_code
+    def model_unique_code(self):
+        return self.__model_unique_code
 
 
-    @unique_code.setter
-    def unique_code(self, value: str):
+    @model_unique_code.setter
+    def model_unique_code(self, value: str):
         if not isinstance(value, str):
             raise argument_exception()
-        self.__unique_code = value
+        self.__model_unique_code = value
 
     """
     Вариант сравнения (по коду)
@@ -58,7 +65,7 @@ class abstract_model(ABC):
         if other_object is None: return False
         if not isinstance(other_object, abstract_model): return False
 
-        return self.__unique_code == other_object.unique_code
+        return self.__model_unique_code == other_object.model_unique_code
 
     def __eq__(self, value: object) -> bool:
         return self.set_compare_mode(value)

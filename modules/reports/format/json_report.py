@@ -19,8 +19,9 @@ class json_report(abstract_report):
     def create(self, data: list):
         argument_exception.isinstance_list(data, list, abstract_model)
 
-        _json = {}
-        _json[str(data[0].__class__.__name__)] = data
+        _json = data
+        # _json = {}
+        # _json[str(data[0].__class__.__name__)] = data
 
 
         self.result = json.dumps(

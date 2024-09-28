@@ -19,6 +19,8 @@ class report_factory(abstract_logic):
     __root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__)))
     __path_format_dir = Path(__root_dir+r'\format')
 
+    __base_format = None
+
     __last_three_parts = str(Path(*list(__path_format_dir.parts)[-3:]))
 
     def __init__(self) -> None:
@@ -47,6 +49,9 @@ class report_factory(abstract_logic):
 
                 self.__reports[_enum] = getattr(module, class_name)
 
+        __base_format = self.__reports[list(self.__reports.keys())[0]]
+
+
 
 
     """
@@ -61,6 +66,11 @@ class report_factory(abstract_logic):
         
         report = self.__reports[format]
         return report()
+
+
+    def create_default(self):
+
+        return self.__base_format()
 
 
 

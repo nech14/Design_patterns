@@ -2,55 +2,60 @@
 <receipt_model>
   <item>
     <name>ВАФЛИ ХРУСТЯЩИЕ В ВАФЕЛЬНИЦЕ</name>
-    <unique_code>f4bd9809-b974-4b5e-b72f-5be570ed7a84</unique_code>
+    <model_unique_code>3a961bc1-2de5-4dee-a75f-d83af9b35fbf</model_unique_code>
     <portions>10</portions>
     <cooking_time>20 мин</cooking_time>
     <ingredients>
       <name>Пшеничная мука</name>
-      <unique_code>ab182987-4309-4c65-9027-2ad6ea578df9</unique_code>
+      <model_unique_code>452bce9c-f423-4160-91a7-739c42070de9</model_unique_code>
       <value>100</value>
       <range>
         <name>гр</name>
+        <model_unique_code>09c6e6f7-a3e7-4284-be7c-d85c5d767400</model_unique_code>
         <conversion_factor>1</conversion_factor>
         <base_unit_measurement>None</base_unit_measurement>
       </range>
     </ingredients>
     <ingredients>
       <name>Сахар</name>
-      <unique_code>400bbc78-1d26-4120-ad87-80a3fb0ef3e4</unique_code>
+      <model_unique_code>452bce9c-f423-4160-91a7-739c42070de9</model_unique_code>
       <value>80</value>
       <range>
         <name>гр</name>
+        <model_unique_code>09c6e6f7-a3e7-4284-be7c-d85c5d767400</model_unique_code>
         <conversion_factor>1</conversion_factor>
         <base_unit_measurement>None</base_unit_measurement>
       </range>
     </ingredients>
     <ingredients>
       <name>Сливочное масло</name>
-      <unique_code>d9e8b22f-56db-453f-87ff-8a8b309b4f67</unique_code>
+      <model_unique_code>452bce9c-f423-4160-91a7-739c42070de9</model_unique_code>
       <value>70</value>
       <range>
         <name>гр</name>
+        <model_unique_code>09c6e6f7-a3e7-4284-be7c-d85c5d767400</model_unique_code>
         <conversion_factor>1</conversion_factor>
         <base_unit_measurement>None</base_unit_measurement>
       </range>
     </ingredients>
     <ingredients>
       <name>Яйца</name>
-      <unique_code>7dca01ea-71dc-4839-80b3-b81f49f6c0e3</unique_code>
+      <model_unique_code>452bce9c-f423-4160-91a7-739c42070de9</model_unique_code>
       <value>1</value>
       <range>
         <name>шт</name>
+        <model_unique_code>09c6e6f7-a3e7-4284-be7c-d85c5d767400</model_unique_code>
         <conversion_factor>1</conversion_factor>
         <base_unit_measurement>None</base_unit_measurement>
       </range>
     </ingredients>
     <ingredients>
       <name>Ванилин(щепотка)</name>
-      <unique_code>b3ecbf13-b51c-449b-970f-8ede071c23d9</unique_code>
+      <model_unique_code>452bce9c-f423-4160-91a7-739c42070de9</model_unique_code>
       <value>5</value>
       <range>
         <name>гр</name>
+        <model_unique_code>09c6e6f7-a3e7-4284-be7c-d85c5d767400</model_unique_code>
         <conversion_factor>1</conversion_factor>
         <base_unit_measurement>None</base_unit_measurement>
       </range>
@@ -68,35 +73,38 @@
   </item>
   <item>
     <name>ВАРЁНОЕ ЯЙЦО</name>
-    <unique_code>f4bd9809-b974-4b5e-b72f-5be570ed7a84</unique_code>
+    <model_unique_code>3a961bc1-2de5-4dee-a75f-d83af9b35fbf</model_unique_code>
     <portions>1</portions>
     <cooking_time>10 мин</cooking_time>
     <ingredients>
       <name>Яйцо</name>
-      <unique_code>5dc8c392-b1d5-47ee-97b8-a18b42be0312</unique_code>
+      <model_unique_code>452bce9c-f423-4160-91a7-739c42070de9</model_unique_code>
       <value>1</value>
       <range>
         <name>шт</name>
+        <model_unique_code>09c6e6f7-a3e7-4284-be7c-d85c5d767400</model_unique_code>
         <conversion_factor>1</conversion_factor>
         <base_unit_measurement>None</base_unit_measurement>
       </range>
     </ingredients>
     <ingredients>
       <name>Вода</name>
-      <unique_code>d5132457-c0b2-4a02-856b-cc2b70a65ca7</unique_code>
+      <model_unique_code>452bce9c-f423-4160-91a7-739c42070de9</model_unique_code>
       <value>500</value>
       <range>
         <name>мл</name>
+        <model_unique_code>09c6e6f7-a3e7-4284-be7c-d85c5d767400</model_unique_code>
         <conversion_factor>1</conversion_factor>
         <base_unit_measurement>None</base_unit_measurement>
       </range>
     </ingredients>
     <ingredients>
       <name>Соль</name>
-      <unique_code>f863c187-868c-4f0e-b1b1-5f8c22732e79</unique_code>
+      <model_unique_code>452bce9c-f423-4160-91a7-739c42070de9</model_unique_code>
       <value>1</value>
       <range>
         <name>щепотка</name>
+        <model_unique_code>09c6e6f7-a3e7-4284-be7c-d85c5d767400</model_unique_code>
         <conversion_factor>1</conversion_factor>
         <base_unit_measurement>None</base_unit_measurement>
       </range>

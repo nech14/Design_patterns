@@ -2,65 +2,70 @@
 <nomenclature_model>
   <item>
     <name>Пшеничная мука</name>
-    <unique_code>2b9b3096-97d4-49c2-8249-8e67f9657a38</unique_code>
+    <model_unique_code>c4816c22-10ae-4049-9d6d-074acb0e86f4</model_unique_code>
     <group>
       <name>Сырье</name>
-      <unique_code>f51b4253-69b6-4584-bf80-9ddb92987c32</unique_code>
+      <model_unique_code>3f75bc73-61f1-4acd-b462-b8cd7e631970</model_unique_code>
     </group>
     <range>
       <name>гр</name>
+      <model_unique_code>38f43ca7-c08d-4558-8df2-f17f09203fa6</model_unique_code>
       <conversion_factor>1</conversion_factor>
       <base_unit_measurement>None</base_unit_measurement>
     </range>
   </item>
   <item>
     <name>Сахар</name>
-    <unique_code>0aca33ef-e6ff-4790-8e21-0732fc51cb86</unique_code>
+    <model_unique_code>c4816c22-10ae-4049-9d6d-074acb0e86f4</model_unique_code>
     <group>
       <name>Сырье</name>
-      <unique_code>b0e05036-694d-4f5a-8191-7756445f58ac</unique_code>
+      <model_unique_code>3f75bc73-61f1-4acd-b462-b8cd7e631970</model_unique_code>
     </group>
     <range>
       <name>гр</name>
+      <model_unique_code>38f43ca7-c08d-4558-8df2-f17f09203fa6</model_unique_code>
       <conversion_factor>1</conversion_factor>
       <base_unit_measurement>None</base_unit_measurement>
     </range>
   </item>
   <item>
     <name>Сливочное масло</name>
-    <unique_code>651117e7-a006-49f2-8210-98a1cfbe497d</unique_code>
+    <model_unique_code>c4816c22-10ae-4049-9d6d-074acb0e86f4</model_unique_code>
     <group>
       <name>Сырье</name>
-      <unique_code>99372d1a-dad3-45ed-b7cb-d41808a4b874</unique_code>
+      <model_unique_code>3f75bc73-61f1-4acd-b462-b8cd7e631970</model_unique_code>
     </group>
     <range>
       <name>гр</name>
+      <model_unique_code>38f43ca7-c08d-4558-8df2-f17f09203fa6</model_unique_code>
       <conversion_factor>1</conversion_factor>
       <base_unit_measurement>None</base_unit_measurement>
     </range>
   </item>
   <item>
     <name>Яйца</name>
-    <unique_code>24932ba6-7aa2-4adc-baf0-ac9fdcb0a22d</unique_code>
+    <model_unique_code>c4816c22-10ae-4049-9d6d-074acb0e86f4</model_unique_code>
     <group>
       <name>Сырье</name>
-      <unique_code>691df93e-aad7-4b80-9069-f7cd37266557</unique_code>
+      <model_unique_code>3f75bc73-61f1-4acd-b462-b8cd7e631970</model_unique_code>
     </group>
     <range>
       <name>шт</name>
+      <model_unique_code>38f43ca7-c08d-4558-8df2-f17f09203fa6</model_unique_code>
       <conversion_factor>1</conversion_factor>
       <base_unit_measurement>None</base_unit_measurement>
     </range>
   </item>
   <item>
     <name>Ванилин(щепотка)</name>
-    <unique_code>72d706e5-acf2-4726-8084-8c9aec618a96</unique_code>
+    <model_unique_code>c4816c22-10ae-4049-9d6d-074acb0e86f4</model_unique_code>
     <group>
       <name>Сырье</name>
-      <unique_code>ef48c5a4-1c84-49ec-bf46-ed3132e308bc</unique_code>
+      <model_unique_code>3f75bc73-61f1-4acd-b462-b8cd7e631970</model_unique_code>
     </group>
     <range>
       <name>гр</name>
+      <model_unique_code>38f43ca7-c08d-4558-8df2-f17f09203fa6</model_unique_code>
       <conversion_factor>1</conversion_factor>
       <base_unit_measurement>None</base_unit_measurement>
     </range>
