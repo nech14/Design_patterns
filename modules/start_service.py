@@ -19,12 +19,6 @@ class start_service(abstract_logic):
     __settings_manager: Settings_manager = None
     __root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
-    __base_nomenclatures_name = ["Пшеничная мука", "Сахар", "Сливочное масло", "Яйца", "Ванилин(щепотка)"]
-    __base_nomenclatures_groupe = [nomenclature_group_model.default_group_source() for i in range(5)]
-    __base_nomenclatures_range = [range_model.default_range_grams(), range_model.default_range_grams(),
-                                  range_model.default_range_grams(), range_model.default_range_pieces(),
-                                  range_model.default_range_grams()]
-
 
     def __init__(self, reposity: data_reposity, manager: Settings_manager ) -> None:
         super().__init__()
@@ -46,11 +40,8 @@ class start_service(abstract_logic):
 
 
     def __create_nomenclature(self):
-        _list = nomenclature_model.crate_nomenclatures(
-            self.__base_nomenclatures_name,
-            self.__base_nomenclatures_groupe,
-            self.__base_nomenclatures_range
-        )
+        _list = nomenclature_model.default_nomenclature()
+
 
         self.__reposity.data[data_reposity.nomenclature_key()] = _list
 
@@ -77,7 +68,8 @@ class start_service(abstract_logic):
     def __create_receipts(self):
         _list = []
         r_m = receipt_manager(
-            nomenclatures=self.__reposity.data[data_reposity.nomenclature_key()]
+            nomenclatures= self.__reposity.data[data_reposity.nomenclature_key()],
+            ranges= self.__reposity.data[data_reposity.range_key()]
         )
         r_m.read_file(file_path=rf"{self.__root_dir}\Docs\receipt1.md")
         _list.append(copy(r_m.receipt))

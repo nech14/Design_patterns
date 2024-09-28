@@ -14,6 +14,11 @@ class nomenclature_model(abstract_model):
     __range: range_model
     __max_name: int = 250
 
+    __base_nomenclatures_name = ["Пшеничная мука", "Сахар", "Сливочное масло", "Яйца", "Ванилин(щепотка)"]
+    __base_nomenclatures_groupe = [nomenclature_group_model.default_group_source() for i in range(5)]
+    __base_nomenclatures_range = [range_model.default_range_grams(), range_model.default_range_grams(),
+                                  range_model.default_range_grams(), range_model.default_range_pieces(),
+                                  range_model.default_range_grams()]
 
     @property
     def group(self):
@@ -70,6 +75,13 @@ class nomenclature_model(abstract_model):
             )
         return _list
 
+    @staticmethod
+    def default_nomenclature():
+        return nomenclature_model.crate_nomenclatures(
+            nomenclature_model.__base_nomenclatures_name,
+            nomenclature_model.__base_nomenclatures_groupe,
+            nomenclature_model.__base_nomenclatures_range,
+        )
 
     @staticmethod
     def create_nomenclature(name: str, group: nomenclature_group_model, range: range_model):

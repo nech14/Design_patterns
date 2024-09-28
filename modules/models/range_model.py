@@ -6,7 +6,7 @@ from modules.models.abstract_model import abstract_model
 class range_model(abstract_model):
     __base_unit_measurement: 'range_model'
     __conversion_factor = 1
-    __instance_model = []
+    __instance_model: list['range_model'] = []
 
     def __init__(self, name, conversion_factor: int = 1, base_unit_measurement: 'range_model' = None):
         if (

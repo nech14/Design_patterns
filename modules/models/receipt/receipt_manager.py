@@ -12,6 +12,7 @@ from modules.models.range_model import range_model
 class receipt_manager(abstract_logic):
     __receipt: receipt_model = None
     __nomenclatures:list[nomenclature_model] = []
+    __ranges: list[range_model] = []
     __instance = None
 
     def __new__(cls, *args, **kwargs):
@@ -19,12 +20,19 @@ class receipt_manager(abstract_logic):
             cls.__instance = super().__new__(cls)
         return cls.__instance
 
-    def __init__(self, nomenclatures:list[nomenclature_model]=None):
-        if nomenclature_model is None:
-            pass
+    def __init__(self, nomenclatures:list[nomenclature_model]=None, ranges:list[range_model]=None):
+        if nomenclatures is None:
+            self.__nomenclatures = nomenclature_model.default_nomenclature()
         else:
             argument_exception.isinstance_list(nomenclatures, list, nomenclature_model)
             self.__nomenclatures = nomenclatures
+
+        if ranges is None:
+            self.__ranges = []
+        else:
+            argument_exception.isinstance_list(ranges, list, range_model)
+            self.__ranges = ranges
+
 
         if self.__receipt is None:
             self.__receipt = receipt_model()
@@ -66,7 +74,6 @@ class receipt_manager(abstract_logic):
 
 
         ingredients = []
-        range_buf = []
         for name, grams in zip(ingredients_names, grams):
             i_m = ingredient_model()
             i_m.name = name
@@ -75,10 +82,10 @@ class receipt_manager(abstract_logic):
 
             range_instance = range_model(buf.group(2).strip(), 1)
 
-            if range_instance in range_buf:
-                i_m.range = range_buf[range_buf.index(range_instance)]
+            if range_instance in self.__ranges:
+                i_m.range = self.__ranges[self.__ranges.index(range_instance)]
             else:
-                range_buf.append(range_instance)
+                self.__ranges.append(range_instance)
                 i_m.range = range_instance
 
             i_m.nomenclature = nomenclature_model.found_by_name(self.__nomenclatures, name)
