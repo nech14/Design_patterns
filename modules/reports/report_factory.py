@@ -1,4 +1,5 @@
 import os
+from enum import Enum
 
 from modules.exceptions.abstract_logic import abstract_logic
 from modules.exceptions.argument_exception import argument_exception
@@ -19,37 +20,29 @@ class report_factory(abstract_logic):
     __root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__)))
     __path_format_dir = Path(__root_dir+r'\format')
 
-    __base_format = None
-
     __last_three_parts = str(Path(*list(__path_format_dir.parts)[-3:]))
 
-    def __init__(self) -> None:
+    def __init__(self, report_format:dict) -> None:
         super().__init__()
-        files = os.listdir(self.__path_format_dir)
-        # Фильтруем только файлы (исключая папки)
-        files = [f for f in files if f not in ['__init__.py', '__pycache__']]
 
-        # Фильтруем только файлы и извлекаем название до символа "_"
-        names_before_underscore = [f.split('_')[0].upper() for f in files]
+        for key, class_name in report_format.items():
 
-        for _enum in format_reporting:
-            if _enum.name in names_before_underscore:
+            class_path = f"{self.__last_three_parts.replace('/', '.').replace('\\', '.')}.{class_name}"
 
-                class_name = str(files[names_before_underscore.index(_enum.name)][:-3])
-                class_path = f"{self.__last_three_parts.replace('/', '.').replace('\\', '.')}.{class_name}"
+            # Импортируем модуль и получаем класс
+            module = importlib.import_module(class_path)
 
-                # Импортируем модуль и получаем класс
-                module = importlib.import_module(class_path)
+            # Получаем класс из модуля
+            cls = getattr(module, class_name)
 
-                # Получаем класс из модуля
-                cls = getattr(module, class_name)
+            # Сохраняем класс в словаре
+            imported_classes[class_name] = cls
 
-                # Сохраняем класс в словаре
-                imported_classes[class_name] = cls
+            if not key in format_reporting:
+                argument_exception("Non-existent type!", key)
 
-                self.__reports[_enum] = getattr(module, class_name)
+            self.__reports[format_reporting[key]] = cls
 
-        __base_format = self.__reports[list(self.__reports.keys())[0]]
 
 
 
@@ -66,12 +59,6 @@ class report_factory(abstract_logic):
         
         report = self.__reports[format]
         return report()
-
-
-    def create_default(self):
-
-        return self.__base_format()
-
 
 
 

@@ -1,3 +1,5 @@
+from enum import Enum
+
 from modules.exceptions.argument_exception import argument_exception
 from modules.exceptions.abstract_logic import abstract_logic
 from modules.settings.settings_base import Settings
@@ -13,6 +15,8 @@ class Settings_manager(abstract_logic):
     __file_name = "settings.json"
     __settings: Settings = None
     __text_encoding: str = 'utf-8'
+    __report_settings = {}
+    __report_enum: Enum
 
     def __new__(cls):
         if not hasattr(cls, 'instance'):
@@ -22,6 +26,7 @@ class Settings_manager(abstract_logic):
     def __init__(self) -> None:
         if self.__settings is None:
             self.__settings = self.__default_setting()
+            self.__default_report_settings()
 
 
     """
@@ -92,5 +97,32 @@ class Settings_manager(abstract_logic):
         return data
 
 
+    def open_report_settings(self, _path: str):
+        argument_exception.isinstance(_path, str)
+        if not os.path.isfile(_path):
+            argument_exception("File does not exist", _path)
+
+        with open(_path, 'r', encoding=self.__text_encoding) as file:
+            data = json.load(file)
+
+        self.__report_settings = data
+        # self.__report_enum = Enum("report_format",  self.__report_settings.keys())
+
+
+    def __default_report_settings(self):
+        self.__report_settings = {}
+        self.__report_settings["JSON"] = "json_report"
+
+
+    @property
+    def report_settings(self):
+        return self.__report_settings
+
+    @property
+    def report_enum(self):
+        return self.__report_enum
+
     def set_exception(self, ex: Exception):
         self._inner_set_exception(ex)
+
+
