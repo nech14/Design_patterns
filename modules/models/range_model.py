@@ -1,9 +1,12 @@
+from copy import copy
+
 from modules.exceptions.argument_exception import argument_exception
 from modules.models.abstract_model import abstract_model
 
 class range_model(abstract_model):
     __base_unit_measurement: 'range_model'
     __conversion_factor = 1
+    __instance_model: list['range_model'] = []
 
     def __init__(self, name, conversion_factor: int = 1, base_unit_measurement: 'range_model' = None):
         if (
@@ -13,6 +16,7 @@ class range_model(abstract_model):
         ):
             raise argument_exception()
 
+        super().__init__()
         self.name = name
         self.__conversion_factor = conversion_factor
         self.__base_unit_measurement = base_unit_measurement
@@ -54,12 +58,32 @@ class range_model(abstract_model):
 
     @staticmethod
     def default_range_grams():
-        return range_model("гр", 1)
+        range_instance = range_model("гр", 1)
+
+        if not range_instance in range_model.__instance_model:
+            range_model.__instance_model.append(range_instance)
+
+        return copy(range_model.__instance_model[range_model.__instance_model.index(range_instance)])
 
     @staticmethod
     def default_range_kilogram():
-        return range_model("кг", 1000, range_model.default_range_grams())
+        range_instance = range_model("кг", 1000, range_model.default_range_grams())
+
+        if not range_instance in range_model.__instance_model:
+            range_model.__instance_model.append(range_instance)
+
+        return copy(range_model.__instance_model[range_model.__instance_model.index(range_instance)])
+
 
     @staticmethod
     def default_range_pieces():
-        return range_model("шт", 1)
+        range_instance = range_model("шт", 1)
+
+        if not range_instance in range_model.__instance_model:
+            range_model.__instance_model.append(range_instance)
+
+        return copy(range_model.__instance_model[range_model.__instance_model.index(range_instance)])
+
+
+    def __eq__(self, value: 'range_model') -> bool:
+        return self.name == value.name

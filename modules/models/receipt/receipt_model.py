@@ -4,7 +4,6 @@ import re
 from modules.exceptions.argument_exception import argument_exception
 from modules.models.abstract_model import abstract_model
 from modules.models.ingredient_model import ingredient_model
-from modules.models.range_model import range_model
 
 
 class receipt_model(abstract_model):
@@ -13,7 +12,6 @@ class receipt_model(abstract_model):
     __cooking_time: str = ""
     __steps:list[str] = []
     __ingredients:list[ingredient_model] = []
-
 
     @property
     def portions(self):
@@ -59,5 +57,4 @@ class receipt_model(abstract_model):
     def set_compare_mode(self, other_object: 'receipt_model'):
         argument_exception().isinstance(other_object, receipt_model)
         return super().set_compare_mode(other_object=other_object)
-
 
