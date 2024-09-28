@@ -44,12 +44,12 @@ class markdown_report(abstract_report):
                             _str += "("
                             for j in i.keys():
                                 if isinstance(i[j], dict):
-                                    _str += f"{i[j]["name"]},"
+                                    _str += f'{i[j]["name"]},'
                                 else:
                                     _str += f"{i[j]},"
                             _str = _str[:-1] + "),"
                         else:
-                            _str += f"{i.replace("\n", "")},"
+                            _str += i.replace("\n", "") + ','
                     _str = _str[:-1] + "]"
                     self.result += f"{_str}{self.__separator}"
 

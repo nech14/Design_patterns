@@ -18,18 +18,18 @@ imported_classes = {}
 class report_factory(abstract_logic):
     __reports = {}
     __root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__)))
-    __path_format_dir = Path(__root_dir+r'\format')
+    __path_format_dir = Path(__root_dir,"format")
 
-    __last_three_parts = str(Path(*list(__path_format_dir.parts)[-3:]))
+    __last_three_parts = Path(*list(__path_format_dir.parts)[-3:])
+    __last_three_parts = '.'.join(__last_three_parts.parts)
 
     def __init__(self, report_format:dict) -> None:
         super().__init__()
 
         for key, class_name in report_format.items():
-            if not key in format_reporting:
+            if not key in [item.value for item in format_reporting]:
                 argument_exception("Non-existent type!", key)
-
-            class_path = f"{self.__last_three_parts.replace('/', '.').replace('\\', '.')}.{class_name}"
+            class_path = f'{self.__last_three_parts}.{class_name}'
 
             # Импортируем модуль и получаем класс
             module = importlib.import_module(class_path)

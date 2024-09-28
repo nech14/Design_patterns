@@ -26,7 +26,6 @@ class Report_manager(abstract_logic):
         if report_settings is None:
             self.__report_settings = Settings_manager().report_settings
 
-            print(f"\niiwdwqdwqdi {self.__report_settings}")
         else:
             argument_exception.isinstance(report_settings, dict)
             self.__report_settings = report_settings

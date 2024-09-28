@@ -2,6 +2,7 @@ import unittest
 
 import os
 from modules.data_reposity import data_reposity
+from modules.reports.report_factory import report_factory
 from modules.settings.settings_manager import Settings_manager
 from modules.start_service import start_service
 from modules.reports.format_reporting import format_reporting
@@ -23,7 +24,7 @@ class MyTestCase(unittest.TestCase):
     rep_m = Report_manager()
 
     key = keys[0]
-    _path = r"C:\git\Design_patterns\reports" + rf'\{key}'
+    _path = rf'{__root_dir}/reports/{key}'
 
     def test_create_csv(self):
 
@@ -31,12 +32,11 @@ class MyTestCase(unittest.TestCase):
         self.rep_m.create(self.s_s.reposity.data[self.key])
 
         os.makedirs(self._path, exist_ok=True)
-        print(self._path)
         self.rep_m.save(_path=self._path)
 
 
     def test_create_json(self):
-
+        # report_factory(self.m_s.report_settings)
         self.rep_m.format = format_reporting.JSON
         self.rep_m.create(self.s_s.reposity.data[self.key])
 
