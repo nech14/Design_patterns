@@ -31,8 +31,6 @@ class MyTestCase(unittest.TestCase):
 
     keys = list(s_s.reposity.data.keys())
 
-    key = keys[3]
-
     r = reader({"JSON": "json_reader"})
 
     def test_json_creator_manager_range_model(self):
