@@ -56,3 +56,5 @@ class abstract_report(ABC):
     def result(self, value:str):
         argument_exception.isinstance(value, str)
         self.__result = value
+
+

@@ -17,6 +17,7 @@ class Settings_manager(abstract_logic):
     __text_encoding: str = 'utf-8'
     __report_settings = {}
     __report_enum: Enum
+    __reader_settings: dict = {}
 
     def __new__(cls):
         if not hasattr(cls, 'instance'):
@@ -95,6 +96,22 @@ class Settings_manager(abstract_logic):
         data.score = "12345678910"
 
         return data
+
+
+    @staticmethod
+    def default_reader_settings():
+        return {"JSON" : "json_reader"}
+
+
+    @property
+    def reader_settings(self):
+        return self.__reader_settings
+
+    @reader_settings.setter
+    def reader_settings(self, value: dict):
+        argument_exception.isinstance(value, dict)
+        self.__reader_settings = value
+
 
 
     def open_report_settings(self, _path: str):
