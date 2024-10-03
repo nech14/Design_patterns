@@ -1,7 +1,5 @@
 from tokenize import group
 
-from astropy.io.votable.converters import Boolean
-
 from modules.exceptions.argument_exception import argument_exception
 from modules.models.abstract_model import abstract_model
 from modules.models.nomenclature_group_model import nomenclature_group_model
@@ -96,7 +94,7 @@ class nomenclature_model(abstract_model):
 
 
     @staticmethod
-    def check_name(nomenclature: 'nomenclature_model', name:str) -> Boolean:
+    def check_name(nomenclature: 'nomenclature_model', name:str) -> bool:
         argument_exception.isinstance(nomenclature, nomenclature_model)
         argument_exception.isinstance(name, str)
 
