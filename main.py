@@ -21,13 +21,7 @@ report_manager = Report_manager()
 
 @app.route("/api/reports/formats", methods=["GET"])
 def formats():
-    return [
-        {"name":"CSV", "value": 1},
-        {"name":"MARKDOWN", "value": 2},
-        {"name":"JSON", "value": 3},
-        {"name":"XML", "value": 4},
-        {"name":"RTF", "value": 5},
-    ]
+    return [{"name": item.name, "value": item.value} for item in format_reporting]
 
 @app.route("/api/reports/range/<format>", methods=["GET"])
 def reports_range(format: str):
