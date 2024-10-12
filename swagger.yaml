@@ -116,3 +116,35 @@ paths:
           description: Ошибка на сервере
         default:
           description: Неизвестная ошибка
+
+  /api/filter/{domain}:
+    post:
+      summary: Фильтрация данных по домену
+      operationId: main.filter_data  # Убедитесь, что указано корректное имя функции
+      consumes:
+        - application/json
+      produces:
+        - text/plain
+      parameters:
+        - in: path
+          name: domain
+          required: true
+          description: Индекс домена, который нужно фильтровать (например, 0 для "nomenclature_model")
+          type: string
+        - in: body
+          name: body
+          required: true
+          description: Модель фильтрации данных
+          schema:
+            type: object
+            additionalProperties: true
+      responses:
+        200:
+          description: Успешная фильтрация
+          schema:
+            type: string
+            description: Отфильтрованные данные
+        400:
+          description: Ошибка валидации данных
+        500:
+          description: Внутренняя ошибка сервера
