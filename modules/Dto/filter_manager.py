@@ -127,6 +127,44 @@ class Filter_manager():
 
         self.__filter = new_filter(self.__filter_property)
 
+    def update_filter_from_dict(self, _dict: dict):
+        # Функция, создающая геттер для свойства
+        def make_getter(attr_name):
+            return lambda self: getattr(self, f"_{attr_name}")
+
+        # Функция, создающая сеттер для свойства
+        def make_setter(attr_name):
+            return lambda self, value: setattr(self, f"_{attr_name}", value)
+
+        # Функция для динамического создания конструктора __init__
+        def init(self, _dict):
+            # Устанавливаем изначальные значения в ""
+            for attr, value in _dict.items():
+                setattr(self, f"_{attr}", value)  # Установка значения
+
+        # Рекурсивная функция для создания объектов из вложенных словарей
+        def create_class_from_dict(name, _dict):
+            class_dict = {'__init__': init}  # Добавляем __init__ в словарь класса
+
+            # Обработка всех элементов словаря
+            for attr, value in _dict.items():
+                if isinstance(value, dict):
+                    # Если значение - это словарь, создаем для него новый класс
+                    value = create_class_from_dict(attr.capitalize(), value)
+
+                # Приватное поле и свойство
+                class_dict[f"_{attr}"] = value
+                class_dict[attr] = property(make_getter(attr), make_setter(attr))
+
+            # Создаем класс с использованием type()
+            return type(f"{name.capitalize()}", (base_filter,), class_dict)
+
+        # Создаем основной класс фильтра на основе переданного словаря
+        new_filter = create_class_from_dict(self.__filter_object.name, _dict)
+
+        # Создаем экземпляр класса
+        self.__filter = new_filter(_dict)
+        self.__filter_property = list(_dict.keys())
 
     def update_property_filter(self, **kwargs):
         for key, value in kwargs.items():
