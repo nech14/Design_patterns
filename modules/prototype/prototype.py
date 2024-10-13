@@ -28,13 +28,21 @@ class prototype(abstract_prototype):
         super().__init__(source)
         self.__list_fields = list_fields
 
-    def create(self, data: list, filterDto: base_filter, list_fields:list[str]=[]):
+    def create(
+            self, data: list,
+            filterDto: base_filter,
+            list_fields:list[str]=[],
+            filter_type:filtration_type = filtration_type.LIKE
+    ):
+        argument_exception.isinstance(filterDto, base_filter)
+        argument_exception.isinstance_list(list_fields, list, str)
+        argument_exception.isinstance(filter_type, filtration_type)
+
         super().create(data, filterDto)
         self.data = data
         self.__list_fields = list_fields
         for f in range(len(self.__list_fields)):
             self.data = self.filter_by_field(self.data, f, filterDto)
-            print(self.data)
         instance = prototype(self.data, self.__list_fields)
         return instance
 
