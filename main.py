@@ -1,3 +1,5 @@
+import json
+
 import connexion
 from flask import request
 
@@ -23,9 +25,9 @@ start.create()
 
 report_manager = Report_manager()
 
-f_m = Filter_manager()
-f_m.update_filter_property()
-f_m.update_filter()
+filter_manager = Filter_manager()
+filter_manager.update_filter_property()
+filter_manager.update_filter()
 
 
 @app.route("/api/reports/formats", methods=["GET"])
@@ -43,7 +45,7 @@ def filter_type():
 
 @app.route("/api/filter/base/property", methods=["GET"])
 def filter_base_property():
-    return f_m.filter_property
+    return filter_manager.filter_property
 
 
 @app.route("/api/reports/range/<format>", methods=["GET"])
@@ -88,18 +90,35 @@ def reports_receipt(format: str):
     return report.result
 
 
-@app.route("/api/filter/<string:domain>", methods=["POST"])
-def filter_data(domain):
+@app.route("/api/filter/list/<string:domain>/<string:filter_type>", methods=["POST"])
+def filter_data_list(domain, filter_type):
     json_data = request.json
 
-    f_m.update_filter_property()
-    f_m.update_filter()
-    f_m.update_property_filter(**json_data)
+    filter_manager.update_filter_property()
+    filter_manager.update_filter()
+    filter_manager.update_property_filter(**json_data)
     data = reposity.data[list(data_key)[int(domain)].value]
     p = prototype()
 
-    new_data = p.create(data, f_m.filter, f_m.filter_property).data
+    new_data = p.create(data, filter_manager.filter, filter_manager.filter_property, filtration_type(int(filter_type))).data
     return f"{new_data}"
+
+
+
+@app.route("/api/filter/dict/<string:domain>/<string:filter_type>", methods=["POST"])
+def filter_data_dict(domain, filter_type):
+    json_data = request.json
+    filter_dict = json.loads(json_data)
+
+
+    filter_manager.update_filter_from_dict(filter_dict)
+    data = reposity.data[list(data_key)[int(domain)].value]
+    p = prototype()
+
+    new_data = p.create(data, filter_manager.filter, filter_manager.filter_property, filtration_type(int(filter_type))).data
+    return f"{new_data}"
+
+
 
 if __name__ == '__main__':
     app.add_api("swagger.yaml")
