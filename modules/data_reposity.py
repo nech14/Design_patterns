@@ -1,3 +1,4 @@
+from modules.data_key import data_key
 from modules.exceptions.abstract_logic import abstract_logic
 
 
@@ -22,17 +23,17 @@ class data_reposity(abstract_logic):
 
     @staticmethod
     def nomenclature_key() -> str:
-        return "nomenclature"
+        return data_key.nomenclature_model.value
 
 
     @staticmethod
     def range_key() -> str:
-        return "range"
+        return data_key.range_model.value
 
 
     @staticmethod
     def receipt_key() -> str:
-        return "receipt"
+        return data_key.receipt_model.value
 
 
     """
@@ -40,7 +41,7 @@ class data_reposity(abstract_logic):
     """
     @staticmethod
     def group_key() -> str:
-        return "group"
+        return data_key.nomenclature_group_model.value
     
     """
     Перегрузка абстрактного метода

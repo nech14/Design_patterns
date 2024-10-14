@@ -116,3 +116,65 @@ paths:
           description: Ошибка на сервере
         default:
           description: Неизвестная ошибка
+
+  /api/filter/type:
+    get:
+      summary: Получить список типов фильтрации
+      operationId: main.filter_type
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Имя фильтра
+                value:
+                  type: integer
+                  description: Значение фильтра
+        500:
+          description: Ошибка на сервере
+        default:
+          description: Неизвестная ошибка
+
+  /api/filter/list/{domain}/{filter_type}:
+    post:
+      summary: Получить список данных, отфильтрованных по типу
+      operationId: main.filter_data_list
+      consumes:
+        - application/json
+      produces:
+        - text/plain
+      parameters:
+        - name: domain
+          in: path
+          description: Уникальный код домена
+          required: true
+          type: string
+        - name: filter_type
+          in: path
+          description: Тип фильтрации
+          required: true
+          type: string
+        - name: body
+          in: body
+          description: JSON данные для фильтрации
+          required: true
+          schema:
+            type: object
+            additionalProperties: true
+      responses:
+        200:
+          description: OK
+          schema:
+            description: Отфильтрованные данные
+        400:
+          description: Ошибка валидации данных
+        500:
+          description: Внутренняя ошибка сервера
+
