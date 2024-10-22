@@ -60,7 +60,7 @@ class abstract_model(ABC):
     Вариант сравнения (по коду)
     """
 
-    @abstractmethod
+
     def set_compare_mode(self, other_object) -> bool:
         if other_object is None: return False
         if not isinstance(other_object, abstract_model): return False
