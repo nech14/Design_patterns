@@ -36,6 +36,20 @@ class data_reposity(abstract_logic):
         return data_key.receipt_model.value
 
 
+    @staticmethod
+    def warehouse_key() -> str:
+        return data_key.warehouse_model.value
+
+
+    @staticmethod
+    def warehouse_transaction_key() -> str:
+        return data_key.warehouse_transaction_model.value
+
+
+    @staticmethod
+    def warehouse_turnover_key() -> str:
+        return data_key.warehouse_turnover_model.value
+
     """
     Ключ для хранения групп номенклатуры
     """

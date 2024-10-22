@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from modules.Enums.transaction_type import transaction_type
+from modules.Enums.transaction_type import enum_transaction_type
 from modules.exceptions.argument_exception import argument_exception
 from modules.models.abstract_model import abstract_model
 from modules.models.nomenclature_model import nomenclature_model
@@ -13,7 +13,7 @@ class warehouse_transaction_model(abstract_model):
     __warehouse: warehouse_model = None
     __nomenclature: nomenclature_model = None
     __quantity: int = None
-    __transaction_type: transaction_type = None
+    __transaction_type: enum_transaction_type = None
     __range: range_model = None
     __period: datetime = None
 
@@ -55,8 +55,8 @@ class warehouse_transaction_model(abstract_model):
         return self.__transaction_type
 
     @transaction_type.setter
-    def transaction_type(self, value: transaction_type):
-        argument_exception.isinstance(value, transaction_type)
+    def transaction_type(self, value: enum_transaction_type):
+        argument_exception.isinstance(value, enum_transaction_type)
 
         self.__transaction_type = value
 
@@ -81,3 +81,26 @@ class warehouse_transaction_model(abstract_model):
         argument_exception.isinstance(value, datetime)
 
         self.__period = value
+
+
+    @staticmethod
+    def get_base_warehouse_transaction(
+            name="test_warehouse_transaction",
+            warehouse=warehouse_model.get_base_warehouse(),
+            nomenclature=nomenclature_model(),
+            quantity=1,
+            transaction_type=enum_transaction_type.Income,
+            range=range_model("test_range"),
+            period=datetime.now()
+    ):
+        item_warehouse_transaction = warehouse_transaction_model()
+
+        item_warehouse_transaction.name = name
+        item_warehouse_transaction.warehouse = warehouse
+        item_warehouse_transaction.nomenclature = nomenclature
+        item_warehouse_transaction.quantity = quantity
+        item_warehouse_transaction.transaction_type = transaction_type
+        item_warehouse_transaction.range = range
+        item_warehouse_transaction.period = period
+
+        return item_warehouse_transaction

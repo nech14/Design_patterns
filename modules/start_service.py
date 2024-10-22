@@ -8,6 +8,8 @@ from modules.models.nomenclature_group_model import nomenclature_group_model
 from modules.models.nomenclature_model import nomenclature_model
 from modules.models.range_model import range_model
 from modules.models.receipt.receipt_manager import receipt_manager
+from modules.models.warehouse_model import warehouse_model
+from modules.models.warehouse_transaction_model import warehouse_transaction_model
 from modules.settings.settings_manager import Settings_manager
 from modules.settings.settings_base import Settings
 
@@ -78,6 +80,48 @@ class start_service(abstract_logic):
         self.__reposity.data[data_reposity.receipt_key()] = _list
 
 
+    def __create_warehouse(self):
+        _list = []
+        _list.append(
+            warehouse_model.get_base_warehouse("test_warehouse_1", "test_address_1"),
+
+        )
+        _list.append(
+            warehouse_model.get_base_warehouse("test_warehouse_2", "test_address_2")
+        )
+
+        self.__reposity.data[data_reposity.warehouse_key()] = _list
+
+
+    def __create_warehouse_transaction(self):
+        _list = []
+
+        list_warehouse = self.__reposity.data[data_reposity.warehouse_key()]
+        list_nomenclature = self.__reposity.data[data_reposity.nomenclature_key()]
+
+        _list.append(
+            warehouse_transaction_model.get_base_warehouse_transaction(
+                name="test_warehouse_transaction_1",
+                warehouse=list_warehouse[0],
+                nomenclature=list_nomenclature[0],
+                range=list_nomenclature[0].range
+            )
+        )
+
+        _list.append(
+            warehouse_transaction_model.get_base_warehouse_transaction(
+                name="test_warehouse_transaction_2",
+                warehouse=list_warehouse[1],
+                nomenclature=list_nomenclature[1],
+                range=list_nomenclature[1].range
+            )
+        )
+
+        self.__reposity.data[data_reposity.warehouse_transaction_key()] = _list
+
+
+
+
     """
     Первый старт
     """
@@ -86,6 +130,8 @@ class start_service(abstract_logic):
         self.__create_range()
         self.__create_nomenclature_groups()
         self.__create_receipts()
+        self.__create_warehouse()
+        self.__create_warehouse_transaction()
 
 
 
