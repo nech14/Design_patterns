@@ -1,5 +1,6 @@
 from modules.exceptions.argument_exception import argument_exception
 from modules.models.abstract_model import abstract_model
+from modules.models.nomenclature_group_model import nomenclature_group_model
 from modules.models.nomenclature_model import nomenclature_model
 from modules.models.range_model import range_model
 from modules.models.warehouse_model import warehouse_model
@@ -8,9 +9,9 @@ from modules.models.warehouse_model import warehouse_model
 class warehouse_turnover_model(abstract_model):
 
     __warehouse: warehouse_model = None
-    __turnover: int = 0
     __nomenclature: nomenclature_model = None
     __range: range_model = None
+    __turnover: int = 0
 
 
     @property
@@ -56,3 +57,32 @@ class warehouse_turnover_model(abstract_model):
         argument_exception.isinstance(value, range_model)
 
         self.__range = value
+
+    @staticmethod
+    def create_default(
+            warehouse:warehouse_model=None,
+            nomenclature: nomenclature_model=None,
+            range: range_model = None,
+            turnover: int = 0
+    ):
+        if warehouse is None:
+            warehouse = warehouse_model.get_base_warehouse()
+
+        if range is None:
+            range = range_model.default_range_grams()
+
+        if nomenclature is None:
+            nomenclature = nomenclature_model.create_nomenclature(
+                "nomenclature_test",
+                nomenclature_group_model.default_group_cold(),
+                range
+            )
+
+        item = warehouse_turnover_model()
+
+        item.warehouse = warehouse
+        item.nomenclature = nomenclature
+        item.range = range
+        item.turnover = turnover
+
+        return item
