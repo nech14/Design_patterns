@@ -178,3 +178,56 @@ paths:
         500:
           description: Внутренняя ошибка сервера
 
+
+  /api/warehouse_transaction/{warehouse}/{nomenclature}:
+    post:
+      summary: Get warehouse transaction
+      operationId: main.get_warehouse_transaction
+      produces:
+        - application/text
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+        500:
+          description: Ошибка на сервере
+        default:
+          description: Неизвестная ошибка
+      parameters:
+        - name: warehouse
+          in: path
+          required: true
+          type: string
+        - name: nomenclature
+          in: path
+          required: true
+          type: string
+
+  /api/warehouse_turnover/{warehouse}/{nomenclature}:
+    post:
+      summary: Получение данных об оборотах на складе.
+      description: Создаёт и возвращает информацию о складских оборотах для заданного склада и номенклатуры.
+      operationId: main.get_warehouse_turnover
+      parameters:
+        - name: warehouse
+          in: path
+          required: true
+          type: string
+          description: Идентификатор склада.
+        - name: nomenclature
+          in: path
+          required: true
+          type: string
+          description: Номенклатура для которой нужно получить данные об оборотах.
+      produces:
+        - application/text
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+        500:
+          description: Ошибка на сервере
+        default:
+          description: Неизвестная ошибка

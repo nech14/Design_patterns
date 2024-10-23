@@ -8,6 +8,7 @@ from modules.Dto.filter_objects import filter_objects
 from modules.Dto.filtration_type import filtration_type
 from modules.data_key import data_key
 from modules.data_reposity import data_reposity
+from modules.process_factory import Process_factory
 from modules.prototype.prototype import prototype
 from modules.settings.settings_manager import Settings_manager
 from modules.start_service import start_service
@@ -117,6 +118,31 @@ def filter_data_dict(domain, filter_type):
 
     new_data = p.create(data, filter_manager.filter, filter_manager.filter_property, filtration_type(int(filter_type))).data
     return f"{new_data}"
+
+
+@app.route("/api/warehouse_transaction/<string:warehouse>/<string:nomenclature>", methods=["POST"])
+def get_warehouse_transaction(warehouse, nomenclature):
+
+    data = reposity.data[reposity.warehouse_transaction_key()]
+
+    return f"{data}"
+
+
+
+
+
+@app.route("/api/warehouse_turnover/<string:warehouse>/<string:nomenclature>", methods=["POST"])
+def get_warehouse_turnover(warehouse, nomenclature):
+
+    items_warehouse_transaction = reposity.data[reposity.warehouse_transaction_key()]
+
+    process_factory = Process_factory()
+    process_factory.data = items_warehouse_transaction
+
+    process_factory.create_warehouse_turnovers()
+
+    return f"{process_factory.warehouse_turnovers}"
+
 
 
 
