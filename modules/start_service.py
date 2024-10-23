@@ -1,6 +1,7 @@
 import os
 from copy import copy
 
+from modules.Enums.transaction_type import enum_transaction_type
 from modules.exceptions.abstract_logic import abstract_logic
 from modules.data_reposity import data_reposity
 from modules.exceptions.argument_exception import argument_exception
@@ -104,6 +105,7 @@ class start_service(abstract_logic):
                 name="test_warehouse_transaction_1",
                 warehouse=list_warehouse[0],
                 nomenclature=list_nomenclature[0],
+                quantity=3,
                 range=list_nomenclature[0].range
             )
         )
@@ -114,6 +116,17 @@ class start_service(abstract_logic):
                 warehouse=list_warehouse[1],
                 nomenclature=list_nomenclature[1],
                 range=list_nomenclature[1].range
+            )
+        )
+
+        _list.append(
+            warehouse_transaction_model.get_base_warehouse_transaction(
+                name="test_warehouse_transaction_2",
+                warehouse=list_warehouse[0],
+                nomenclature=list_nomenclature[0],
+                range=list_nomenclature[1].range,
+                quantity=2,
+                transaction_type=enum_transaction_type.Expense
             )
         )
 
