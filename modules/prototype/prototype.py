@@ -84,11 +84,20 @@ class prototype(abstract_prototype):
         if getattr(filter, name_field) == "":
             return source
 
+        name_field_filter = name_field
+        name_field = name_field.split('.')
 
         for item in source:
+            if len(name_field) > 1:
+                attr1 = item
+                for attr in name_field:
+                    attr1 = getattr(attr1, attr)
+            else:
+                attr1 = getattr(item, name_field[0])
+
             if self.__filtration_types[filter_type.value-1](
-                    getattr(item, name_field),
-                    getattr(filter, name_field)
+                    attr1,
+                    getattr(filter, name_field_filter)
             ):
                 result.append(item)
             elif property_one_for_heirs:
@@ -98,7 +107,7 @@ class prototype(abstract_prototype):
                 for index in matching_indices:
                     if self.__filtration_types[filter_type.value-1](
                             self.__get_nested_attribute(item, item_fields[index]),
-                            getattr(filter, name_field)
+                            getattr(filter, name_field_filter)
                     ):
                         result.append(item)
                         break
