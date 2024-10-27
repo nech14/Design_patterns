@@ -1,36 +1,63 @@
-
-from modules.exceptions.abstract_logic import abstract_logic
 from modules.exceptions.argument_exception import argument_exception
+from modules.exceptions.length_exception import length_exception
 from modules.models.nomenclature_model import nomenclature_model
 from modules.models.range_model import range_model
 from modules.models.warehouse_model import warehouse_model
 from modules.models.warehouse_transaction_model import warehouse_transaction_model
 from modules.models.warehouse_turnover_model import warehouse_turnover_model
+from modules.process.models.abstract_process import abstract_process
+
+class create_warehouse_turnovers(abstract_process):
+
+    @staticmethod
+    def start_process(data: list[warehouse_transaction_model]):
+        if data is None:
+            raise argument_exception(argument_name = f"data is None")
+
+        argument_exception.isinstance_list(data, list, warehouse_transaction_model)
+
+        if len(data) == 0:
+            raise length_exception.length_zero("data is empty")
+
+        pre_result = {}
+
+        for i in data:
+            i: warehouse_transaction_model
+
+            if not i.warehouse.unique_code in pre_result.keys():
+                item_dict = create_warehouse_turnovers.__create_item_dict(i.warehouse)
+            else:
+                item_dict = pre_result[i.warehouse.unique_code]
+
+            item_dict = create_warehouse_turnovers.__update_item_dict(item_dict, i)
+
+            pre_result[i.warehouse.unique_code] = item_dict
+
+        result = []
+        for k, v in pre_result.items():
+            v: dict
+            item_warehouse = v['warehouse']
+
+            nomenclature_list: list = v["nomenclature"]
+            range_list: list = v["range"]
+            turnover_list: list = v["turnover"]
+
+            for i in range(len(nomenclature_list)):
+                i: int
+                item_warehouse_turnover = create_warehouse_turnovers.__create_warehouse_turnover(
+                    item_warehouse,
+                    nomenclature_list[i],
+                    range_list[i],
+                    turnover_list[i]
+                )
+
+                result.append(item_warehouse_turnover)
+
+        return result
 
 
-class Process_factory(abstract_logic):
-
-    __data = []
-    __warehouse_turnovers = []
-
-
-    @property
-    def data(self):
-        return self.__data
-
-    @data.setter
-    def data(self, value: list[warehouse_transaction_model]):
-        argument_exception.isinstance_list(value, list, warehouse_transaction_model)
-
-        self.__data = value
-
-    @property
-    def warehouse_turnovers(self):
-        return self.__warehouse_turnovers
-
-
-
-    def __create_item_dict(self, warehouse: warehouse_model):
+    @staticmethod
+    def __create_item_dict(warehouse: warehouse_model):
         argument_exception.isinstance(warehouse, warehouse_model)
 
         item = {}
@@ -42,7 +69,8 @@ class Process_factory(abstract_logic):
         return item
 
 
-    def __update_item_dict(self, item_dict, warehouse_transaction:warehouse_transaction_model):
+    @staticmethod
+    def __update_item_dict(item_dict, warehouse_transaction:warehouse_transaction_model):
         argument_exception.isinstance(warehouse_transaction, warehouse_transaction_model)
 
         nomenclature_list: list = item_dict["nomenclature"]
@@ -82,10 +110,13 @@ class Process_factory(abstract_logic):
         return item_dict
 
 
+    @staticmethod
     def __create_warehouse_turnover(
-            self,
             warehouse:warehouse_model,
-            nomenclature:nomenclature_model, range:range_model, turnover:int=0):
+            nomenclature:nomenclature_model,
+            range:range_model,
+            turnover:int=0
+    ):
 
         item_warehouse_turnover = warehouse_turnover_model()
         item_warehouse_turnover.warehouse = warehouse
@@ -95,50 +126,3 @@ class Process_factory(abstract_logic):
 
         return item_warehouse_turnover
 
-
-    def create_warehouse_turnovers(self, data: list[warehouse_transaction_model]=None):
-        if data is None:
-            data = self.__data
-        argument_exception.isinstance_list(data, list, warehouse_transaction_model)
-
-        pre_result = {}
-
-        for i  in data :
-            i: warehouse_transaction_model
-
-            if not i.warehouse.unique_code in pre_result.keys():
-                item_dict = self.__create_item_dict(i.warehouse)
-            else:
-                item_dict = pre_result[i.warehouse.unique_code]
-
-            item_dict = self.__update_item_dict(item_dict, i)
-
-            pre_result[i.warehouse.unique_code] = item_dict
-
-
-        result = []
-        for k, v in pre_result.items():
-            v: dict
-            item_warehouse = v['warehouse']
-
-            nomenclature_list: list = v["nomenclature"]
-            range_list: list = v["range"]
-            turnover_list: list = v["turnover"]
-
-            for i in range(len(nomenclature_list)):
-                i:int
-                item_warehouse_turnover = self.__create_warehouse_turnover(
-                    item_warehouse,
-                    nomenclature_list[i],
-                    range_list[i],
-                    turnover_list[i]
-                )
-
-                result.append(item_warehouse_turnover)
-
-
-        self.__warehouse_turnovers = result
-        return result
-
-    def set_exception(self, ex: Exception):
-        self._inner_set_exception(ex)
