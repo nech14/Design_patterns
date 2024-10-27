@@ -179,10 +179,12 @@ paths:
           description: Внутренняя ошибка сервера
 
 
-  /api/warehouse_transaction/{warehouse}/{nomenclature}:
+  /api/warehouse_transaction/{filter_type}:
     post:
       summary: Get warehouse transaction
       operationId: main.get_warehouse_transaction
+      consumes:
+        - application/json
       produces:
         - application/text
       responses:
@@ -195,31 +197,49 @@ paths:
         default:
           description: Неизвестная ошибка
       parameters:
-        - name: warehouse
-          in: path
+        - name: "body"
+          in: "body"
+          description: "JSON объект с двумя полями: object1 и object2"
           required: true
-          type: string
-        - name: nomenclature
-          in: path
-          required: true
-          type: string
+          schema:
+            type: "object"
+            required:
+              - warehouse
+              - nomenclature
+            properties:
+              warehouse:
+                type: "object"
+                description: "Первый объект для обработки"
+                example: {  }
+              nomenclature:
+                type: "object"
+                description: "Второй объект для обработки"
+                example: {  }
 
-  /api/warehouse_turnover/{warehouse}/{nomenclature}:
+  /api/warehouse_turnover/{filter_type}:
     post:
       summary: Получение данных об оборотах на складе.
       description: Создаёт и возвращает информацию о складских оборотах для заданного склада и номенклатуры.
       operationId: main.get_warehouse_turnover
       parameters:
-        - name: warehouse
-          in: path
+        - name: "body"
+          in: "body"
+          description: "JSON объект с двумя полями: object1 и object2"
           required: true
-          type: string
-          description: Идентификатор склада.
-        - name: nomenclature
-          in: path
-          required: true
-          type: string
-          description: Номенклатура для которой нужно получить данные об оборотах.
+          schema:
+            type: "object"
+            required:
+              - warehouse
+              - nomenclature
+            properties:
+              warehouse:
+                type: "object"
+                description: "Первый объект для обработки"
+                example: { }
+              nomenclature:
+                type: "object"
+                description: "Второй объект для обработки"
+                example: { }
       produces:
         - application/text
       responses:
