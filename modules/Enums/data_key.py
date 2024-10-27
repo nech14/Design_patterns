@@ -7,5 +7,4 @@ class data_key(Enum):
     range_model = "range",
     receipt_model = "receipt",
     warehouse_model = "warehouse",
-    warehouse_transaction_model = "warehouse_transaction",
-    warehouse_turnover_model = "warehouse_turnover"
+    warehouse_transaction_model = "warehouse_transaction"
