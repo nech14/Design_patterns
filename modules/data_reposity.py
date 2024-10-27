@@ -1,4 +1,4 @@
-from modules.data_key import data_key
+from modules.Enums.data_key import data_key
 from modules.exceptions.abstract_logic import abstract_logic
 
 
@@ -45,10 +45,6 @@ class data_reposity(abstract_logic):
     def warehouse_transaction_key() -> str:
         return data_key.warehouse_transaction_model.value
 
-
-    @staticmethod
-    def warehouse_turnover_key() -> str:
-        return data_key.warehouse_turnover_model.value
 
     """
     Ключ для хранения групп номенклатуры
