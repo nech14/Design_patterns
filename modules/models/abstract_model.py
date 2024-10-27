@@ -126,3 +126,7 @@ class abstract_model(ABC):
     def __repr__(self):
         return self.__str__()
 
+
+
+    def get_properties(self):
+        return [attr for attr in dir(self.__class__) if isinstance(getattr(self.__class__, attr), property)]
