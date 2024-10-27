@@ -20,9 +20,12 @@ class warehouse_model(abstract_model):
     @staticmethod
     def get_base_warehouse(
             name="test_warehouse",
-            address="test_address"
+            address="test_address",
+            unique_code=None
     ):
         item_warehouse = warehouse_model()
         item_warehouse.name = name
         item_warehouse.address = address
+        if not unique_code is None:
+            item_warehouse.unique_code = unique_code
         return item_warehouse
