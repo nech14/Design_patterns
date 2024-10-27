@@ -7,6 +7,6 @@ class length_exception(argument_exception):
         super().__init__(message=self.message, argument_name=argument_name)
 
     @staticmethod
-    def length_zero():
-        super().__init__(message="The argument is empty", argument_name="")
+    def length_zero(argument_name=""):
+        super().__init__(message="The argument is empty", argument_name=argument_name)
 
