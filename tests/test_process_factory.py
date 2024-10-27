@@ -2,7 +2,8 @@ import unittest
 
 from modules.data_reposity import data_reposity
 from modules.models.warehouse_turnover_model import warehouse_turnover_model
-from modules.process_factory import Process_factory
+from modules.process.list_processes import list_processes
+from modules.process.process_factory import Process_factory
 from modules.settings.settings_manager import Settings_manager
 from modules.start_service import start_service
 
@@ -22,11 +23,8 @@ class Test_process_factory(unittest.TestCase):
         item_process_factory = Process_factory()
 
         data = self.reposity.data[self.reposity.warehouse_transaction_key()]
-        item_process_factory.data = data
 
-        item_process_factory.create_warehouse_turnovers()
-
-        result = item_process_factory.warehouse_turnovers
+        result = item_process_factory.start_process(data, list_processes.create_warehouse_turnovers.name)
         result:list[warehouse_turnover_model]
 
         #test the creation of a normal quantity
