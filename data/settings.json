@@ -1,8 +1,9 @@
 {
-    "organization_name" : "Рога и копыта",
-    "inn": "380930934981",
-    "correspondent_account": "12345678910",
-    "BIC": "",
-    "type_of_property": "",
-    "score": ""
+  "organization_name": "\u0420\u043e\u0433\u0430 \u0438 \u043a\u043e\u043f\u044b\u0442\u04301",
+  "inn": "138093093498",
+  "correspondent_account": "12345678910",
+  "BIC": "123456789",
+  "type_of_property": "12345",
+  "score": "12345678910",
+  "block_period": "2024-01-01"
 }
