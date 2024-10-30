@@ -6,6 +6,8 @@ from modules.models.warehouse_model import warehouse_model
 from modules.models.warehouse_transaction_model import warehouse_transaction_model
 from modules.models.warehouse_turnover_model import warehouse_turnover_model
 from modules.process.models.abstract_process import abstract_process
+from modules.process.modified_list import modified_list
+
 
 class create_warehouse_turnovers(abstract_process):
 
