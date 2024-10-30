@@ -34,7 +34,7 @@ class Creator_manager(abstract_logic):
                 'base_unit_measurement': None
             }
         else:
-            argument_exception.isinstance(object_dict, dict)
+            argument_exception.isinstance(object_dict, dict|list)
 
         self.__creator = creator()
 
