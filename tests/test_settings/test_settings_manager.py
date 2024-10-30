@@ -14,25 +14,27 @@ class MyTestCase(unittest.TestCase):
     message = "test"
 
     def test_open(self):
-        s = Settings_manager()
-        result = s.open(self.file_name, file_path=self.file_path, text_encoding='utf-8')
+        settings_manager = Settings_manager()
+        result = settings_manager.open(self.file_name, file_path=self.file_path, text_encoding='utf-8')
         self.assertEqual(result, True)  # add assertion here
-        result = s.open(self.file_name, file_path=" fdg sdf", text_encoding='utf-8')
+        result = settings_manager.open(self.file_name, file_path=" fdg sdf", text_encoding='utf-8')
         self.assertEqual(result, False)  # add assertion here
-        result = s.open(self.file_name, text_encoding='utf-8')
+        result = settings_manager.open(self.file_name, text_encoding='utf-8')
         self.assertEqual(result, True)  # add assertion here
         with self.assertRaises(argument_exception):
-            s.open(file_name=1231, file_path=self.file_path)
+            settings_manager.open(file_name=1231, file_path=self.file_path)
         with self.assertRaises(argument_exception):
-            s.open(file_name=self.file_name, file_path=213)
+            settings_manager.open(file_name=self.file_name, file_path=213)
         with self.assertRaises(argument_exception):
-            s.open(file_name=self.file_name, file_path=self.file_path, text_encoding=321)
+            settings_manager.open(file_name=self.file_name, file_path=self.file_path, text_encoding=321)
 
-        self.assertEqual(isinstance(s.settings, Settings), True)
-        s.set_exception(ex=self.ex)
-        self.assertEqual(s.error_text, f"Ошибка! Исключение {self.ex}".strip())
+        self.assertEqual(isinstance(settings_manager.settings, Settings), True)
+        settings_manager.set_exception(ex=self.ex)
+        self.assertEqual(settings_manager.error_text, f"Ошибка! Исключение {self.ex}".strip())
 
-        s.error_text = self.message
-        self.assertEqual(s.is_error, True)
+        settings_manager.error_text = self.message
+        self.assertEqual(settings_manager.is_error, True)
+
+
 
 
