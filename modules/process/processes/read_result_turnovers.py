@@ -4,7 +4,7 @@ from pathlib import Path
 
 from modules.creator_manager import Creator_manager
 from modules.exceptions.argument_exception import argument_exception
-from modules.process.models.abstract_process import abstract_process
+from modules.process.processes.abstract_process import abstract_process
 from modules.process.modified_list import modified_list
 
 
