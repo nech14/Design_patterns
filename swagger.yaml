@@ -186,7 +186,7 @@ paths:
       consumes:
         - application/json
       produces:
-        - application/text
+        - application/json
       responses:
         200:
           description: OK
@@ -197,6 +197,11 @@ paths:
         default:
           description: Неизвестная ошибка
       parameters:
+        - name: "filter_type"
+          in: "path"
+          description: "Тип фильтрации"
+          required: true
+          type: "string"
         - name: "body"
           in: "body"
           description: "JSON объект с двумя полями: object1 и object2"
@@ -216,12 +221,23 @@ paths:
                 description: "Второй объект для обработки"
                 example: {  }
 
-  /api/warehouse_turnover/{filter_type}:
+  /api/warehouse_turnover/{filter_type}/{date}:
     post:
       summary: Получение данных об оборотах на складе.
       description: Создаёт и возвращает информацию о складских оборотах для заданного склада и номенклатуры.
       operationId: main.get_warehouse_turnover
       parameters:
+        - name: "filter_type"
+          in: "path"
+          description: "Тип фильтрации"
+          required: true
+          type: "string"
+        - name: "date"
+          in: "path"
+          description: "Дата в формате YYYY-MM-DD"
+          required: true
+          type: "string"
+          format: "date"
         - name: "body"
           in: "body"
           description: "JSON объект с двумя полями: object1 и object2"
@@ -240,8 +256,70 @@ paths:
                 type: "object"
                 description: "Второй объект для обработки"
                 example: { }
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+        500:
+          description: Ошибка на сервере
+        default:
+          description: Неизвестная ошибка
+
+
+  /api/block_period:
+    get:
+      summary: Получить список рецептов
+      operationId: main.get_block_period
       produces:
         - application/text
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+        500:
+          description: Ошибка на сервере
+        default:
+          description: Неизвестная ошибка
+
+
+
+  /api/block_period/{block_period}:
+    post:
+      summary: Обновить период блокировки
+      description: Обновляет значение block_period.
+      operationId: main.update_block_period
+      parameters:
+        - name: block_period
+          in: path
+          required: true
+          type: string
+          description: Период блокировки, который нужно установить.
+      produces:
+        - application/text
+      responses:
+        '200':
+          description: Успешное обновление периода блокировки
+          schema:
+            type: string
+            example: "True"
+        '400':
+          description: Ошибка при обновлении периода блокировки
+          schema:
+            type: string
+            example: "Exception: <описание ошибки>"
+
+
+  /api/block_period/save:
+    get:
+      operationId: main.save_block_period
+      produces:
+        - application/json
       responses:
         200:
           description: OK

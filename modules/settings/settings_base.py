@@ -1,7 +1,10 @@
 """
 Настройки
 """
+from datetime import datetime
+
 from modules.exceptions.argument_exception import argument_exception
+from modules.exceptions.base_exception import base_exeption
 from modules.exceptions.length_exception import length_exception
 
 
@@ -12,6 +15,7 @@ class Settings:
     __BIC = ""
     __type_of_property = ""
     __score = ""
+    __block_period: datetime
 
     __inn_size = 12
     __score_size = 11
@@ -124,3 +128,20 @@ class Settings:
             raise length_exception(max_len=self.__score_size, argument_name="score")
 
         self.__score = value
+
+    @property
+    def block_period(self) -> datetime:
+        return self.__block_period
+
+    @block_period.setter
+    def block_period(self, value: datetime):
+        if isinstance(value, str):
+            try:
+                self.__block_period = datetime.strptime(value, "%Y-%m-%d")
+            except Exception as e:
+                raise argument_exception(message=f"{e}")
+        else:
+            argument_exception.isinstance(value, datetime)
+
+            self.__block_period = value
+

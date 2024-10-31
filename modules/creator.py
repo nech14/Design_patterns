@@ -7,6 +7,9 @@ from modules.models.nomenclature_group_model import nomenclature_group_model
 from modules.models.ingredient_model import ingredient_model
 from modules.models.nomenclature_model import nomenclature_model
 from modules.models.receipt.receipt_model import receipt_model
+from modules.models.warehouse_turnover_model import warehouse_turnover_model
+from modules.models.warehouse_transaction_model import warehouse_transaction_model
+from modules.models.warehouse_model import warehouse_model
 
 
 class creator(abstract_logic):

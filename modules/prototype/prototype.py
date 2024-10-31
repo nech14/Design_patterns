@@ -23,7 +23,7 @@ class prototype(abstract_prototype):
 
     @staticmethod
     def filter_INTERVAL(value1, value2):
-        return value2[0] <= value1 <= value2[1]
+        return value2[0].date() <= value1.date() <= value2[1].date()
 
     __filtration_types = [filter_EQUALS, filter_LIKE, filter_INTERVAL]
 

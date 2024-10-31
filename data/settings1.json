@@ -4,5 +4,6 @@
     "correspondent_account": "12345678910",
     "BIC": "123456789",
     "type_of_property": "12345",
-    "score": "12345678910"
+    "score": "12345678910",
+    "block_period": "2024-01-01"
 }

@@ -1,0 +1,362 @@
+[
+    {
+        "__class__": "warehouse_turnover_model",
+        "name": "",
+        "unique_code": "2aea2963-95d3-4266-874c-48d883089fd9",
+        "warehouse": {
+            "__class__": "warehouse_model",
+            "name": "test_warehouse",
+            "unique_code": "aa8c207a-591a-4bc1-8b77-6d2fbfaa1ccf",
+            "address": "test_address"
+        },
+        "nomenclature": {
+            "__class__": "nomenclature_model",
+            "name": "nomenclature_test",
+            "unique_code": "c5fbcd73-83ac-4b57-adbb-a8049663d874",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0417\u0430\u043c\u043e\u0440\u043e\u0437\u043a\u0430",
+                "unique_code": "be7e66fd-4032-49c9-8368-3cd181757815"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        "range": {
+            "__class__": "range_model",
+            "name": "\u0433\u0440",
+            "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+            "conversion_factor": 1,
+            "base_unit_measurement": null
+        },
+        "turnover": 0
+    },
+    {
+        "__class__": "warehouse_turnover_model",
+        "name": "",
+        "unique_code": "88370600-a1d0-46df-95be-cf164b5e6c7d",
+        "warehouse": {
+            "__class__": "warehouse_model",
+            "name": "test_warehouse",
+            "unique_code": "9590328e-8057-4163-85e2-cda233a266b5",
+            "address": "test_address"
+        },
+        "nomenclature": {
+            "__class__": "nomenclature_model",
+            "name": "nomenclature_test",
+            "unique_code": "b68c6e20-123f-4577-988c-29c9336f3a35",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0417\u0430\u043c\u043e\u0440\u043e\u0437\u043a\u0430",
+                "unique_code": "be7e66fd-4032-49c9-8368-3cd181757815"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        "range": {
+            "__class__": "range_model",
+            "name": "\u0433\u0440",
+            "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+            "conversion_factor": 1,
+            "base_unit_measurement": null
+        },
+        "turnover": 0
+    },
+    {
+        "__class__": "warehouse_turnover_model",
+        "name": "",
+        "unique_code": "bf73d18f-7e87-420f-8957-efb0a41e5b1b",
+        "warehouse": {
+            "__class__": "warehouse_model",
+            "name": "test_warehouse",
+            "unique_code": "ac20d806-e6f9-4145-9a8d-b62e5cd603a3",
+            "address": "test_address"
+        },
+        "nomenclature": {
+            "__class__": "nomenclature_model",
+            "name": "nomenclature_test",
+            "unique_code": "36229018-7c73-4dc2-9a42-cb0299698b6e",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0417\u0430\u043c\u043e\u0440\u043e\u0437\u043a\u0430",
+                "unique_code": "be7e66fd-4032-49c9-8368-3cd181757815"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        "range": {
+            "__class__": "range_model",
+            "name": "\u0433\u0440",
+            "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+            "conversion_factor": 1,
+            "base_unit_measurement": null
+        },
+        "turnover": 0
+    },
+    {
+        "__class__": "warehouse_turnover_model",
+        "name": "",
+        "unique_code": "c16c0fd5-7ef4-4e0d-96d5-3f0671fb77d6",
+        "warehouse": {
+            "__class__": "warehouse_model",
+            "name": "test_warehouse",
+            "unique_code": "f1aa73dc-e81f-4b0e-a683-263082d68bab",
+            "address": "test_address"
+        },
+        "nomenclature": {
+            "__class__": "nomenclature_model",
+            "name": "nomenclature_test",
+            "unique_code": "fe1baa21-09c4-47e0-ae4b-0f8ddcabaa26",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0417\u0430\u043c\u043e\u0440\u043e\u0437\u043a\u0430",
+                "unique_code": "be7e66fd-4032-49c9-8368-3cd181757815"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        "range": {
+            "__class__": "range_model",
+            "name": "\u0433\u0440",
+            "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+            "conversion_factor": 1,
+            "base_unit_measurement": null
+        },
+        "turnover": 0
+    },
+    {
+        "__class__": "warehouse_turnover_model",
+        "name": "",
+        "unique_code": "3ff2cd2d-cc82-495d-bc25-3762ca2e0243",
+        "warehouse": {
+            "__class__": "warehouse_model",
+            "name": "test_warehouse",
+            "unique_code": "eace4f39-82b4-4669-a134-6d94ddd69623",
+            "address": "test_address"
+        },
+        "nomenclature": {
+            "__class__": "nomenclature_model",
+            "name": "nomenclature_test",
+            "unique_code": "89b03b67-2021-4bb6-b87a-2039201a056e",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0417\u0430\u043c\u043e\u0440\u043e\u0437\u043a\u0430",
+                "unique_code": "be7e66fd-4032-49c9-8368-3cd181757815"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        "range": {
+            "__class__": "range_model",
+            "name": "\u0433\u0440",
+            "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+            "conversion_factor": 1,
+            "base_unit_measurement": null
+        },
+        "turnover": 0
+    },
+    {
+        "__class__": "warehouse_turnover_model",
+        "name": "",
+        "unique_code": "247abc89-fc4e-4f72-90a7-6239440e5eaf",
+        "warehouse": {
+            "__class__": "warehouse_model",
+            "name": "test_warehouse",
+            "unique_code": "82c6db9b-a889-40e8-ae58-8965fbee7d16",
+            "address": "test_address"
+        },
+        "nomenclature": {
+            "__class__": "nomenclature_model",
+            "name": "nomenclature_test",
+            "unique_code": "1f0649c6-a2eb-4962-b4f1-7b2ca801fa5c",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0417\u0430\u043c\u043e\u0440\u043e\u0437\u043a\u0430",
+                "unique_code": "be7e66fd-4032-49c9-8368-3cd181757815"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        "range": {
+            "__class__": "range_model",
+            "name": "\u0433\u0440",
+            "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+            "conversion_factor": 1,
+            "base_unit_measurement": null
+        },
+        "turnover": 0
+    },
+    {
+        "__class__": "warehouse_turnover_model",
+        "name": "",
+        "unique_code": "e152c662-9e60-41fe-87d8-2970c11db09b",
+        "warehouse": {
+            "__class__": "warehouse_model",
+            "name": "test_warehouse",
+            "unique_code": "da870852-a884-42f2-87c1-41accab00f1c",
+            "address": "test_address"
+        },
+        "nomenclature": {
+            "__class__": "nomenclature_model",
+            "name": "nomenclature_test",
+            "unique_code": "dafde7f1-7aaa-471a-bb69-99fbb7d2ecc0",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0417\u0430\u043c\u043e\u0440\u043e\u0437\u043a\u0430",
+                "unique_code": "be7e66fd-4032-49c9-8368-3cd181757815"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        "range": {
+            "__class__": "range_model",
+            "name": "\u0433\u0440",
+            "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+            "conversion_factor": 1,
+            "base_unit_measurement": null
+        },
+        "turnover": 0
+    },
+    {
+        "__class__": "warehouse_turnover_model",
+        "name": "",
+        "unique_code": "95732b95-ca26-417b-a24b-83abdc42d431",
+        "warehouse": {
+            "__class__": "warehouse_model",
+            "name": "test_warehouse",
+            "unique_code": "e2393af6-6754-490d-a028-f57aab9a6097",
+            "address": "test_address"
+        },
+        "nomenclature": {
+            "__class__": "nomenclature_model",
+            "name": "nomenclature_test",
+            "unique_code": "c6ade4a4-20a7-4302-ad88-b018c357c08d",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0417\u0430\u043c\u043e\u0440\u043e\u0437\u043a\u0430",
+                "unique_code": "be7e66fd-4032-49c9-8368-3cd181757815"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        "range": {
+            "__class__": "range_model",
+            "name": "\u0433\u0440",
+            "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+            "conversion_factor": 1,
+            "base_unit_measurement": null
+        },
+        "turnover": 0
+    },
+    {
+        "__class__": "warehouse_turnover_model",
+        "name": "",
+        "unique_code": "4787e9ac-7075-445b-b939-25dbc58eb34a",
+        "warehouse": {
+            "__class__": "warehouse_model",
+            "name": "test_warehouse",
+            "unique_code": "5ad1280d-e6b1-4a10-9d67-a39600ef2d16",
+            "address": "test_address"
+        },
+        "nomenclature": {
+            "__class__": "nomenclature_model",
+            "name": "nomenclature_test",
+            "unique_code": "c2364e6d-aa01-4cf9-82fc-b0c9cbef9560",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0417\u0430\u043c\u043e\u0440\u043e\u0437\u043a\u0430",
+                "unique_code": "be7e66fd-4032-49c9-8368-3cd181757815"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        "range": {
+            "__class__": "range_model",
+            "name": "\u0433\u0440",
+            "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+            "conversion_factor": 1,
+            "base_unit_measurement": null
+        },
+        "turnover": 0
+    },
+    {
+        "__class__": "warehouse_turnover_model",
+        "name": "",
+        "unique_code": "a487fb1b-d585-4ec7-83ad-39ad1786e854",
+        "warehouse": {
+            "__class__": "warehouse_model",
+            "name": "test_warehouse",
+            "unique_code": "c2838c22-4842-40b6-8ceb-182c6b68f3a8",
+            "address": "test_address"
+        },
+        "nomenclature": {
+            "__class__": "nomenclature_model",
+            "name": "nomenclature_test",
+            "unique_code": "270f1462-0729-4883-93dc-94df6754d21a",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0417\u0430\u043c\u043e\u0440\u043e\u0437\u043a\u0430",
+                "unique_code": "be7e66fd-4032-49c9-8368-3cd181757815"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        "range": {
+            "__class__": "range_model",
+            "name": "\u0433\u0440",
+            "unique_code": "9d335848-3951-4452-b0f3-d0189ae97e38",
+            "conversion_factor": 1,
+            "base_unit_measurement": null
+        },
+        "turnover": 0
+    }
+]

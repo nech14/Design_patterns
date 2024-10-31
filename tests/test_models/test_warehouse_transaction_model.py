@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime
 
-from modules.Enums.transaction_type import transaction_type
+from modules.Enums.transaction_type import enum_transaction_type
 from modules.exceptions.argument_exception import argument_exception
 from modules.models.nomenclature_model import nomenclature_model
 from modules.models.range_model import range_model
@@ -12,10 +12,12 @@ from modules.models.warehouse_transaction_model import warehouse_transaction_mod
 class Test_warehouse_transaction_model(unittest.TestCase):
 
     def test_create(self):
-        #preparation
         item_warehouse_transaction_model = warehouse_transaction_model()
 
-        #test warehouse
+
+    def test_warehouse(self):
+        item_warehouse_transaction_model = warehouse_transaction_model()
+
         item_warehouse = warehouse_model()
         item_warehouse_transaction_model.warehouse = item_warehouse
         self.assertEqual(
@@ -30,7 +32,9 @@ class Test_warehouse_transaction_model(unittest.TestCase):
                 item_warehouse_transaction_model.warehouse = i
 
 
-        #test nomenclature
+    def test_nomenclature(self):
+        item_warehouse_transaction_model = warehouse_transaction_model()
+
         item_nomenclature = nomenclature_model()
         item_warehouse_transaction_model.nomenclature = item_nomenclature
         self.assertEqual(
@@ -45,7 +49,9 @@ class Test_warehouse_transaction_model(unittest.TestCase):
                 item_warehouse_transaction_model.nomenclature = i
 
 
-        #test quantity
+    def test_quantity(self):
+        item_warehouse_transaction_model = warehouse_transaction_model()
+
         item_quantity = 10
         item_warehouse_transaction_model.quantity = item_quantity
         self.assertEqual(
@@ -60,8 +66,10 @@ class Test_warehouse_transaction_model(unittest.TestCase):
                 item_warehouse_transaction_model.quantity = i
 
 
-        #test transaction_type
-        item_transaction_type = transaction_type.Income
+    def test_transaction_type(self):
+        item_warehouse_transaction_model = warehouse_transaction_model()
+
+        item_transaction_type = enum_transaction_type.Income
         item_warehouse_transaction_model.transaction_type = item_transaction_type
         self.assertEqual(
             item_warehouse_transaction_model.transaction_type,
@@ -75,7 +83,9 @@ class Test_warehouse_transaction_model(unittest.TestCase):
                 item_warehouse_transaction_model.transaction_type = i
 
 
-        #test range
+    def test_range(self):
+        item_warehouse_transaction_model = warehouse_transaction_model()
+
         item_range = range_model("test_range")
         item_warehouse_transaction_model.range = item_range
         self.assertEqual(
@@ -90,7 +100,9 @@ class Test_warehouse_transaction_model(unittest.TestCase):
                 item_warehouse_transaction_model.range = i
 
 
-        #test period
+    def test_period(self):
+        item_warehouse_transaction_model = warehouse_transaction_model()
+
         item_period = datetime.now()
         item_warehouse_transaction_model.period = item_period
         self.assertEqual(

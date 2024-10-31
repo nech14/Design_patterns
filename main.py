@@ -1,4 +1,6 @@
 import json
+from datetime import datetime
+from types import new_class
 
 import connexion
 import jsonpickle
@@ -13,6 +15,7 @@ from modules.exceptions.argument_exception import argument_exception
 from modules.models.nomenclature_model import nomenclature_model
 from modules.models.warehouse_model import warehouse_model
 from modules.process.list_processes import list_processes
+from modules.process.modified_list import modified_list
 from modules.process.process_factory import Process_factory
 from modules.prototype.prototype import prototype
 from modules.settings.settings_manager import Settings_manager
@@ -23,7 +26,7 @@ from modules.reports.report_manager import Report_manager
 app = connexion.FlaskApp(__name__)
 
 manager = Settings_manager()
-manager.open("settings.json")
+manager.open("settings.json", "data")
 manager.open_report_settings("reports.json")
 reposity = data_reposity()
 start = start_service(reposity, manager)
@@ -125,8 +128,62 @@ def filter_data_dict(domain, filter_type):
     return f"{new_data}"
 
 
+
+@app.route("/api/warehouse_turnover/<string:filter_type>/<string:date>", methods=["POST"])
+def get_warehouse_turnover(filter_type, date):
+    filter_types_names = [member.name for member in filtration_type]
+    if not filter_type in filter_types_names:
+        return f"such a filter({filter_type}) is not implemented", 400
+
+    try:
+        date = datetime.strptime(date, "%Y-%m-%d")
+    except Exception as e:
+        return f"{e}", 400
+
+
+    data_filer = request.get_json()
+
+    filter_dict = {}
+
+    if data_filer["warehouse"] != {}:
+        filter_warehouse: warehouse_model = jsonpickle.decode(json.dumps(data_filer["warehouse"]))
+        filter_dict["warehouse.address"] = filter_warehouse.address
+        filter_dict["warehouse.name"] = filter_warehouse.name
+    if data_filer["nomenclature"] != {}:
+        filter_nomenclature: nomenclature_model = jsonpickle.decode(json.dumps(data_filer["nomenclature"]))
+        filter_dict["nomenclature.name"] = filter_nomenclature.name
+        filter_dict["nomenclature.group.name"] = filter_nomenclature.group.name
+        filter_dict["nomenclature.range.name"] = filter_nomenclature.range.name
+
+    process_factory = Process_factory()
+    prototype_obj = prototype()
+    filter_manager = Filter_manager()
+
+    items_warehouse_transaction = reposity.data[reposity.warehouse_transaction_key()]
+    items_warehouse_transaction = modified_list(items_warehouse_transaction)
+    items_warehouse_transaction.block_period = manager.settings.block_period
+    items_warehouse_transaction.date = date
+
+    new_data = process_factory.start_process(
+        data=items_warehouse_transaction,
+        process=list_processes.create_warehouse_turnovers_date.name
+    )
+
+    filter_manager.update_filter_from_dict(filter_dict)
+
+    filtered_data = prototype_obj.create(
+        new_data,
+        filter_manager.filter,
+        filter_manager.filter_property,
+        filtration_type[filter_type]
+    ).data
+
+    return f"{filtered_data}"
+
+
 @app.route("/api/warehouse_transaction/<string:filter_type>", methods=["POST"])
 def get_warehouse_transaction(filter_type):
+
     filter_types_names = [member.name for member in filtration_type]
     if not filter_type in filter_types_names:
         return f"such a filter({filter_type}) is not implemented", 400
@@ -153,62 +210,55 @@ def get_warehouse_transaction(filter_type):
     filter_manager = Filter_manager()
     filter_manager.update_filter_from_dict(filter_dict)
 
-    new_data = prototype_obj.create(
+    filtered_data = prototype_obj.create(
         data,
         filter_manager.filter,
         filter_manager.filter_property,
         filtration_type[filter_type]
     ).data
 
-    return f"{new_data}"
+    return f"{filtered_data}"
 
 
 
+@app.route("/api/block_period", methods=["GET"])
+def get_block_period():
+    return f"{manager.settings.block_period.date()}"
 
 
-@app.route("/api/warehouse_turnover/<string:filter_type>", methods=["POST"])
-def get_warehouse_turnover(filter_type):
-    filter_types_names = [member.name for member in filtration_type]
-    if not filter_type in filter_types_names:
-        return f"such a filter({filter_type}) is not implemented", 400
 
-    data_filer = request.get_json()
+@app.route("/api/block_period/save", methods=["GET"])
+def save_block_period():
 
-    filter_dict = {}
+    manager.save_block_period("data/settings.json")
+    try:
+        return True, 200
+    except:
+        return False, 500
 
-    if data_filer["warehouse"] != {}:
-        filter_warehouse: warehouse_model = jsonpickle.decode(json.dumps(data_filer["warehouse"]))
-        filter_dict["warehouse.address"] = filter_warehouse.address
-        filter_dict["warehouse.name"] = filter_warehouse.name
-    if data_filer["nomenclature"] != {}:
-        filter_nomenclature: nomenclature_model = jsonpickle.decode(json.dumps(data_filer["nomenclature"]))
-        filter_dict["nomenclature.name"] = filter_nomenclature.name
-        filter_dict["nomenclature.group.name"] = filter_nomenclature.group.name
-        filter_dict["nomenclature.range.name"] = filter_nomenclature.range.name
 
-    items_warehouse_transaction = reposity.data[reposity.warehouse_transaction_key()]
+@app.route("/api/block_period/<string:block_period>", methods=["POST"])
+def update_block_period(block_period):
+    try:
+        last_block_period = manager.settings.block_period
+        manager.settings.block_period = block_period
 
-    process_factory = Process_factory()
+        process_factory = Process_factory()
 
-    result = process_factory.start_process(
-        items_warehouse_transaction,
-        list_processes.create_warehouse_turnovers.name
-    )
+        items_warehouse_transaction = reposity.data[reposity.warehouse_transaction_key()]
+        items_warehouse_transaction = modified_list(items_warehouse_transaction)
+        items_warehouse_transaction.block_period = last_block_period
+        items_warehouse_transaction.date = manager.settings.block_period
 
-    prototype_obj = prototype()
 
-    filter_manager = Filter_manager()
-    filter_manager.update_filter_from_dict(filter_dict)
+        status = process_factory.start_process(
+            items_warehouse_transaction,
+            list_processes.update_warehouse_turnovers_block_period.name
+        )
 
-    new_data = prototype_obj.create(
-        result,
-        filter_manager.filter,
-        filter_manager.filter_property,
-        filtration_type[filter_type]
-    ).data
-
-    return f"{new_data}"
-
+        return f"{status}", 200
+    except Exception as e:
+        return f"Exception: {e}", 400
 
 
 

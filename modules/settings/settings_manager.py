@@ -1,3 +1,4 @@
+from datetime import datetime
 from enum import Enum
 
 from modules.exceptions.argument_exception import argument_exception
@@ -13,6 +14,7 @@ import json
 
 class Settings_manager(abstract_logic):
     __file_name = "settings.json"
+    __file_path = f"data/{__file_name}"
     __settings: Settings = None
     __text_encoding: str = 'utf-8'
     __report_settings = {}
@@ -30,6 +32,20 @@ class Settings_manager(abstract_logic):
             self.__default_report_settings()
 
 
+    def save_block_period(self, file_path: str = ""):
+        argument_exception.isinstance(file_path, str)
+        if file_path == "":
+            file_path = self.__file_path
+
+        with open(file_path, 'r', encoding=self.__text_encoding) as f:
+            data = json.load(f)
+            data["block_period"] = self.settings.block_period.strftime("%Y-%m-%d")
+
+
+        with open(file_path, 'w') as f:
+            json.dump(data, f, indent=2)
+
+
     """
     Открыть и загрузить настройки
     """
@@ -37,41 +53,46 @@ class Settings_manager(abstract_logic):
     def open(self, file_name: str = "", file_path: str = "", text_encoding: str = ""):
         if not isinstance(file_name, str) or not isinstance(file_path, str):
             raise argument_exception()
-            # raise TypeError("Некорректно переданы параметры!")
 
         if not isinstance(text_encoding, str):
             raise argument_exception()
-            # raise TypeError("Некорректно переданы параметры!")
 
         if file_name != "":
             self.__file_name = file_name
+
 
         if text_encoding != "":
             self.__text_encoding = text_encoding
 
         try:
             if file_path != "":
-                full_name = f"{file_path}{os.sep}{self.__file_name}"
+                self.file_path =f"{file_path}{os.sep}{self.__file_name}"
+                full_name = self.file_path
             else:
-                full_name = f".{os.sep}{os.curdir}{os.sep}data{os.sep}{self.__file_name}"
+                self.file_path = f"..{os.sep}..{os.sep}data{os.sep}{self.__file_name}"
+                full_name = self.file_path
 
-            stream = open(full_name, encoding=self.__text_encoding)
-            data = json.load(stream)
 
-            # Список полей от типа назначения
-            fields = list(filter(lambda x: not x.startswith("_"), dir(self.__settings.__class__)))
 
-            # Заполняем свойства
-            for field in fields:
-                keys = list(filter(lambda x: x == field, data.keys()))
-                if len(keys) != 0:
-                    value = data[field]
-                    # Если обычное свойство - заполняем.
-                    if not isinstance(value, list) and not isinstance(value, dict) and value != "":
-                        setattr(self.__settings, field, value)
+            with open(full_name, encoding=self.__text_encoding) as stream:
+                data = json.load(stream)
+
+                # Список полей от типа назначения
+                fields = list(filter(lambda x: not x.startswith("_"), dir(self.__settings.__class__)))
+
+                # Заполняем свойства
+                for field in fields:
+                    keys = list(filter(lambda x: x == field, data.keys()))
+                    if len(keys) != 0:
+                        value = data[field]
+                        # Если обычное свойство - заполняем.
+                        if not isinstance(value, list) and not isinstance(value, dict) and value != "":
+                            setattr(self.__settings, field, value)
+
 
             return True
-        except:
+        except Exception as e:
+            print(f"Произошла ошибка: {e}")
             self.__settings = self.__default_setting()
             return False
 
@@ -138,6 +159,7 @@ class Settings_manager(abstract_logic):
     @property
     def report_enum(self):
         return self.__report_enum
+
 
     def set_exception(self, ex: Exception):
         self._inner_set_exception(ex)

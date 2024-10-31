@@ -1,4 +1,5 @@
 import unittest
+from datetime import datetime
 
 from modules.exceptions.argument_exception import argument_exception
 from modules.exceptions.length_exception import length_exception
@@ -102,4 +103,19 @@ class MyTestCase(unittest.TestCase):
         Вид собственности = {self.type_of_property}
         Счет = {self.score}
         """)
+
+
+    def test_block_period(self):
+        settings = Settings()
+
+        block_period = datetime.now()
+        settings.block_period = block_period
+
+        self.assertEqual(block_period, settings.block_period)
+
+        items_not_that_type = [True, 10, 0.2, "bad_item"]
+        for i in items_not_that_type:
+            with self.assertRaises(argument_exception):
+                settings.block_period = i
+
 
