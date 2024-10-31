@@ -5,7 +5,7 @@ from pathlib import Path
 
 from modules.models.abstract_model import abstract_model
 from modules.models.warehouse_turnover_model import warehouse_turnover_model
-from modules.process.models.save_result_turnovers import save_result_turnovers
+from modules.process.processes.save_result_turnovers import save_result_turnovers
 from modules.process.modified_list import modified_list
 
 
@@ -20,7 +20,9 @@ class Test_save_result_turnovers(unittest.TestCase):
         data_list.file_path = f"{self.file_path}"
 
         for i in range(10):
-            item_warehouse_turnover = warehouse_turnover_model.create_default()
+            item_warehouse_turnover = warehouse_turnover_model.create_default(
+                turnover=1
+            )
             data_list.append(item_warehouse_turnover)
 
 

@@ -3,8 +3,8 @@ import unittest
 from pathlib import Path
 
 from modules.models.warehouse_turnover_model import warehouse_turnover_model
-from modules.process.models.read_result_turnovers import read_result_turnovers
-from modules.process.models.save_result_turnovers import save_result_turnovers
+from modules.process.processes.read_result_turnovers import read_result_turnovers
+from modules.process.processes.save_result_turnovers import save_result_turnovers
 from modules.process.modified_list import modified_list
 
 
