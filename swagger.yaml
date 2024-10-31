@@ -178,3 +178,76 @@ paths:
         500:
           description: Внутренняя ошибка сервера
 
+
+  /api/warehouse_transaction/{filter_type}:
+    post:
+      summary: Get warehouse transaction
+      operationId: main.get_warehouse_transaction
+      consumes:
+        - application/json
+      produces:
+        - application/text
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+        500:
+          description: Ошибка на сервере
+        default:
+          description: Неизвестная ошибка
+      parameters:
+        - name: "body"
+          in: "body"
+          description: "JSON объект с двумя полями: object1 и object2"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - warehouse
+              - nomenclature
+            properties:
+              warehouse:
+                type: "object"
+                description: "Первый объект для обработки"
+                example: {  }
+              nomenclature:
+                type: "object"
+                description: "Второй объект для обработки"
+                example: {  }
+
+  /api/warehouse_turnover/{filter_type}:
+    post:
+      summary: Получение данных об оборотах на складе.
+      description: Создаёт и возвращает информацию о складских оборотах для заданного склада и номенклатуры.
+      operationId: main.get_warehouse_turnover
+      parameters:
+        - name: "body"
+          in: "body"
+          description: "JSON объект с двумя полями: object1 и object2"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - warehouse
+              - nomenclature
+            properties:
+              warehouse:
+                type: "object"
+                description: "Первый объект для обработки"
+                example: { }
+              nomenclature:
+                type: "object"
+                description: "Второй объект для обработки"
+                example: { }
+      produces:
+        - application/text
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+        500:
+          description: Ошибка на сервере
+        default:
+          description: Неизвестная ошибка

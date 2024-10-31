@@ -1,4 +1,4 @@
-from modules.data_key import data_key
+from modules.Enums.data_key import data_key
 from modules.exceptions.abstract_logic import abstract_logic
 
 
@@ -34,6 +34,16 @@ class data_reposity(abstract_logic):
     @staticmethod
     def receipt_key() -> str:
         return data_key.receipt_model.value
+
+
+    @staticmethod
+    def warehouse_key() -> str:
+        return data_key.warehouse_model.value
+
+
+    @staticmethod
+    def warehouse_transaction_key() -> str:
+        return data_key.warehouse_transaction_model.value
 
 
     """

@@ -1,9 +1,10 @@
 from abc import ABC, abstractmethod
 import uuid
+from datetime import datetime
+from enum import Enum
 
 from modules.exceptions.argument_exception import argument_exception
 from modules.exceptions.length_exception import length_exception
-
 """
 Абстрактный класс для наследования моделей данных
 """
@@ -12,19 +13,19 @@ from modules.exceptions.length_exception import length_exception
 class abstract_model(ABC):
     __name: str = ""
     __max_name: int = 50
-    __model_unique_code:str = None
+    __unique_code:str = None
 
     @classmethod
     def assign_model_unique_code(cls):
-        if cls.__model_unique_code is None:
-            cls.__model_unique_code = str(uuid.uuid4())  # Уникальный код для каждого класса
+        if cls.__unique_code is None:
+            cls.__unique_code = str(uuid.uuid4())  # Уникальный код для каждого класса
 
 
     def __init__(self):
         self.__name = ""
         # self.assign_model_unique_code()
         # self.__model_unique_code = self.__class__.__model_unique_code
-        self.__model_unique_code = str(uuid.uuid4())
+        self.__unique_code = str(uuid.uuid4())
 
     @property
     def name(self):
@@ -46,26 +47,26 @@ class abstract_model(ABC):
       """
 
     @property
-    def model_unique_code(self):
-        return self.__model_unique_code
+    def unique_code(self):
+        return self.__unique_code
 
 
-    @model_unique_code.setter
-    def model_unique_code(self, value: str):
+    @unique_code.setter
+    def unique_code(self, value: str):
         if not isinstance(value, str):
             raise argument_exception()
-        self.__model_unique_code = value
+        self.__unique_code = value
 
     """
     Вариант сравнения (по коду)
     """
 
-    @abstractmethod
+
     def set_compare_mode(self, other_object) -> bool:
         if other_object is None: return False
         if not isinstance(other_object, abstract_model): return False
 
-        return self.__model_unique_code == other_object.model_unique_code
+        return self.__unique_code == other_object.unique_code
 
     def __eq__(self, value: 'abstract_model') -> bool:
         return self.set_compare_mode(value)
@@ -76,20 +77,24 @@ class abstract_model(ABC):
     """
 
     def get_dict(self):
+
         # Рекурсивная функция для преобразования атрибутов в словарь
         def recursive_to_dict(value):
-            if hasattr(value, '__dict__'):  # Проверяем, является ли объект пользовательским классом
+
+            if isinstance(value, Enum):
+                return {f"{value.__class__.__name__}": value.name}
+            elif hasattr(value, '__dict__'):  # Пользовательский класс
                 class_name = value.__class__.__name__
+
                 return {'__class__': class_name, **{self._normalize_key(key): recursive_to_dict(getattr(value, key))
-                                                for key in vars(value)}}
-            elif isinstance(value, list):  # Если это список, рекурсивно обрабатываем каждый элемент
+                                                    for key in vars(value)}}
+            elif isinstance(value, list):
                 return [recursive_to_dict(item) for item in value]
-            elif isinstance(value, dict):  # Если это словарь, обрабатываем ключи и значения
+            elif isinstance(value, dict):
                 return {k: recursive_to_dict(v) for k, v in value.items()}
             else:
-                return value  # Для примитивных типов возвращаем значение как есть
+                return value
 
-        # Преобразуем атрибуты текущего объекта в словарь
         return {'__class__': self.__class__.__name__,
                 **{self._normalize_key(key): recursive_to_dict(value) for key, value in vars(self).items()}}
         # return {self._normalize_key(key): recursive_to_dict(value) for key, value in vars(self).items()}
@@ -121,3 +126,7 @@ class abstract_model(ABC):
     def __repr__(self):
         return self.__str__()
 
+
+
+    def get_properties(self):
+        return [attr for attr in dir(self.__class__) if isinstance(getattr(self.__class__, attr), property)]

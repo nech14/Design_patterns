@@ -15,7 +15,7 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(
             self.filter_manager.filter_property,
-            ['model_unique_code', 'name']
+            ['name', 'unique_code']
         )
 
         self.filter_manager.update_filter()
@@ -27,7 +27,7 @@ class MyTestCase(unittest.TestCase):
             )
 
         dict_for_filter = {
-            "model_unique_code": "0",
+            "unique_code": "0",
             'name': 'Пшеничная мука',
             "test_list": list["1", "2"],
             "test_range": range_model("гр", 1)
@@ -41,5 +41,3 @@ class MyTestCase(unittest.TestCase):
                 getattr(filter, attr),
                 value
             )
-
-

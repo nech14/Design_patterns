@@ -21,7 +21,11 @@ class prototype(abstract_prototype):
     def filter_LIKE(value1, value2):
         return value2 in value1
 
-    __filtration_types = [filter_EQUALS, filter_LIKE]
+    @staticmethod
+    def filter_INTERVAL(value1, value2):
+        return value2[0] <= value1 <= value2[1]
+
+    __filtration_types = [filter_EQUALS, filter_LIKE, filter_INTERVAL]
 
 
     def __init__(self, source: list=[], list_fields:list[str]=[]) -> None:
@@ -37,12 +41,11 @@ class prototype(abstract_prototype):
         argument_exception.isinstance(filterDto, base_filter)
         argument_exception.isinstance_list(list_fields, list, str)
         argument_exception.isinstance(filter_type, filtration_type)
-
         super().create(data, filterDto)
         self.data = data
         self.__list_fields = list_fields
         for f in range(len(self.__list_fields)):
-            self.data = self.filter_by_field(self.data, f, filterDto)
+            self.data = self.filter_by_field(self.data, f, filterDto, filter_type=filter_type)
         instance = prototype(self.data, self.__list_fields)
         return instance
 
@@ -62,7 +65,7 @@ class prototype(abstract_prototype):
             source:list,
             index_field: int,
             filter: base_filter,
-            filter_type:filtration_type = filtration_type.LIKE,
+            filter_type:filtration_type = filtration_type.EQUALS,
             property_one_for_heirs = False
     ):
         argument_exception.isinstance(source, list)
@@ -81,11 +84,20 @@ class prototype(abstract_prototype):
         if getattr(filter, name_field) == "":
             return source
 
+        name_field_filter = name_field
+        name_field = name_field.split('.')
 
         for item in source:
+            if len(name_field) > 1:
+                attr1 = item
+                for attr in name_field:
+                    attr1 = getattr(attr1, attr)
+            else:
+                attr1 = getattr(item, name_field[0])
+
             if self.__filtration_types[filter_type.value-1](
-                    getattr(item, name_field),
-                    getattr(filter, name_field)
+                    attr1,
+                    getattr(filter, name_field_filter)
             ):
                 result.append(item)
             elif property_one_for_heirs:
@@ -95,7 +107,7 @@ class prototype(abstract_prototype):
                 for index in matching_indices:
                     if self.__filtration_types[filter_type.value-1](
                             self.__get_nested_attribute(item, item_fields[index]),
-                            getattr(filter, name_field)
+                            getattr(filter, name_field_filter)
                     ):
                         result.append(item)
                         break

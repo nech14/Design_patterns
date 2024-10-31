@@ -12,6 +12,11 @@ class argument_exception(base_exeption):
         if not isinstance(_object, _type):
             raise argument_exception(argument_name=f"{_object.__class__.__name__} != {_type.__name__}")
 
+    @staticmethod
+    def notIsinstance(_object, bad_type, correct_type):
+        if isinstance(_object, bad_type):
+            raise argument_exception(argument_name=f"{_object.__class__.__name__} == {bad_type.__name__}, but {_object.__class__.__name__} == {correct_type.__name__}")
+
 
     @staticmethod
     def isinstance_list(_object, type_object, type_item):

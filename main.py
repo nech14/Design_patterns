@@ -1,13 +1,19 @@
 import json
 
 import connexion
+import jsonpickle
 from flask import request
 
 from modules.Dto.filter_manager import Filter_manager
 from modules.Dto.filter_objects import filter_objects
 from modules.Dto.filtration_type import filtration_type
-from modules.data_key import data_key
+from modules.Enums.data_key import data_key
 from modules.data_reposity import data_reposity
+from modules.exceptions.argument_exception import argument_exception
+from modules.models.nomenclature_model import nomenclature_model
+from modules.models.warehouse_model import warehouse_model
+from modules.process.list_processes import list_processes
+from modules.process.process_factory import Process_factory
 from modules.prototype.prototype import prototype
 from modules.settings.settings_manager import Settings_manager
 from modules.start_service import start_service
@@ -117,6 +123,92 @@ def filter_data_dict(domain, filter_type):
 
     new_data = p.create(data, filter_manager.filter, filter_manager.filter_property, filtration_type(int(filter_type))).data
     return f"{new_data}"
+
+
+@app.route("/api/warehouse_transaction/<string:filter_type>", methods=["POST"])
+def get_warehouse_transaction(filter_type):
+    filter_types_names = [member.name for member in filtration_type]
+    if not filter_type in filter_types_names:
+        return f"such a filter({filter_type}) is not implemented", 400
+
+    data_filer = request.get_json()
+
+    filter_dict = {}
+
+    if data_filer["warehouse"] != {}:
+        filter_warehouse: warehouse_model = jsonpickle.decode(json.dumps(data_filer["warehouse"]))
+        filter_dict["warehouse.address"] = filter_warehouse.address
+        filter_dict["warehouse.name"] = filter_warehouse.name
+    if data_filer["nomenclature"] != {}:
+        filter_nomenclature: nomenclature_model = jsonpickle.decode(json.dumps(data_filer["nomenclature"]))
+        filter_dict["nomenclature.name"] = filter_nomenclature.name
+        filter_dict["nomenclature.group.name"] = filter_nomenclature.group.name
+        filter_dict["nomenclature.range.name"] = filter_nomenclature.range.name
+
+
+    data = reposity.data[reposity.warehouse_transaction_key()]
+
+    prototype_obj = prototype()
+
+    filter_manager = Filter_manager()
+    filter_manager.update_filter_from_dict(filter_dict)
+
+    new_data = prototype_obj.create(
+        data,
+        filter_manager.filter,
+        filter_manager.filter_property,
+        filtration_type[filter_type]
+    ).data
+
+    return f"{new_data}"
+
+
+
+
+
+@app.route("/api/warehouse_turnover/<string:filter_type>", methods=["POST"])
+def get_warehouse_turnover(filter_type):
+    filter_types_names = [member.name for member in filtration_type]
+    if not filter_type in filter_types_names:
+        return f"such a filter({filter_type}) is not implemented", 400
+
+    data_filer = request.get_json()
+
+    filter_dict = {}
+
+    if data_filer["warehouse"] != {}:
+        filter_warehouse: warehouse_model = jsonpickle.decode(json.dumps(data_filer["warehouse"]))
+        filter_dict["warehouse.address"] = filter_warehouse.address
+        filter_dict["warehouse.name"] = filter_warehouse.name
+    if data_filer["nomenclature"] != {}:
+        filter_nomenclature: nomenclature_model = jsonpickle.decode(json.dumps(data_filer["nomenclature"]))
+        filter_dict["nomenclature.name"] = filter_nomenclature.name
+        filter_dict["nomenclature.group.name"] = filter_nomenclature.group.name
+        filter_dict["nomenclature.range.name"] = filter_nomenclature.range.name
+
+    items_warehouse_transaction = reposity.data[reposity.warehouse_transaction_key()]
+
+    process_factory = Process_factory()
+
+    result = process_factory.start_process(
+        items_warehouse_transaction,
+        list_processes.create_warehouse_turnovers.name
+    )
+
+    prototype_obj = prototype()
+
+    filter_manager = Filter_manager()
+    filter_manager.update_filter_from_dict(filter_dict)
+
+    new_data = prototype_obj.create(
+        result,
+        filter_manager.filter,
+        filter_manager.filter_property,
+        filtration_type[filter_type]
+    ).data
+
+    return f"{new_data}"
+
 
 
 
