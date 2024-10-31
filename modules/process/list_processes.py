@@ -1,9 +1,11 @@
 
 from enum import Enum
 
-from modules.process.models.create_warehouse_turnovers import create_warehouse_turnovers as Create_warehouse_turnovers
-from modules.process.models.read_result_turnovers import read_result_turnovers as Read_result_turnovers
-from modules.process.models.save_result_turnovers import save_result_turnovers as Save_result_turnovers
+from modules.process.processes.create_warehouse_turnovers import create_warehouse_turnovers as Create_warehouse_turnovers
+from modules.process.processes.read_result_turnovers import read_result_turnovers as Read_result_turnovers
+from modules.process.processes.save_result_turnovers import save_result_turnovers as Save_result_turnovers
+from modules.process.processes.create_warehouse_turnovers_date import create_warehouse_turnovers_date as Create_warehouse_turnovers_date
+from modules.process.processes.update_warehouse_turnovers_block_period import update_warehouse_turnovers_block_period as Update_warehouse_turnovers_block_period
 
 
 class list_processes(Enum):
@@ -11,4 +13,5 @@ class list_processes(Enum):
     create_warehouse_turnovers = Create_warehouse_turnovers
     read_result_turnovers = Read_result_turnovers
     save_result_turnover = Save_result_turnovers
-
+    create_warehouse_turnovers_date = Create_warehouse_turnovers_date
+    update_warehouse_turnovers_block_period = Update_warehouse_turnovers_block_period
