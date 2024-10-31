@@ -107,12 +107,6 @@ class Test_api(unittest.TestCase):
         )
 
 
-
-
-
-
-
-
     def test_warehouse_turnover_bad_filter(self):
         filter_type = "EQUA"
         new_url = url + f"/api/warehouse_turnover/{filter_type}/{datetime.now().strftime("%Y-%m-%d")}"

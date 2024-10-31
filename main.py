@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+from types import new_class
 
 import connexion
 import jsonpickle
@@ -156,50 +157,28 @@ def get_warehouse_turnover(filter_type, date):
 
     process_factory = Process_factory()
     prototype_obj = prototype()
-
-
-    data = process_factory.start_process(data=None, process=list_processes.read_result_turnovers.name)
-
-    if manager.settings.block_period.date() >= date.date():
-        return f"{data}", 200
-
-    first_filter_dict = {
-        "period": [
-            manager.settings.block_period,
-            date
-        ]
-    }
+    filter_manager = Filter_manager()
 
     items_warehouse_transaction = reposity.data[reposity.warehouse_transaction_key()]
+    items_warehouse_transaction = modified_list(items_warehouse_transaction)
+    items_warehouse_transaction.block_period = manager.settings.block_period
+    items_warehouse_transaction.date = date
 
-    filter_manager = Filter_manager()
-    filter_manager.update_filter_from_dict(first_filter_dict)
-
-
-    items_warehouse_transaction = prototype_obj.create(
-        items_warehouse_transaction,
-        filter_manager.filter,
-        filter_manager.filter_property,
-        filtration_type.INTERVAL
-    ).data
-
-    result = process_factory.start_process(
-        items_warehouse_transaction,
-        list_processes.create_warehouse_turnovers.name
+    new_data = process_factory.start_process(
+        data=items_warehouse_transaction,
+        process=list_processes.create_warehouse_turnovers_date.name
     )
-
-    result = data + result
 
     filter_manager.update_filter_from_dict(filter_dict)
 
-    new_data = prototype_obj.create(
-        result,
+    filtered_data = prototype_obj.create(
+        new_data,
         filter_manager.filter,
         filter_manager.filter_property,
         filtration_type[filter_type]
     ).data
 
-    return f"{new_data}"
+    return f"{filtered_data}"
 
 
 @app.route("/api/warehouse_transaction/<string:filter_type>", methods=["POST"])
@@ -208,9 +187,6 @@ def get_warehouse_transaction(filter_type):
     filter_types_names = [member.name for member in filtration_type]
     if not filter_type in filter_types_names:
         return f"such a filter({filter_type}) is not implemented", 400
-
-
-
 
     data_filer = request.get_json()
 
@@ -234,14 +210,14 @@ def get_warehouse_transaction(filter_type):
     filter_manager = Filter_manager()
     filter_manager.update_filter_from_dict(filter_dict)
 
-    new_data = prototype_obj.create(
+    filtered_data = prototype_obj.create(
         data,
         filter_manager.filter,
         filter_manager.filter_property,
         filtration_type[filter_type]
     ).data
 
-    return f"{new_data}"
+    return f"{filtered_data}"
 
 
 
@@ -268,47 +244,21 @@ def update_block_period(block_period):
         manager.settings.block_period = block_period
 
         process_factory = Process_factory()
-        prototype_obj = prototype()
 
         items_warehouse_transaction = reposity.data[reposity.warehouse_transaction_key()]
-        data = process_factory.start_process(data=None, process=list_processes.read_result_turnovers.name)
+        items_warehouse_transaction = modified_list(items_warehouse_transaction)
+        items_warehouse_transaction.block_period = last_block_period
+        items_warehouse_transaction.date = manager.settings.block_period
 
-        first_filter_dict = {
-            "period": [
-                last_block_period,
-                manager.settings.block_period
-            ]
-        }
 
-        filter_manager = Filter_manager()
-        filter_manager.update_filter_from_dict(first_filter_dict)
-
-        items_warehouse_transaction = prototype_obj.create(
+        status = process_factory.start_process(
             items_warehouse_transaction,
-            filter_manager.filter,
-            filter_manager.filter_property,
-            filtration_type.INTERVAL
-        ).data
+            list_processes.update_warehouse_turnovers_block_period.name
+        )
 
-        if len(items_warehouse_transaction) > 0:
-            result = process_factory.start_process(
-                items_warehouse_transaction,
-                list_processes.create_warehouse_turnovers.name
-            )
-            data = data + result
-
-        data = modified_list(data)
-
-        process_factory.start_process(data=data, process=list_processes.save_result_turnover.name)
-
-        return "True", 200
+        return f"{status}", 200
     except Exception as e:
         return f"Exception: {e}", 400
-
-
-
-
-
 
 
 
