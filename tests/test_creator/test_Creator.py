@@ -7,6 +7,7 @@ from modules.models.nomenclature_group_model import nomenclature_group_model
 from modules.models.nomenclature_model import nomenclature_model
 from modules.models.range_model import range_model
 from modules.models.receipt.receipt_model import receipt_model
+from modules.models.warehouse_turnover_model import warehouse_turnover_model
 from modules.reader.format_reading import format_reading
 from modules.reader.reader import reader
 from modules.reports.format_reporting import format_reporting
@@ -15,7 +16,7 @@ from modules.settings.settings_manager import Settings_manager
 from modules.start_service import start_service
 
 
-class MyTestCase(unittest.TestCase):
+class TestCreator(unittest.TestCase):
 
     __root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 
@@ -143,4 +144,23 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(
             ob,
             ob_answer
+        )
+
+
+    def test_json_creator_manager_warehouse_turnovers_model(self):
+        item_warehouse_turnovers = warehouse_turnover_model.create_default()
+
+        dict_item_warehouse_turnovers = item_warehouse_turnovers.get_dict()
+
+        creator_manager = Creator_manager(dict_item_warehouse_turnovers)
+        creator_manager.get_object()
+        object_warehouse_turnovers = creator_manager.object
+
+        self.assertEqual(
+            item_warehouse_turnovers,
+            object_warehouse_turnovers
+        )
+        self.assertEqual(
+            item_warehouse_turnovers.get_dict(),
+            object_warehouse_turnovers.get_dict()
         )

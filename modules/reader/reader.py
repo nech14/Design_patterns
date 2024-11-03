@@ -30,7 +30,7 @@ class reader(abstract_logic):
 
         if _format.name not in self.__formats.keys():
             self.set_exception(
-                argument_exception(f"Указанный вариант формата {format} не реализован!")
+                argument_exception(f"Указанный вариант формата {_format} не реализован!")
 
             )
             return None
