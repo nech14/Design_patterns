@@ -2,6 +2,7 @@ import os
 from copy import copy
 
 from modules.Enums.transaction_type import enum_transaction_type
+from modules.creator_manager import Creator_manager
 from modules.exceptions.abstract_logic import abstract_logic
 from modules.data_reposity import data_reposity
 from modules.exceptions.argument_exception import argument_exception
@@ -21,6 +22,7 @@ class start_service(abstract_logic):
     __reposity: data_reposity = None
     __settings_manager: Settings_manager = None
     __root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    __create_manager = Creator_manager()
 
 
     def __init__(self, reposity: data_reposity, manager: Settings_manager ) -> None:
@@ -45,15 +47,33 @@ class start_service(abstract_logic):
     def __create_nomenclature(self):
         _list = nomenclature_model.default_nomenclature()
 
+        add_list = []
+        for o in _list:
+            add_list.append(
+                self.__create_manager.add_new_item(o)
+            )
 
-        self.__reposity.data[data_reposity.nomenclature_key()] = _list
+
+        self.__reposity.data[data_reposity.nomenclature_key()] = add_list
 
 
     def __create_range(self):
         _list = []
-        _list.append(range_model.default_range_grams())
-        _list.append(range_model.default_range_pieces())
-        _list.append(range_model.default_range_kilogram())
+        _list.append(
+            self.__create_manager.add_new_item(
+                range_model.default_range_grams()
+            )
+        )
+        _list.append(
+            self.__create_manager.add_new_item(
+                range_model.default_range_pieces()
+            )
+        )
+        _list.append(
+            self.__create_manager.add_new_item(
+                range_model.default_range_kilogram()
+            )
+        )
 
         self.__reposity.data[data_reposity.range_key()] = _list
 
@@ -63,8 +83,16 @@ class start_service(abstract_logic):
     """
     def __create_nomenclature_groups(self):
         _list = []
-        _list.append(nomenclature_group_model.default_group_cold())
-        _list.append( nomenclature_group_model.default_group_source())
+        _list.append(
+            self.__create_manager.add_new_item(
+                nomenclature_group_model.default_group_cold()
+            )
+        )
+        _list.append(
+            self.__create_manager.add_new_item(
+                nomenclature_group_model.default_group_source()
+            )
+        )
         self.__reposity.data[data_reposity.group_key()] = _list
 
 
@@ -75,20 +103,31 @@ class start_service(abstract_logic):
             ranges= self.__reposity.data[data_reposity.range_key()]
         )
         r_m.read_file(file_path=rf"{self.__root_dir}\Docs\receipt1.md")
-        _list.append(copy(r_m.receipt))
+        _list.append(
+            self.__create_manager.add_new_item(
+                copy(r_m.receipt)
+            )
+        )
         r_m.read_file(file_path=rf"{self.__root_dir}\Docs\receipt2.md")
-        _list.append(copy(r_m.receipt))
+        _list.append(
+            self.__create_manager.add_new_item(
+                copy(r_m.receipt)
+            )
+        )
         self.__reposity.data[data_reposity.receipt_key()] = _list
 
 
     def __create_warehouse(self):
         _list = []
         _list.append(
-            warehouse_model.get_base_warehouse("test_warehouse_1", "test_address_1"),
-
+            self.__create_manager.add_new_item(
+                warehouse_model.get_base_warehouse("test_warehouse_1", "test_address_1"),
+            )
         )
         _list.append(
-            warehouse_model.get_base_warehouse("test_warehouse_2", "test_address_2")
+            self.__create_manager.add_new_item(
+                warehouse_model.get_base_warehouse("test_warehouse_2", "test_address_2")
+            )
         )
 
         self.__reposity.data[data_reposity.warehouse_key()] = _list
@@ -101,32 +140,38 @@ class start_service(abstract_logic):
         list_nomenclature = self.__reposity.data[data_reposity.nomenclature_key()]
 
         _list.append(
-            warehouse_transaction_model.get_base_warehouse_transaction(
-                name="test_warehouse_transaction_1",
-                warehouse=list_warehouse[0],
-                nomenclature=list_nomenclature[0],
-                quantity=3,
-                range=list_nomenclature[0].range
+            self.__create_manager.add_new_item(
+                warehouse_transaction_model.get_base_warehouse_transaction(
+                    name="test_warehouse_transaction_1",
+                    warehouse=list_warehouse[0],
+                    nomenclature=list_nomenclature[0],
+                    quantity=3,
+                    range=list_nomenclature[0].range
+                )
             )
         )
 
         _list.append(
-            warehouse_transaction_model.get_base_warehouse_transaction(
-                name="test_warehouse_transaction_2",
-                warehouse=list_warehouse[1],
-                nomenclature=list_nomenclature[1],
-                range=list_nomenclature[1].range
+            self.__create_manager.add_new_item(
+                warehouse_transaction_model.get_base_warehouse_transaction(
+                    name="test_warehouse_transaction_2",
+                    warehouse=list_warehouse[1],
+                    nomenclature=list_nomenclature[1],
+                    range=list_nomenclature[1].range
+                )
             )
         )
 
         _list.append(
-            warehouse_transaction_model.get_base_warehouse_transaction(
-                name="test_warehouse_transaction_2",
-                warehouse=list_warehouse[0],
-                nomenclature=list_nomenclature[0],
-                range=list_nomenclature[1].range,
-                quantity=2,
-                transaction_type=enum_transaction_type.Expense
+            self.__create_manager.add_new_item(
+                warehouse_transaction_model.get_base_warehouse_transaction(
+                    name="test_warehouse_transaction_2",
+                    warehouse=list_warehouse[0],
+                    nomenclature=list_nomenclature[0],
+                    range=list_nomenclature[1].range,
+                    quantity=2,
+                    transaction_type=enum_transaction_type.Expense
+                )
             )
         )
 
