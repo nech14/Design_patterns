@@ -85,32 +85,39 @@ class Creator_manager(abstract_logic):
             return self.__objects[-1]
 
         if isinstance(item, abstract_model):
-
-            for i in range(len(self.__objects)):
-
-                if self.__objects[i].unique_code == item.unique_code:
-                    for attr, value in vars(item).items():
-                        setattr(self.__objects[i], attr, value)
-                    return self.__objects[i]
+            return self.item_add(item)
 
         if isinstance(item, list):
-
-            obj_list = []
-
-            for o in item:
-                for i in range(len(self.__objects)):
-                    if self.__objects[i].unique_code == o.unique_code:
-                        obj_list.append(self.__objects[i])
-                        break
-                else:
-                    self.__objects.append(o)
-                    obj_list.append(self.__objects[-1])
-
-            return obj_list
+            return self.add_item_list(item)
 
 
         self.__objects.append(item)
         return  self.__objects[-1]
+
+
+    def item_add(self, item):
+        for i in range(len(self.__objects)):
+
+            if self.__objects[i].unique_code == item.unique_code:
+                for attr, value in vars(item).items():
+                    setattr(self.__objects[i], attr, value)
+                return self.__objects[i]
+
+
+    def add_item_list(self, item_list: list[abstract_model]):
+
+        obj_list = []
+
+        for o in item_list:
+            for i in range(len(self.__objects)):
+                if self.__objects[i].unique_code == o.unique_code:
+                    obj_list.append(self.__objects[i])
+                    break
+            else:
+                self.__objects.append(o)
+                obj_list.append(self.__objects[-1])
+
+        return obj_list
 
 
     def remove_item(self, item):
