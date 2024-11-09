@@ -2,6 +2,7 @@ from modules.Dto.filter_manager import Filter_manager
 from modules.Dto.filtration_type import filtration_type
 from modules.data_reposity import data_reposity as Data_reposity, data_reposity
 from modules.exceptions.argument_exception import argument_exception
+from modules.models.abstract_model import abstract_model
 from modules.models.nomenclature_model import nomenclature_model
 from modules.observers.abstract_observer import abstract_observer
 from modules.process.modified_list import modified_list
@@ -38,8 +39,8 @@ class observer_service(abstract_observer):
         self.__data_reposity = value
 
 
-    def update(self, item: nomenclature_model):
-        argument_exception.isinstance(item, nomenclature_model)
+    def update(self, item: abstract_model):
+        argument_exception.isinstance(item, abstract_model)
 
         for i in self.__check_list:
 
