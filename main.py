@@ -16,7 +16,7 @@ from modules.data_reposity import data_reposity
 from modules.exceptions.argument_exception import argument_exception
 from modules.models.nomenclature_model import nomenclature_model
 from modules.models.warehouse_model import warehouse_model
-from modules.observers.observer_service import observer_service
+from modules.observers.observer_update_nomenclature import observer_service
 from modules.process.list_processes import list_processes
 from modules.process.modified_list import modified_list
 from modules.process.process_factory import Process_factory

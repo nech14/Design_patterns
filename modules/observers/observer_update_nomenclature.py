@@ -40,6 +40,7 @@ class observer_service(abstract_observer):
 
 
     def update(self, item: abstract_model):
+
         argument_exception.isinstance(item, abstract_model)
 
         for i in self.__check_list:
