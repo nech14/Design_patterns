@@ -25,7 +25,7 @@ class create_TBS(abstract_model):
         opening_remainder = {}
         remainder = {}
 
-        for t in data.date:
+        for t in data:
             t : warehouse_transaction_model
             if t.period <= data.date:
                 create_TBS.__adding_unique(opening_remainder, t)
@@ -58,7 +58,7 @@ class create_TBS(abstract_model):
 
         check_data = (transaction.warehouse.unique_code, transaction.nomenclature.unique_code, transaction.range.unique_code)
 
-        operation_transaction = warehouse_transaction_model.operation_transaction(transaction.transaction_type)
+        operation_transaction = warehouse_transaction_model.operation_transaction(transaction.transaction_type.value)
 
         if check_data in _dict.keys():
             turnover: warehouse_turnover_model = _dict[check_data]

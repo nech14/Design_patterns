@@ -98,8 +98,11 @@ class warehouse_transaction_model(abstract_model):
         return self.__period
 
     @period.setter
-    def period(self, value: datetime):
-        argument_exception.isinstance(value, datetime)
+    def period(self, value: datetime|str):
+        argument_exception.isinstance(value, datetime|str)
+
+        if isinstance(value, str):
+            value = datetime.fromisoformat(value)
 
         self.__period = value
 

@@ -24,7 +24,7 @@ class data_reposity(abstract_logic):
     def data(self, value: dict):
         argument_exception.isinstance(value, dict)
 
-        self.data = value
+        self.__data = value
 
 
     @staticmethod

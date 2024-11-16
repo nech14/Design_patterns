@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 from modules.data_reposity import data_reposity
 from modules.exceptions.argument_exception import argument_exception
@@ -17,16 +18,16 @@ class json_report(abstract_report):
        self.__format = format_reporting.JSON
 
     def create(self, data: list):
-        argument_exception.isinstance_list(data, list, abstract_model)
+        argument_exception.isinstance_list(data, list, abstract_model|dict)
 
         _json = data
         # _json = {}
         # _json[str(data[0].__class__.__name__)] = data
 
-
         self.result = json.dumps(
             _json,
-            default=lambda o: o.get_dict(),
+            default=lambda o: o.isoformat() if isinstance(o, datetime) else o.get_dict() if hasattr(o,
+                                                                                                    'get_dict') else None,
             indent=self.__indent,
             ensure_ascii=self.__ensure_ascii
         )

@@ -36,7 +36,7 @@ class modified_list(list):
 
     @property
     def date(self):
-        return self.__block_period
+        return self.__date
 
     @date.setter
     def date(self, value: datetime):
