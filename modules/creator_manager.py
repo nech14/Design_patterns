@@ -17,6 +17,11 @@ class Creator_manager(abstract_logic):
     __object_dict:dict = None
     __creator: creator
     __instance = None
+    __objects: list[abstract_model] = []
+
+    @property
+    def objects(self):
+        return self.__objects
 
     def __new__(cls, *args, **kwargs):
         if cls.__instance is None:
@@ -24,7 +29,7 @@ class Creator_manager(abstract_logic):
         return cls.__instance
 
 
-    def __init__(self, object_dict:dict):
+    def __init__(self, object_dict:dict|list=None):
         if object_dict is None:
             object_dict = {
                 '__class__': 'range_model',
@@ -40,6 +45,7 @@ class Creator_manager(abstract_logic):
 
         self.__object_dict = object_dict
 
+
     def get_object(self, data:dict=None):
 
         if data is None:
@@ -47,10 +53,11 @@ class Creator_manager(abstract_logic):
         else:
             argument_exception.isinstance(data, dict)
 
-
         object_model = self.__creator.dict_to_object(data)
+        self.__object = self.add_new_item(object_model)
 
-        self.__object = object_model
+
+
 
     @property
     def object(self) -> (Union)[
@@ -60,10 +67,69 @@ class Creator_manager(abstract_logic):
         nomenclature_group_model |
         ingredient_model |
         abstract_model
-    ]:
+        ]:
         return self.__object
 
 
 
     def set_exception(self, ex: Exception):
         self._inner_set_exception(ex)
+
+
+
+    def add_new_item(self, item: abstract_model|list[abstract_model]):
+        argument_exception.isinstance(item, abstract_model|list)
+
+        if len(self.__objects) == 0:
+            self.__objects.append(item)
+            return self.__objects[-1]
+
+        if isinstance(item, abstract_model):
+            return self.item_add(item)
+
+        if isinstance(item, list):
+            return self.add_item_list(item)
+
+
+        self.__objects.append(item)
+        return  self.__objects[-1]
+
+
+    def item_add(self, item):
+        for i in range(len(self.__objects)):
+
+            if self.__objects[i].unique_code == item.unique_code:
+                for attr, value in vars(item).items():
+                    setattr(self.__objects[i], attr, value)
+                return self.__objects[i]
+
+
+    def add_item_list(self, item_list: list[abstract_model]):
+
+        obj_list = []
+
+        for o in item_list:
+            for i in range(len(self.__objects)):
+                if self.__objects[i].unique_code == o.unique_code:
+                    obj_list.append(self.__objects[i])
+                    break
+            else:
+                self.__objects.append(o)
+                obj_list.append(self.__objects[-1])
+
+        return obj_list
+
+
+    def remove_item(self, item):
+        self.__objects.remove(item)
+
+
+    def update_original_item(self, path_item: abstract_model):
+        argument_exception.isinstance(path_item, abstract_model)
+
+        for i in range(len(self.__objects)):
+            if path_item is self.__objects[i]:
+                return self.__objects[i]
+        else:
+            self.__objects.append(path_item)
+            return self.__objects[-1]

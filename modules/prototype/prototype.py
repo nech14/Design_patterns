@@ -91,7 +91,10 @@ class prototype(abstract_prototype):
             if len(name_field) > 1:
                 attr1 = item
                 for attr in name_field:
-                    attr1 = getattr(attr1, attr)
+                    if isinstance(attr1, list):
+                        attr1 = self.__list_attr(attr1, attr)
+                    else:
+                        attr1 = getattr(attr1, attr)
             else:
                 attr1 = getattr(item, name_field[0])
 
@@ -113,8 +116,20 @@ class prototype(abstract_prototype):
                         break
 
 
-
         return result
+
+    def __list_attr(self, attr1, attr):
+        result_list = []
+
+        for a in attr1:
+            if isinstance(a, list):
+                a_item = self.__list_attr(a, attr)
+            else:
+                a_item = getattr(a, attr)
+
+            result_list.append(a_item)
+        return result_list
+
 
 
     def __get_property_methods(self, obj, path:str=""):

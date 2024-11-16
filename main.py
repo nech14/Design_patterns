@@ -1,6 +1,7 @@
 import json
+
 from datetime import datetime
-from types import new_class
+
 
 import connexion
 import jsonpickle
@@ -10,14 +11,17 @@ from modules.Dto.filter_manager import Filter_manager
 from modules.Dto.filter_objects import filter_objects
 from modules.Dto.filtration_type import filtration_type
 from modules.Enums.data_key import data_key
+from modules.creator_manager import Creator_manager
 from modules.data_reposity import data_reposity
 from modules.exceptions.argument_exception import argument_exception
 from modules.models.nomenclature_model import nomenclature_model
 from modules.models.warehouse_model import warehouse_model
+from modules.observers.observer_service import observer_service
 from modules.process.list_processes import list_processes
 from modules.process.modified_list import modified_list
 from modules.process.process_factory import Process_factory
 from modules.prototype.prototype import prototype
+from modules.service.nomenclature_service import nomenclature_service as Nomenclature_service
 from modules.settings.settings_manager import Settings_manager
 from modules.start_service import start_service
 from modules.reports.format_reporting import format_reporting
@@ -38,6 +42,15 @@ filter_manager = Filter_manager()
 filter_manager.update_filter_property()
 filter_manager.update_filter()
 
+nomenclature_service = Nomenclature_service()
+nomenclature_service.data_reposity = reposity
+
+nomenclature_observer = observer_service()
+nomenclature_observer.data_reposity = reposity
+
+nomenclature_service.add_observer(nomenclature_observer)
+
+creator_manager = Creator_manager()
 
 @app.route("/api/reports/formats", methods=["GET"])
 def formats():
@@ -260,6 +273,39 @@ def update_block_period(block_period):
     except Exception as e:
         return f"Exception: {e}", 400
 
+
+@app.route("/api/nomenclature/get/<string:item_id>", methods=["GET"])
+def nomenclature_get(item_id: str):
+    result = nomenclature_service.get_item(item_id)
+
+    return f"{result}", 200
+
+
+@app.route("/api/nomenclature/put", methods=["POST"])
+def nomenclature_put():
+    data_filer = request.get_json()
+    item = Creator_manager(data_filer).get_object()
+    result = nomenclature_service.put_item(item)
+
+    return result
+
+
+@app.route("/api/nomenclature/patch", methods=["POST"])
+def nomenclature_patch():
+    data_filer = request.get_json()
+    creator_manager.get_object(data_filer)
+    item = creator_manager.object
+    result = nomenclature_service.path_item(item)
+
+    return result
+
+
+
+@app.route("/api/nomenclature/delete/<string:item_id>", methods=["GET"])
+def nomenclature_delete(item_id: str):
+    result = nomenclature_service.delete_item(item_id)
+
+    return result
 
 
 if __name__ == '__main__':

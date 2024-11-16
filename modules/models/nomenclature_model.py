@@ -46,7 +46,7 @@ class nomenclature_model(abstract_model):
 
     def set_compare_mode(self, other_object: 'nomenclature_model') -> bool:
         if other_object is None: return False
-        if not isinstance(other_object, nomenclature_model):
+        if not isinstance(other_object, nomenclature_model|str):
             raise argument_exception(argument_name="other_object")
 
         return super().set_compare_mode(other_object=other_object)

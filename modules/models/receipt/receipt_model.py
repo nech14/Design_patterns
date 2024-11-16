@@ -52,6 +52,16 @@ class receipt_model(abstract_model):
         argument_exception.isinstance_list(value, list, ingredient_model)
         self.__ingredients = value
 
+    @property
+    def nomenclature(self):
+        data = []
+
+        for i in self.__ingredients:
+            if hasattr(i, 'nomenclature'):
+                data.append(i.nomenclature)
+
+        return data
+
 
 
     def set_compare_mode(self, other_object: 'receipt_model'):
