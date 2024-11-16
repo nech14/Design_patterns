@@ -419,3 +419,48 @@ paths:
           description: "Элемент не найден"
         500:
           description: "Ошибка на сервере"
+
+
+  /tbs/{start_date}/{end_date}/{warehouse}:
+    get:
+      operationId: main.get_TBS
+      parameters:
+        - name: start_date
+          in: path
+          required: true
+          type: string
+          format: date
+        - name: end_date
+          in: path
+          required: true
+          type: string
+          format: date
+        - name: warehouse
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Данные TBS успешно получены"
+          schema:
+            type: string
+        500:
+          description: "Ошибка на сервере"
+
+  /data_reposity/save:
+    post:
+      operationId: main.save_data_reposity
+      responses:
+        200:
+          description: "Данные успешно сохранены"
+        500:
+          description: "Ошибка при сохранении данных"
+
+  /data_reposity/read:
+    post:
+      operationId: main.read_data_reposity
+      responses:
+        200:
+          description: "Данные успешно прочитаны"
+        500:
+          description: "Ошибка при чтении данных"

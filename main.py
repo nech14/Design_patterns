@@ -11,17 +11,18 @@ from modules.Dto.filter_manager import Filter_manager
 from modules.Dto.filter_objects import filter_objects
 from modules.Dto.filtration_type import filtration_type
 from modules.Enums.data_key import data_key
+from modules.Enums.event_type import event_type
 from modules.creator_manager import Creator_manager
 from modules.data_reposity import data_reposity
-from modules.exceptions.argument_exception import argument_exception
 from modules.models.nomenclature_model import nomenclature_model
 from modules.models.warehouse_model import warehouse_model
-from modules.observers.observer_update_nomenclature import observer_service
+from modules.observers.observer_update_nomenclature import observer_update_nomenclature
 from modules.process.list_processes import list_processes
 from modules.process.modified_list import modified_list
 from modules.process.process_factory import Process_factory
 from modules.prototype.prototype import prototype
 from modules.service.nomenclature_service import nomenclature_service as Nomenclature_service
+from modules.service.observer_service import observe_service
 from modules.settings.settings_manager import Settings_manager
 from modules.start_service import start_service
 from modules.reports.format_reporting import format_reporting
@@ -45,12 +46,14 @@ filter_manager.update_filter()
 nomenclature_service = Nomenclature_service()
 nomenclature_service.data_reposity = reposity
 
-nomenclature_observer = observer_service()
+nomenclature_observer = observer_update_nomenclature()
 nomenclature_observer.data_reposity = reposity
 
 nomenclature_service.add_observer(nomenclature_observer)
 
 creator_manager = Creator_manager()
+
+
 
 @app.route("/api/reports/formats", methods=["GET"])
 def formats():
@@ -306,6 +309,76 @@ def nomenclature_delete(item_id: str):
     result = nomenclature_service.delete_item(item_id)
 
     return result
+
+
+@app.route("/api/tbs/<string:start_date>/<string:end_date>/<string:warehouse>", methods=["GET"])
+def get_TBS(start_date: str, end_date: str, warehouse:str):
+    data = reposity.data[data_reposity.warehouse_transaction_key()]
+
+    start_date = datetime.strptime(start_date, "%Y-%m-%d")
+    end_date = datetime.strptime(end_date, "%Y-%m-%d")
+
+    _filter = {
+        "period": [
+                datetime(1900, 1, 1),
+                end_date
+        ]
+    }
+
+    filter_manager = Filter_manager()
+    filter_manager.update_filter_from_dict(_filter)
+
+    prototype_obj = prototype()
+
+    filter_data = prototype_obj.create(
+        data,
+        filter_manager.filter,
+        filter_manager.filter_property,
+        filtration_type.INTERVAL
+    ).data
+
+
+    _filter = {
+        "warehouse": warehouse
+    }
+
+    filter_manager.update_filter_from_dict(_filter)
+
+    filter_data = prototype_obj.create(
+        filter_data,
+        filter_manager.filter,
+        filter_manager.filter_property,
+        filtration_type.EQUALS
+    ).data
+
+    filter_data = modified_list(filter_data)
+    filter_data.date = start_date
+
+    process = Process_factory()
+    tbs = process.start_process(filter_data, list_processes.create_TBS.name)
+
+    return f"{tbs}"
+
+
+
+@app.route("/api/data_reposity/save", methods=["POST"])
+def save_data_reposity():
+    try:
+        observe_service.raise_event(event=event_type.SAVE_DATA_REPOSITY, data=data_reposity)
+        manager.settings.first_start = False
+        return 200
+    except:
+        return 500
+
+
+@app.route("/api/data_reposity/read", methods=["POST"])
+def read_data_reposity():
+    try:
+        observe_service.raise_event(event=event_type.READ_DATA_REPOSITY, data=data_reposity)
+        return 200
+    except:
+        return 500
+
 
 
 if __name__ == '__main__':
