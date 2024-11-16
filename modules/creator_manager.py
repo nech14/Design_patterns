@@ -97,11 +97,13 @@ class Creator_manager(abstract_logic):
 
     def item_add(self, item):
         for i in range(len(self.__objects)):
-
             if self.__objects[i].unique_code == item.unique_code:
                 for attr, value in vars(item).items():
                     setattr(self.__objects[i], attr, value)
                 return self.__objects[i]
+        else:
+            self.__objects.append(item)
+            return item
 
 
     def add_item_list(self, item_list: list[abstract_model]):
@@ -118,6 +120,7 @@ class Creator_manager(abstract_logic):
                 obj_list.append(self.__objects[-1])
 
         return obj_list
+
 
 
     def remove_item(self, item):
