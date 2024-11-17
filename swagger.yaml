@@ -439,6 +439,8 @@ paths:
           in: path
           required: true
           type: string
+      produces:
+        - application/json
       responses:
         200:
           description: "Данные TBS успешно получены"

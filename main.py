@@ -357,7 +357,7 @@ def get_TBS(start_date: str, end_date: str, warehouse:str):
     process = Process_factory()
     tbs = process.start_process(filter_data, list_processes.create_TBS.name)
 
-    return f"{tbs}"
+    return json.loads(f"{tbs}")
 
 
 
