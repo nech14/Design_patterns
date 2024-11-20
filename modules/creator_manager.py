@@ -77,17 +77,20 @@ class Creator_manager(abstract_logic):
 
 
 
-    def add_new_item(self, item: abstract_model|list[abstract_model]):
-        argument_exception.isinstance(item, abstract_model|list)
+    def add_new_item(self, item: abstract_model|list[abstract_model]|dict):
+        argument_exception.isinstance(item, abstract_model|list|dict)
 
         if len(self.__objects) == 0:
             self.__objects.append(item)
             return self.__objects[-1]
 
-        if isinstance(item, abstract_model):
+        if isinstance(item, dict):
+            return self.add_item_dict(item)
+
+        elif isinstance(item, abstract_model):
             return self.item_add(item)
 
-        if isinstance(item, list):
+        elif isinstance(item, list):
             return self.add_item_list(item)
 
 
@@ -97,11 +100,13 @@ class Creator_manager(abstract_logic):
 
     def item_add(self, item):
         for i in range(len(self.__objects)):
-
             if self.__objects[i].unique_code == item.unique_code:
                 for attr, value in vars(item).items():
                     setattr(self.__objects[i], attr, value)
                 return self.__objects[i]
+        else:
+            self.__objects.append(item)
+            return item
 
 
     def add_item_list(self, item_list: list[abstract_model]):
@@ -109,15 +114,28 @@ class Creator_manager(abstract_logic):
         obj_list = []
 
         for o in item_list:
-            for i in range(len(self.__objects)):
-                if self.__objects[i].unique_code == o.unique_code:
-                    obj_list.append(self.__objects[i])
-                    break
-            else:
-                self.__objects.append(o)
-                obj_list.append(self.__objects[-1])
+
+            obj_list.append(self.add_new_item(o))
+
+            # for i in range(len(self.__objects)):
+            #     if self.__objects[i].unique_code == o.unique_code:
+            #         obj_list.append(self.__objects[i])
+            #         break
+            # else:
+            #     self.__objects.append(o)
+            #     obj_list.append(self.__objects[-1])
 
         return obj_list
+
+
+    def add_item_dict(self, item_dict):
+
+        obj_dict = {}
+
+        for k, v in item_dict.items():
+            obj_dict[k] = self.add_new_item(v)
+
+        return obj_dict
 
 
     def remove_item(self, item):

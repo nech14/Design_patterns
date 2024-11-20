@@ -3,7 +3,6 @@ from modules.Dto.filtration_type import filtration_type
 from modules.data_reposity import data_reposity as Data_reposity, data_reposity
 from modules.exceptions.argument_exception import argument_exception
 from modules.models.abstract_model import abstract_model
-from modules.models.nomenclature_model import nomenclature_model
 from modules.observers.abstract_observer import abstract_observer
 from modules.process.modified_list import modified_list
 from modules.process.processes.abstract_process import abstract_process
@@ -11,7 +10,7 @@ from modules.process.processes.read_result_turnovers import read_result_turnover
 from modules.prototype.prototype import prototype
 
 
-class observer_service(abstract_observer):
+class observer_update_nomenclature(abstract_observer):
 
     __data_reposity: Data_reposity = None
     __filter_manager: Filter_manager = None
@@ -40,6 +39,7 @@ class observer_service(abstract_observer):
 
 
     def update(self, item: abstract_model):
+
         argument_exception.isinstance(item, abstract_model)
 
         for i in self.__check_list:

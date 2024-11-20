@@ -1,0 +1,399 @@
+{
+    "nomenclature": [
+        {
+            "__class__": "nomenclature_model",
+            "name": "\u041f\u0448\u0435\u043d\u0438\u0447\u043d\u0430\u044f \u043c\u0443\u043a\u0430",
+            "unique_code": "047dfd0b-75b5-441f-9650-d161e5e8c2bc",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0421\u044b\u0440\u044c\u0435",
+                "unique_code": "bcfbfabd-e455-4417-bf5e-d1fbe9c35ca7"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "72cb8081-dd1e-4c62-a60d-2b80864ec02f",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        {
+            "__class__": "nomenclature_model",
+            "name": "\u0421\u0430\u0445\u0430\u0440",
+            "unique_code": "d4acaded-e64e-471d-8321-d98ac011d354",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0421\u044b\u0440\u044c\u0435",
+                "unique_code": "bcfbfabd-e455-4417-bf5e-d1fbe9c35ca7"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "72cb8081-dd1e-4c62-a60d-2b80864ec02f",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        {
+            "__class__": "nomenclature_model",
+            "name": "\u0421\u043b\u0438\u0432\u043e\u0447\u043d\u043e\u0435 \u043c\u0430\u0441\u043b\u043e",
+            "unique_code": "59f74eea-b6e7-4a69-9a2a-ba80d442c17e",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0421\u044b\u0440\u044c\u0435",
+                "unique_code": "bcfbfabd-e455-4417-bf5e-d1fbe9c35ca7"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "72cb8081-dd1e-4c62-a60d-2b80864ec02f",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        {
+            "__class__": "nomenclature_model",
+            "name": "\u042f\u0439\u0446\u0430",
+            "unique_code": "5510705e-7eaf-4d5e-a400-c12e00e0fb69",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0421\u044b\u0440\u044c\u0435",
+                "unique_code": "bcfbfabd-e455-4417-bf5e-d1fbe9c35ca7"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0448\u0442",
+                "unique_code": "f51056ba-22ab-4859-bf18-e88d390b5842",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        {
+            "__class__": "nomenclature_model",
+            "name": "\u0412\u0430\u043d\u0438\u043b\u0438\u043d(\u0449\u0435\u043f\u043e\u0442\u043a\u0430)",
+            "unique_code": "b76dfcd5-6c83-4f6d-8a02-71091bb6e950",
+            "group": {
+                "__class__": "nomenclature_group_model",
+                "name": "\u0421\u044b\u0440\u044c\u0435",
+                "unique_code": "bcfbfabd-e455-4417-bf5e-d1fbe9c35ca7"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "72cb8081-dd1e-4c62-a60d-2b80864ec02f",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        }
+    ],
+    "range": [
+        {
+            "__class__": "range_model",
+            "name": "\u0433\u0440",
+            "unique_code": "72cb8081-dd1e-4c62-a60d-2b80864ec02f",
+            "conversion_factor": 1,
+            "base_unit_measurement": null
+        },
+        {
+            "__class__": "range_model",
+            "name": "\u0448\u0442",
+            "unique_code": "f51056ba-22ab-4859-bf18-e88d390b5842",
+            "conversion_factor": 1,
+            "base_unit_measurement": null
+        },
+        {
+            "__class__": "range_model",
+            "name": "\u043a\u0433",
+            "unique_code": "4e222d7b-f1e4-4f5e-9b8c-9d7d0473cae5",
+            "conversion_factor": 1000,
+            "base_unit_measurement": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "72cb8081-dd1e-4c62-a60d-2b80864ec02f",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            }
+        },
+        {
+            "__class__": "range_model",
+            "name": "\u043c\u043b",
+            "unique_code": "7f88cf7b-13e7-4576-9504-4c21c45f021b",
+            "conversion_factor": 1,
+            "base_unit_measurement": null
+        },
+        {
+            "__class__": "range_model",
+            "name": "\u0449\u0435\u043f\u043e\u0442\u043a\u0430",
+            "unique_code": "d729435a-afa3-4d64-b00f-582fce74bc4f",
+            "conversion_factor": 1,
+            "base_unit_measurement": null
+        }
+    ],
+    "group": [
+        {
+            "__class__": "nomenclature_group_model",
+            "name": "\u0417\u0430\u043c\u043e\u0440\u043e\u0437\u043a\u0430",
+            "unique_code": "231a57e6-35df-4526-84e3-41f1f44d7830"
+        },
+        {
+            "__class__": "nomenclature_group_model",
+            "name": "\u0421\u044b\u0440\u044c\u0435",
+            "unique_code": "bcfbfabd-e455-4417-bf5e-d1fbe9c35ca7"
+        }
+    ],
+    "receipt": [
+        {
+            "__class__": "receipt_model",
+            "name": "\u0412\u0410\u0420\u0401\u041d\u041e\u0415 \u042f\u0419\u0426\u041e",
+            "unique_code": "4b45eca7-94ee-41fe-b917-dedd472c2ea8",
+            "portions": 1,
+            "cooking_time": "10 \u043c\u0438\u043d",
+            "ingredients": [
+                {
+                    "__class__": "ingredient_model",
+                    "name": "\u042f\u0439\u0446\u043e",
+                    "unique_code": "2fa93ea6-1443-46f5-80e3-09b905cacfea",
+                    "value": 1,
+                    "range": {
+                        "__class__": "range_model",
+                        "name": "\u0448\u0442",
+                        "unique_code": "f51056ba-22ab-4859-bf18-e88d390b5842",
+                        "conversion_factor": 1,
+                        "base_unit_measurement": null
+                    }
+                },
+                {
+                    "__class__": "ingredient_model",
+                    "name": "\u0412\u043e\u0434\u0430",
+                    "unique_code": "df543b1b-30bc-4f2e-8950-f93fac248209",
+                    "value": 500,
+                    "range": {
+                        "__class__": "range_model",
+                        "name": "\u043c\u043b",
+                        "unique_code": "7f88cf7b-13e7-4576-9504-4c21c45f021b",
+                        "conversion_factor": 1,
+                        "base_unit_measurement": null
+                    }
+                },
+                {
+                    "__class__": "ingredient_model",
+                    "name": "\u0421\u043e\u043b\u044c",
+                    "unique_code": "18ff4b0f-9351-4ff8-b796-d6ab93ddfea7",
+                    "value": 1,
+                    "range": {
+                        "__class__": "range_model",
+                        "name": "\u0449\u0435\u043f\u043e\u0442\u043a\u0430",
+                        "unique_code": "d729435a-afa3-4d64-b00f-582fce74bc4f",
+                        "conversion_factor": 1,
+                        "base_unit_measurement": null
+                    }
+                }
+            ],
+            "steps": [
+                "\u041f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u044c\u0442\u0435 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u044b\u0435 \u0438\u043d\u0433\u0440\u0435\u0434\u0438\u0435\u043d\u0442\u044b. \u0412\u043e\u0437\u044c\u043c\u0438\u0442\u0435 \u044f\u0439\u0446\u043e \u0438 \u043f\u0440\u043e\u043c\u043e\u0439\u0442\u0435 \u0435\u0433\u043e \u043f\u043e\u0434 \u043f\u0440\u043e\u0442\u043e\u0447\u043d\u043e\u0439 \u0432\u043e\u0434\u043e\u0439.",
+                "\u041d\u0430\u043b\u0435\u0439\u0442\u0435 500 \u043c\u043b \u0432\u043e\u0434\u044b \u0432 \u043d\u0435\u0431\u043e\u043b\u044c\u0448\u0443\u044e \u043a\u0430\u0441\u0442\u0440\u044e\u043b\u044e \u0438 \u0434\u043e\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u043e \u043a\u0438\u043f\u0435\u043d\u0438\u044f \u043d\u0430 \u0441\u0440\u0435\u0434\u043d\u0435\u043c \u043e\u0433\u043d\u0435.",
+                "\u0410\u043a\u043a\u0443\u0440\u0430\u0442\u043d\u043e \u043e\u043f\u0443\u0441\u0442\u0438\u0442\u0435 \u044f\u0439\u0446\u043e \u0432 \u043a\u0438\u043f\u044f\u0449\u0443\u044e \u0432\u043e\u0434\u0443 \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043b\u043e\u0436\u043a\u0438.",
+                "\u0412\u0430\u0440\u0438\u0442\u0435 \u044f\u0439\u0446\u043e \u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0435 8-10 \u043c\u0438\u043d\u0443\u0442 \u0434\u043b\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u044f \u0432\u043a\u0440\u0443\u0442\u0443\u044e.",
+                "\u041f\u043e \u0436\u0435\u043b\u0430\u043d\u0438\u044e \u0434\u043e\u0431\u0430\u0432\u044c\u0442\u0435 \u0449\u0435\u043f\u043e\u0442\u043a\u0443 \u0441\u043e\u043b\u0438 \u0432 \u0432\u043e\u0434\u0443, \u0447\u0442\u043e\u0431\u044b \u043f\u0440\u0435\u0434\u043e\u0442\u0432\u0440\u0430\u0442\u0438\u0442\u044c \u0442\u0440\u0435\u0449\u0438\u043d\u044b \u043d\u0430 \u0441\u043a\u043e\u0440\u043b\u0443\u043f\u0435.",
+                "\u041f\u043e\u0441\u043b\u0435 \u0432\u0430\u0440\u043a\u0438 \u0430\u043a\u043a\u0443\u0440\u0430\u0442\u043d\u043e \u0434\u043e\u0441\u0442\u0430\u043d\u044c\u0442\u0435 \u044f\u0439\u0446\u043e \u0438\u0437 \u043a\u0430\u0441\u0442\u0440\u044e\u043b\u0438 \u0438 \u043f\u043e\u043c\u0435\u0441\u0442\u0438\u0442\u0435 \u0435\u0433\u043e \u0432 \u0445\u043e\u043b\u043e\u0434\u043d\u0443\u044e \u0432\u043e\u0434\u0443 \u043d\u0430 2-3 \u043c\u0438\u043d\u0443\u0442\u044b, \u0447\u0442\u043e\u0431\u044b \u043e\u043d\u043e \u043b\u0435\u0433\u043a\u043e \u043e\u0447\u0438\u0449\u0430\u043b\u043e\u0441\u044c.",
+                "\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u0435 \u044f\u0439\u0446\u043e \u043e\u0442 \u0441\u043a\u043e\u0440\u043b\u0443\u043f\u044b \u0438 \u043f\u043e\u0434\u0430\u0432\u0430\u0439\u0442\u0435 \u043a \u0441\u0442\u043e\u043b\u0443."
+            ]
+        },
+        {
+            "__class__": "receipt_model",
+            "name": "\u0412\u0410\u0420\u0401\u041d\u041e\u0415 \u042f\u0419\u0426\u041e",
+            "unique_code": "4b45eca7-94ee-41fe-b917-dedd472c2ea8",
+            "portions": 1,
+            "cooking_time": "10 \u043c\u0438\u043d",
+            "ingredients": [
+                {
+                    "__class__": "ingredient_model",
+                    "name": "\u042f\u0439\u0446\u043e",
+                    "unique_code": "2fa93ea6-1443-46f5-80e3-09b905cacfea",
+                    "value": 1,
+                    "range": {
+                        "__class__": "range_model",
+                        "name": "\u0448\u0442",
+                        "unique_code": "f51056ba-22ab-4859-bf18-e88d390b5842",
+                        "conversion_factor": 1,
+                        "base_unit_measurement": null
+                    }
+                },
+                {
+                    "__class__": "ingredient_model",
+                    "name": "\u0412\u043e\u0434\u0430",
+                    "unique_code": "df543b1b-30bc-4f2e-8950-f93fac248209",
+                    "value": 500,
+                    "range": {
+                        "__class__": "range_model",
+                        "name": "\u043c\u043b",
+                        "unique_code": "7f88cf7b-13e7-4576-9504-4c21c45f021b",
+                        "conversion_factor": 1,
+                        "base_unit_measurement": null
+                    }
+                },
+                {
+                    "__class__": "ingredient_model",
+                    "name": "\u0421\u043e\u043b\u044c",
+                    "unique_code": "18ff4b0f-9351-4ff8-b796-d6ab93ddfea7",
+                    "value": 1,
+                    "range": {
+                        "__class__": "range_model",
+                        "name": "\u0449\u0435\u043f\u043e\u0442\u043a\u0430",
+                        "unique_code": "d729435a-afa3-4d64-b00f-582fce74bc4f",
+                        "conversion_factor": 1,
+                        "base_unit_measurement": null
+                    }
+                }
+            ],
+            "steps": [
+                "\u041f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u044c\u0442\u0435 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u044b\u0435 \u0438\u043d\u0433\u0440\u0435\u0434\u0438\u0435\u043d\u0442\u044b. \u0412\u043e\u0437\u044c\u043c\u0438\u0442\u0435 \u044f\u0439\u0446\u043e \u0438 \u043f\u0440\u043e\u043c\u043e\u0439\u0442\u0435 \u0435\u0433\u043e \u043f\u043e\u0434 \u043f\u0440\u043e\u0442\u043e\u0447\u043d\u043e\u0439 \u0432\u043e\u0434\u043e\u0439.",
+                "\u041d\u0430\u043b\u0435\u0439\u0442\u0435 500 \u043c\u043b \u0432\u043e\u0434\u044b \u0432 \u043d\u0435\u0431\u043e\u043b\u044c\u0448\u0443\u044e \u043a\u0430\u0441\u0442\u0440\u044e\u043b\u044e \u0438 \u0434\u043e\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u043e \u043a\u0438\u043f\u0435\u043d\u0438\u044f \u043d\u0430 \u0441\u0440\u0435\u0434\u043d\u0435\u043c \u043e\u0433\u043d\u0435.",
+                "\u0410\u043a\u043a\u0443\u0440\u0430\u0442\u043d\u043e \u043e\u043f\u0443\u0441\u0442\u0438\u0442\u0435 \u044f\u0439\u0446\u043e \u0432 \u043a\u0438\u043f\u044f\u0449\u0443\u044e \u0432\u043e\u0434\u0443 \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043b\u043e\u0436\u043a\u0438.",
+                "\u0412\u0430\u0440\u0438\u0442\u0435 \u044f\u0439\u0446\u043e \u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0435 8-10 \u043c\u0438\u043d\u0443\u0442 \u0434\u043b\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u044f \u0432\u043a\u0440\u0443\u0442\u0443\u044e.",
+                "\u041f\u043e \u0436\u0435\u043b\u0430\u043d\u0438\u044e \u0434\u043e\u0431\u0430\u0432\u044c\u0442\u0435 \u0449\u0435\u043f\u043e\u0442\u043a\u0443 \u0441\u043e\u043b\u0438 \u0432 \u0432\u043e\u0434\u0443, \u0447\u0442\u043e\u0431\u044b \u043f\u0440\u0435\u0434\u043e\u0442\u0432\u0440\u0430\u0442\u0438\u0442\u044c \u0442\u0440\u0435\u0449\u0438\u043d\u044b \u043d\u0430 \u0441\u043a\u043e\u0440\u043b\u0443\u043f\u0435.",
+                "\u041f\u043e\u0441\u043b\u0435 \u0432\u0430\u0440\u043a\u0438 \u0430\u043a\u043a\u0443\u0440\u0430\u0442\u043d\u043e \u0434\u043e\u0441\u0442\u0430\u043d\u044c\u0442\u0435 \u044f\u0439\u0446\u043e \u0438\u0437 \u043a\u0430\u0441\u0442\u0440\u044e\u043b\u0438 \u0438 \u043f\u043e\u043c\u0435\u0441\u0442\u0438\u0442\u0435 \u0435\u0433\u043e \u0432 \u0445\u043e\u043b\u043e\u0434\u043d\u0443\u044e \u0432\u043e\u0434\u0443 \u043d\u0430 2-3 \u043c\u0438\u043d\u0443\u0442\u044b, \u0447\u0442\u043e\u0431\u044b \u043e\u043d\u043e \u043b\u0435\u0433\u043a\u043e \u043e\u0447\u0438\u0449\u0430\u043b\u043e\u0441\u044c.",
+                "\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u0435 \u044f\u0439\u0446\u043e \u043e\u0442 \u0441\u043a\u043e\u0440\u043b\u0443\u043f\u044b \u0438 \u043f\u043e\u0434\u0430\u0432\u0430\u0439\u0442\u0435 \u043a \u0441\u0442\u043e\u043b\u0443."
+            ]
+        }
+    ],
+    "warehouse": [
+        {
+            "__class__": "warehouse_model",
+            "name": "test_warehouse_1",
+            "unique_code": "fdea0416-9952-40d1-840b-86b993db7b0d",
+            "address": "test_address_1"
+        },
+        {
+            "__class__": "warehouse_model",
+            "name": "test_warehouse_2",
+            "unique_code": "a330ed29-09b3-4d4f-a5de-c1354cd9fa33",
+            "address": "test_address_2"
+        }
+    ],
+    "warehouse_transaction": [
+        {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_warehouse_transaction_1",
+            "unique_code": "56b3083a-1b48-4a2b-b18c-2d6869116781",
+            "warehouse": {
+                "__class__": "warehouse_model",
+                "name": "test_warehouse_1",
+                "unique_code": "fdea0416-9952-40d1-840b-86b993db7b0d",
+                "address": "test_address_1"
+            },
+            "nomenclature": {
+                "__class__": "nomenclature_model",
+                "name": "\u041f\u0448\u0435\u043d\u0438\u0447\u043d\u0430\u044f \u043c\u0443\u043a\u0430",
+                "unique_code": "047dfd0b-75b5-441f-9650-d161e5e8c2bc",
+                "group": {
+                    "__class__": "nomenclature_group_model",
+                    "name": "\u0421\u044b\u0440\u044c\u0435",
+                    "unique_code": "bcfbfabd-e455-4417-bf5e-d1fbe9c35ca7"
+                },
+                "range": {
+                    "__class__": "range_model",
+                    "name": "\u0433\u0440",
+                    "unique_code": "72cb8081-dd1e-4c62-a60d-2b80864ec02f",
+                    "conversion_factor": 1,
+                    "base_unit_measurement": null
+                }
+            },
+            "quantity": 3,
+            "transaction_type": {
+                "__class__": "enum_transaction_type",
+                "__value__": "Income"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "72cb8081-dd1e-4c62-a60d-2b80864ec02f",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            },
+            "period": "2024-11-17T02:54:11.483687"
+        },
+        {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_warehouse_transaction_2",
+            "unique_code": "611b6176-9818-4c0c-87c8-6aae7fff598d",
+            "warehouse": {
+                "__class__": "warehouse_model",
+                "name": "test_warehouse_2",
+                "unique_code": "a330ed29-09b3-4d4f-a5de-c1354cd9fa33",
+                "address": "test_address_2"
+            },
+            "nomenclature": {
+                "__class__": "nomenclature_model",
+                "name": "\u0421\u0430\u0445\u0430\u0440",
+                "unique_code": "d4acaded-e64e-471d-8321-d98ac011d354",
+                "group": {
+                    "__class__": "nomenclature_group_model",
+                    "name": "\u0421\u044b\u0440\u044c\u0435",
+                    "unique_code": "bcfbfabd-e455-4417-bf5e-d1fbe9c35ca7"
+                },
+                "range": {
+                    "__class__": "range_model",
+                    "name": "\u0433\u0440",
+                    "unique_code": "72cb8081-dd1e-4c62-a60d-2b80864ec02f",
+                    "conversion_factor": 1,
+                    "base_unit_measurement": null
+                }
+            },
+            "quantity": 1,
+            "transaction_type": {
+                "__class__": "enum_transaction_type",
+                "__value__": "Income"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "72cb8081-dd1e-4c62-a60d-2b80864ec02f",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            },
+            "period": "2024-11-17T02:54:11.483687"
+        },
+        {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_warehouse_transaction_2",
+            "unique_code": "ce51129a-f3e4-4732-a3fe-0a99766f1cc3",
+            "warehouse": {
+                "__class__": "warehouse_model",
+                "name": "test_warehouse_1",
+                "unique_code": "fdea0416-9952-40d1-840b-86b993db7b0d",
+                "address": "test_address_1"
+            },
+            "nomenclature": {
+                "__class__": "nomenclature_model",
+                "name": "\u041f\u0448\u0435\u043d\u0438\u0447\u043d\u0430\u044f \u043c\u0443\u043a\u0430",
+                "unique_code": "047dfd0b-75b5-441f-9650-d161e5e8c2bc",
+                "group": {
+                    "__class__": "nomenclature_group_model",
+                    "name": "\u0421\u044b\u0440\u044c\u0435",
+                    "unique_code": "bcfbfabd-e455-4417-bf5e-d1fbe9c35ca7"
+                },
+                "range": {
+                    "__class__": "range_model",
+                    "name": "\u0433\u0440",
+                    "unique_code": "72cb8081-dd1e-4c62-a60d-2b80864ec02f",
+                    "conversion_factor": 1,
+                    "base_unit_measurement": null
+                }
+            },
+            "quantity": 2,
+            "transaction_type": {
+                "__class__": "enum_transaction_type",
+                "__value__": "Expense"
+            },
+            "range": {
+                "__class__": "range_model",
+                "name": "\u0433\u0440",
+                "unique_code": "72cb8081-dd1e-4c62-a60d-2b80864ec02f",
+                "conversion_factor": 1,
+                "base_unit_measurement": null
+            },
+            "period": "2024-11-17T02:54:11.483687"
+        }
+    ]
+}

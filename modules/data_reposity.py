@@ -1,6 +1,6 @@
 from modules.Enums.data_key import data_key
 from modules.exceptions.abstract_logic import abstract_logic
-
+from modules.exceptions.argument_exception import argument_exception
 
 """
 Репозиторий данных
@@ -17,8 +17,14 @@ class data_reposity(abstract_logic):
     Набор данных
     """
     @property
-    def data(self) :
+    def data(self) -> dict:
         return self.__data
+
+    @data.setter
+    def data(self, value: dict):
+        argument_exception.isinstance(value, dict)
+
+        self.__data = value
 
 
     @staticmethod

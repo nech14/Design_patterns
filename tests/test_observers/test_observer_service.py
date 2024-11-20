@@ -4,7 +4,7 @@ from modules.data_reposity import data_reposity
 from modules.models.nomenclature_group_model import nomenclature_group_model
 from modules.models.nomenclature_model import nomenclature_model
 from modules.models.range_model import range_model
-from modules.observers.observer_service import observer_service
+from modules.observers.observer_update_nomenclature import observer_update_nomenclature
 from modules.settings.settings_manager import Settings_manager
 from modules.start_service import start_service
 
@@ -20,7 +20,7 @@ class TestObserverService(unittest.TestCase):
 
     def test_update(self):
 
-        observer = observer_service()
+        observer = observer_update_nomenclature()
         observer.data_reposity = self.reposity
 
         list_nomenclature = self.reposity.data[data_reposity.nomenclature_key()]
