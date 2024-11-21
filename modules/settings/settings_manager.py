@@ -3,6 +3,7 @@ from enum import Enum
 
 from modules.exceptions.argument_exception import argument_exception
 from modules.exceptions.abstract_logic import abstract_logic
+from modules.reports.format_reporting import format_reporting
 from modules.settings.settings_base import Settings
 import os
 import json
@@ -18,7 +19,7 @@ class Settings_manager(abstract_logic):
     __settings: Settings = None
     __text_encoding: str = 'utf-8'
     __report_settings = {}
-    __report_enum: Enum
+    __report_enum: Enum = format_reporting.JSON
     __reader_settings: dict = {}
 
     def __new__(cls):

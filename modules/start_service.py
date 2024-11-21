@@ -1,6 +1,7 @@
 import os
 from copy import copy
 
+from modules.Enums.event_type import event_type
 from modules.Enums.transaction_type import enum_transaction_type
 from modules.creator_manager import Creator_manager
 from modules.exceptions.abstract_logic import abstract_logic
@@ -12,6 +13,7 @@ from modules.models.range_model import range_model
 from modules.models.receipt.receipt_manager import receipt_manager
 from modules.models.warehouse_model import warehouse_model
 from modules.models.warehouse_transaction_model import warehouse_transaction_model
+from modules.service.observer_service import observe_service
 from modules.settings.settings_manager import Settings_manager
 from modules.settings.settings_base import Settings
 
@@ -52,7 +54,6 @@ class start_service(abstract_logic):
             add_list.append(
                 self.__create_manager.add_new_item(o)
             )
-
 
         self.__reposity.data[data_reposity.nomenclature_key()] = add_list
 
@@ -102,13 +103,13 @@ class start_service(abstract_logic):
             nomenclatures= self.__reposity.data[data_reposity.nomenclature_key()],
             ranges= self.__reposity.data[data_reposity.range_key()]
         )
-        r_m.read_file(file_path=rf"{self.__root_dir}\Docs\receipt1.md")
+        r_m.read_file(file_path=rf"{self.__root_dir}{os.sep}Docs{os.sep}receipt1.md")
         _list.append(
             self.__create_manager.add_new_item(
                 copy(r_m.receipt)
             )
         )
-        r_m.read_file(file_path=rf"{self.__root_dir}\Docs\receipt2.md")
+        r_m.read_file(file_path=rf"{self.__root_dir}{os.sep}Docs{os.sep}receipt2.md")
         _list.append(
             self.__create_manager.add_new_item(
                 copy(r_m.receipt)
@@ -184,12 +185,15 @@ class start_service(abstract_logic):
     Первый старт
     """
     def create(self):
-        self.__create_nomenclature()
-        self.__create_range()
-        self.__create_nomenclature_groups()
-        self.__create_receipts()
-        self.__create_warehouse()
-        self.__create_warehouse_transaction()
+        if self.settings.first_start:
+            self.__create_nomenclature()
+            self.__create_range()
+            self.__create_nomenclature_groups()
+            self.__create_receipts()
+            self.__create_warehouse()
+            self.__create_warehouse_transaction()
+        else:
+            observe_service.raise_event(event=event_type.READ_DATA_REPOSITY, data=self.__reposity)
 
 
 

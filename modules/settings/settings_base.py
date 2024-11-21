@@ -16,6 +16,7 @@ class Settings:
     __type_of_property = ""
     __score = ""
     __block_period: datetime
+    __first_start: bool = True
 
     __inn_size = 12
     __score_size = 11
@@ -145,3 +146,14 @@ class Settings:
 
             self.__block_period = value
 
+
+    @property
+    def first_start(self):
+        return self.__first_start
+
+    @first_start.setter
+    def first_start(self, value: bool):
+        argument_exception.isinstance(value, bool)
+        argument_exception.notIsinstance(value, bool, int)
+
+        self.__first_start = value

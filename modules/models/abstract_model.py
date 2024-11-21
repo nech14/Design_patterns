@@ -82,7 +82,12 @@ class abstract_model(ABC):
         def recursive_to_dict(value):
 
             if isinstance(value, Enum):
-                return {f"{value.__class__.__name__}": value.name}
+                return {
+                    f"__class__": f"{value.__class__.__name__}",
+                    f"__value__": value.name
+                }
+            elif isinstance(value, datetime):
+                return value.isoformat()
             elif hasattr(value, '__dict__'):  # Пользовательский класс
                 class_name = value.__class__.__name__
 

@@ -1,0 +1,1323 @@
+[
+   {
+      "__class__": "TBS_model",
+      "name": "base_tbs",
+      "unique_code": "7af4207b-ab36-41d2-8164-7ead6d3d13aa",
+      "opening_remainder": [
+         {
+            "__class__": "warehouse_turnover_model",
+            "name": "",
+            "unique_code": "7be5bdde-5372-4e5b-be3e-f26361fa978b",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "turnover": 70
+         }
+      ],
+      "incomes": [
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_0",
+            "unique_code": "d2bc59ff-9ddf-48fd-adf7-4cb771e67018",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 0,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_1",
+            "unique_code": "895af384-d829-44f8-9f53-fe5e1e35777b",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 1,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_2",
+            "unique_code": "76ef575f-c5b5-4e7e-b1a1-ac3afa429c8b",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 2,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_3",
+            "unique_code": "0b3a5a08-7385-4f96-8bf2-4738a7ac191c",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 3,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_4",
+            "unique_code": "9b2a305f-0338-4416-a174-afe4be77da6f",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 4,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_5",
+            "unique_code": "d82a26dd-b3da-4e14-9a7d-0a39985f586d",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 5,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_6",
+            "unique_code": "c31dafa7-48fa-4950-a0d4-f8b6f3ddcb45",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 6,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_7",
+            "unique_code": "b6894c67-ec53-4242-99c2-90035ed50a18",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 7,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_8",
+            "unique_code": "95899be9-60d3-463f-a3f2-08fa88398d2d",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 8,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_9",
+            "unique_code": "c7eac1b5-9df3-4939-8d2c-820f204d594c",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 9,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_0",
+            "unique_code": "3760ff30-c56c-4026-84af-97137930b8e5",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 0,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_1",
+            "unique_code": "f62f1172-1306-47ae-abca-94f5d12c48ab",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 1,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_2",
+            "unique_code": "fbe86210-4b49-4929-a2fa-819ff4cc5298",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 2,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_3",
+            "unique_code": "501e189d-afe2-4f7d-b44f-95a76e92da58",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 3,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_4",
+            "unique_code": "34d6e7bb-32c5-4753-bc60-08d21762907a",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 4,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_5",
+            "unique_code": "c08535f9-97b7-4b3e-8f06-8283ae6b48d5",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 5,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_6",
+            "unique_code": "692e13ef-81f5-4a44-96ce-c34059daef6b",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 6,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_7",
+            "unique_code": "35b3c3cb-93fa-4e30-adb5-f9b2009277a1",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 7,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_8",
+            "unique_code": "af2e62c7-a6a9-4d65-85a9-b8f6e11331f2",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 8,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_9",
+            "unique_code": "c34d77b8-160f-4d97-95eb-707da44be74a",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 9,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_0",
+            "unique_code": "73e2f718-80f5-40c9-b2c5-8bcc22d6c9b9",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 0,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_1",
+            "unique_code": "44ccdae6-3c56-47d8-a7cb-1e079516cde7",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 1,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_2",
+            "unique_code": "d4d8daab-368d-45cf-a6f0-02fb4393b632",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 2,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_3",
+            "unique_code": "04188936-dff2-4c8f-99f7-8d8c9f279bc9",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 3,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_4",
+            "unique_code": "dc042554-e042-4d73-9dda-4d36e68d0c04",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 4,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_5",
+            "unique_code": "9b4ea998-12e8-411a-a0bf-d20853b16581",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 5,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_6",
+            "unique_code": "08e833ad-fb7c-4458-87cc-460c010f50c6",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 6,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_7",
+            "unique_code": "1581dc49-c784-49b1-b8f4-e21f26b73278",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 7,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_8",
+            "unique_code": "84541450-0e59-47ba-aa74-588e11e59153",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 8,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Income_9",
+            "unique_code": "0c2ea7b1-e0f4-40cd-8680-7745554c077c",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 9,
+            "transaction_type": {
+               "enum_transaction_type": "Income"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         }
+      ],
+      "expenses": [
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_0",
+            "unique_code": "27cbebb1-fd07-457c-ae97-839ec3bd9481",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 0,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_1",
+            "unique_code": "b4aa4e9e-b0ba-4cc6-8e53-e8bed4113d64",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 1,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_2",
+            "unique_code": "77ca98b2-8636-4657-829a-0158419966b3",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 2,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_3",
+            "unique_code": "3447401f-b3e2-42cd-bc13-b51979e4ef94",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 3,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_4",
+            "unique_code": "2be8d776-69a2-4c40-81fc-f3d4897d707b",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 4,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2010-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_0",
+            "unique_code": "878d3cfa-d0e6-4fff-af29-098d0417e733",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 0,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_1",
+            "unique_code": "7833e697-a651-4dd2-8196-094177f7261b",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 1,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_2",
+            "unique_code": "d3bfe1bf-a6b6-40d5-830e-00006349023c",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 2,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_3",
+            "unique_code": "7c19593b-a438-48fb-9d9e-dc9ec1abdec6",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 3,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_4",
+            "unique_code": "337d95cd-a3b3-4f65-9b04-0748bffee6b3",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 4,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2011-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_0",
+            "unique_code": "bfb6f75f-96c1-4e0c-b96e-f9efcdade1ec",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 0,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_1",
+            "unique_code": "bca27f95-3cc3-4c8e-b730-028957ba5293",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 1,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_2",
+            "unique_code": "94fd1ce3-fe4a-40da-8bf4-2ea699b0fdac",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 2,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_3",
+            "unique_code": "cce3baff-e911-4be1-9dc6-bcf76e80f0db",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 3,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         },
+         {
+            "__class__": "warehouse_transaction_model",
+            "name": "test_transaction_Expense_4",
+            "unique_code": "90861836-1d96-43ca-8c78-6be21b9333aa",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "quantity": 4,
+            "transaction_type": {
+               "enum_transaction_type": "Expense"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "period": "2012-01-01T00:00:00"
+         }
+      ],
+      "remainder": [
+         {
+            "__class__": "warehouse_turnover_model",
+            "name": "",
+            "unique_code": "ceb30ba4-5a58-4b6a-ada2-572a7b22d3a2",
+            "warehouse": {
+               "__class__": "warehouse_model",
+               "name": "test_warehouse",
+               "unique_code": "fcd9a036-ba14-4d3a-9ba6-9d0666f923e7",
+               "address": "test_address"
+            },
+            "nomenclature": {
+               "__class__": "nomenclature_model",
+               "name": "",
+               "unique_code": "bcbb1327-cbed-4629-97f1-7b53ffbe69a0"
+            },
+            "range": {
+               "__class__": "range_model",
+               "name": "test_range",
+               "unique_code": "b23f4848-a952-482d-81a3-6fe33557eb51",
+               "conversion_factor": 1,
+               "base_unit_measurement": null
+            },
+            "turnover": 105
+         }
+      ]
+   }
+]

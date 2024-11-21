@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+from modules.Enums.event_type import event_type
+
 """
 Абстрактный класс для обработки логики
 """
@@ -29,6 +31,9 @@ class abstract_logic(ABC):
 
     @abstractmethod
     def set_exception(self, ex: Exception):
+        pass
+
+    def raise_event(self, event: event_type, **kwargs):
         pass
 
 
