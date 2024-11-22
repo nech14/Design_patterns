@@ -103,13 +103,13 @@ class start_service(abstract_logic):
             nomenclatures= self.__reposity.data[data_reposity.nomenclature_key()],
             ranges= self.__reposity.data[data_reposity.range_key()]
         )
-        r_m.read_file(file_path=rf"{self.__root_dir}\Docs\receipt1.md")
+        r_m.read_file(file_path=rf"{self.__root_dir}{os.sep}docs{os.sep}receipt1.md")
         _list.append(
             self.__create_manager.add_new_item(
                 copy(r_m.receipt)
             )
         )
-        r_m.read_file(file_path=rf"{self.__root_dir}\Docs\receipt2.md")
+        r_m.read_file(file_path=rf"{self.__root_dir}{os.sep}docs{os.sep}receipt2.md")
         _list.append(
             self.__create_manager.add_new_item(
                 copy(r_m.receipt)

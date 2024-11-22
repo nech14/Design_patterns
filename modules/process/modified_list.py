@@ -7,6 +7,7 @@ class modified_list(list):
     __file_path = None
     __block_period:datetime = None
     __date: datetime = None
+    __log_str = ""
 
     def __init__(self, iterable=None):
         if iterable is not None:
@@ -23,6 +24,15 @@ class modified_list(list):
         argument_exception.isinstance(value, str|None)
 
         self.__file_path = value
+
+    @property
+    def log_str(self):
+        return self.__log_str
+
+    @log_str.setter
+    def log_str(self, value: str):
+        argument_exception.isinstance(value, str)
+        self.__log_str = value
 
     @property
     def block_period (self):

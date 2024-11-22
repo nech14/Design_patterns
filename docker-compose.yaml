@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  design_patterns_1:
+    container_name: design_patterns_1
+    image: design_patterns
+    ports:
+      - 8000:8080
+    volumes:
+      - ./data/settings.json:/data/settings.json
+
+  design_patterns_2:
+    container_name: design_patterns_2
+    image: design_patterns
+    ports:
+      - 8001:8080
+    volumes:
+      - ./data/settings.json:/data/settings.json
+
+networks:
+  default:

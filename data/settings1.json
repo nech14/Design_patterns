@@ -6,5 +6,7 @@
     "type_of_property": "12345",
     "score": "12345678910",
     "block_period": "2024-01-01",
-    "first_start": "False"
+    "first_start": "False",
+    "log_type": 0,
+    "log_process": "list_processes.save_log_process"
 }
