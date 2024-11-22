@@ -12,7 +12,8 @@ RUN pip3 install -U jsonpickle
 
 COPY ./modules ./modules
 COPY ./data ./data
-COPY ./docs docs
+COPY ./docs ./docs
+COPY ./logs ./logs
 COPY ./reports.json ./reports.json
 COPY ./main.py ./main.py
 COPY ./swagger.yaml ./swagger.yaml
