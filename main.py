@@ -5,7 +5,7 @@ from datetime import datetime
 
 import connexion
 import jsonpickle
-from flask import request
+from flask import request, Flask, jsonify
 
 from modules.Dto.filter_manager import Filter_manager
 from modules.Dto.filter_objects import filter_objects
@@ -21,6 +21,7 @@ from modules.process.list_processes import list_processes
 from modules.process.modified_list import modified_list
 from modules.process.process_factory import Process_factory
 from modules.prototype.prototype import prototype
+from modules.service.log_service import log_service
 from modules.service.nomenclature_service import nomenclature_service as Nomenclature_service
 from modules.service.observer_service import observe_service
 from modules.settings.settings_manager import Settings_manager
@@ -29,6 +30,7 @@ from modules.reports.format_reporting import format_reporting
 from modules.reports.report_manager import Report_manager
 
 app = connexion.FlaskApp(__name__)
+flask_app = app.app
 
 manager = Settings_manager()
 manager.open("settings.json", "data")
@@ -52,7 +54,21 @@ nomenclature_observer.data_reposity = reposity
 nomenclature_service.add_observer(nomenclature_observer)
 
 creator_manager = Creator_manager()
+logs_service = log_service(setting_manager=manager)
 
+
+#Это специальный декоратор Flask, который позволяет выполнить код перед обработкой любого запроса.
+@flask_app.before_request
+def log_WEB():
+    logs_service.raise_event(event_type.WEB, Route={request.path}, Method={request.method})
+
+# Универсальный обработчик ошибок на уровне connexion
+def handle_all_errors(request, error):
+    print("ggg")
+    logs_service.raise_event(event_type.ERROR, Error={error}, Route ={request.url.path}, Method={request.method})
+
+
+app.add_error_handler(code_or_exception=Exception, function=handle_all_errors)
 
 
 @app.route("/api/reports/formats", methods=["GET"])
@@ -279,6 +295,7 @@ def update_block_period(block_period):
 
 @app.route("/api/nomenclature/get/<string:item_id>", methods=["GET"])
 def nomenclature_get(item_id: str):
+    observe_service.raise_event(event_type.GET_NOMENCLATURE)
     result = nomenclature_service.get_item(item_id)
 
     return f"{result}", 200
@@ -288,6 +305,7 @@ def nomenclature_get(item_id: str):
 def nomenclature_put():
     data_filer = request.get_json()
     item = Creator_manager(data_filer).get_object()
+    observe_service.raise_event(event_type.PUT_NOMENCLATURE)
     result = nomenclature_service.put_item(item)
 
     return result
@@ -298,6 +316,7 @@ def nomenclature_patch():
     data_filer = request.get_json()
     creator_manager.get_object(data_filer)
     item = creator_manager.object
+    observe_service.raise_event(event_type.PATCH_NOMENCLATURE)
     result = nomenclature_service.path_item(item)
 
     return result
@@ -306,6 +325,7 @@ def nomenclature_patch():
 
 @app.route("/api/nomenclature/delete/<string:item_id>", methods=["GET"])
 def nomenclature_delete(item_id: str):
+    observe_service.raise_event(event_type.DELETE_NOMENCLATURE)
     result = nomenclature_service.delete_item(item_id)
 
     return result
