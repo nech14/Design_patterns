@@ -11,9 +11,9 @@ class Process_factory(abstract_logic):
         pass
 
 
-    def start_process(self, data: list|None, process: str):
+    def start_process(self, data: list | str | None , process: str) -> object:
 
-        argument_exception.isinstance(data, list|None)
+        argument_exception.isinstance(data, list|str|None)
         argument_exception.isinstance(process, str)
 
         process_names = [member.name for member in list_processes]
