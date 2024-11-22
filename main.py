@@ -64,7 +64,6 @@ def log_WEB():
 
 # Универсальный обработчик ошибок на уровне connexion
 def handle_all_errors(request, error):
-    print("ggg")
     logs_service.raise_event(event_type.ERROR, Error={error}, Route ={request.url.path}, Method={request.method})
 
 
