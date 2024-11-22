@@ -1,9 +1,11 @@
 from datetime import datetime
 from enum import Enum
 
+from modules.Enums.event_type import event_type
 from modules.exceptions.argument_exception import argument_exception
 from modules.exceptions.abstract_logic import abstract_logic
 from modules.reports.format_reporting import format_reporting
+from modules.service.observer_service import observe_service
 from modules.settings.settings_base import Settings
 import os
 import json
@@ -15,7 +17,8 @@ import json
 
 class Settings_manager(abstract_logic):
     __file_name = "settings.json"
-    __file_path = f"data/{__file_name}"
+    __file_path = f"data{os.sep}{__file_name}"
+    __log_path = f"logs{os.sep}log.txt"
     __settings: Settings = None
     __text_encoding: str = 'utf-8'
     __report_settings = {}
@@ -102,7 +105,7 @@ class Settings_manager(abstract_logic):
     """
 
     @property
-    def settings(self):
+    def settings(self) -> Settings:
         return self.__settings
 
     """
@@ -132,6 +135,7 @@ class Settings_manager(abstract_logic):
     @reader_settings.setter
     def reader_settings(self, value: dict):
         argument_exception.isinstance(value, dict)
+        observe_service.raise_event(event_type.SETTINGS, settings=value)
         self.__reader_settings = value
 
 
@@ -160,6 +164,11 @@ class Settings_manager(abstract_logic):
     @property
     def report_enum(self):
         return self.__report_enum
+
+
+    @property
+    def log_path(self):
+        return self.__log_path
 
 
     def set_exception(self, ex: Exception):
