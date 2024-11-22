@@ -1,0 +1,6 @@
+[INFO] Event_type=event_type.WEB, Route={'/api/reports/formats'}, Method={'GET'}
+[INFO] Event_type=event_type.WEB, Route={'/api/api/nomenclature/get/1'}, Method={'GET'}
+[INFO] Event_type=event_type.WEB, Route={'/api/data_reposity/read'}, Method={'POST'}
+[ERROR] Event_type=event_type.ERROR, Error={TypeError('The view function did not return a valid response. The return type must be a string, dict, list, tuple with headers or status, Response instance, or WSGI callable, but it was a int.')}, Route={'/api/data_reposity/read'}, Method={'POST'}
+[DEBUG] Event_type=event_type.WEB, Route={'/api/data_reposity/read'}, Method={'POST'}
+[DEBUG] Event_type=event_type.ERROR, Error={TypeError('The view function did not return a valid response. The return type must be a string, dict, list, tuple with headers or status, Response instance, or WSGI callable, but it was a int.')}, Route={'/api/data_reposity/read'}, Method={'POST'}
