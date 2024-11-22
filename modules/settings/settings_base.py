@@ -3,9 +3,10 @@
 """
 from datetime import datetime
 
+from modules.Enums.log_type import log_type as log_types
 from modules.exceptions.argument_exception import argument_exception
-from modules.exceptions.base_exception import base_exeption
 from modules.exceptions.length_exception import length_exception
+from modules.process.list_processes import list_processes
 
 
 class Settings:
@@ -17,6 +18,8 @@ class Settings:
     __score = ""
     __block_period: datetime
     __first_start: bool = True
+    __log_type = log_types.INFO
+    __log_process:list_processes = list_processes.save_log_process
 
     __inn_size = 12
     __score_size = 11
@@ -35,6 +38,29 @@ class Settings:
         Счет = {self.__score}
         """
 
+    @property
+    def log_type(self):
+        return self.__log_type
+
+    @log_type.setter
+    def log_type(self, value: log_types):
+        if not isinstance(value, log_types):
+            raise argument_exception()
+
+        self.__log_type = value
+
+    @property
+    def log_process(self):
+        return self.__log_process
+
+    @log_process.setter
+    def log_process(self, value: list_processes):
+        if isinstance(value, str):
+            value = list_processes[value]
+        elif not isinstance(value, list_processes):
+            raise argument_exception()
+
+        self.__log_process = value
 
 
     @property
